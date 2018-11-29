@@ -1,0 +1,30 @@
+This is a short writeup on how data flows through the AUTHOR system. A small amount of development history is included.
+
+Originally, this software system was created to make two output formats: HTML and PDF. The PDF was created directly using
+the Adobe PDFBox software package. This is great software, and I use it all the time for PDF manipulation. However,
+direct PDF creation and layout is just too difficult. I changed over to Apace FOP instead.
+
+As a result, the AUTHOR system reads text and creates text.
+
+For PDF output, the system reads input and creates ".fo" files. These files are input to the
+Apache FOP system. That system can easily create excellent PDF output. It does great layout, and
+is very, very flexible.
+
+PDF output can come in two flavors: interactive and print.
+
+For PDF Print, the default layout is 2-column, 8 1/2 x 11 inch. It is pretty easy to manipulate the FOP
+data to create other formats. In print format, there are page numbers, and all cross-references
+("see also") are page numbers. All indexes refer to page numbers.
+
+For PDF Interactive, the default layout is 1-column 8 1/2 x 11 inch. It is pretty easy to 
+manipulate the FOP data to create other formats. In Interactive format, all cross-references
+are clickable. Indexes are interactive, and stored as "bookmarks". Most PDF readers display
+bookmarks for ease of navigation.
+
+For PDF processing, you must install FOP on your computer. I will provide example scripts
+that invoke it.
+
+For HTML output, a single HTML file is created for the entire document. As designed, the
+layout is dependent on use of certain CSS and Javascript. There is an alternative embedded
+in the code, that uses "skeleton" CSS layout (no Javascript). It is not difficult to alter
+the JSON configuration files to use another HTML layout scheme.
