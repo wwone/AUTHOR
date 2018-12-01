@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.Map;
-import XMLUtil.DOM4JAdapter;
+
 
 /*
- * last edited 5/26/2018
+ * last edited 12/1/2018
  *
  * abstract object for auxiliary information
  * to be passed around between the Sink and
