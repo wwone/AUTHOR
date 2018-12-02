@@ -1,0 +1,377 @@
+{
+"comments":[
+"updated 3/28/2018 to split out required html boilerplate",
+"updated 3/19/2018 to fix syntax errors",
+"updated 6/7/2017 for project-agnostic, format-specific project",
+"NOTHING IN HERE will be specific to any project",
+"NOT USED, only for documentation",
+"",
+"5/29/2017, adding boilerplate for Kindle content.opf",
+"code will eventually create this Kindle-required file",
+"",
+"5/20/2017, adding boilerplate for Kindle toc.ncx",
+"code will eventually create this Kindle-required file",
+"",
+"1 file is made, containing:",
+"(b) title page (title page only)",
+"(c) front matter (front matter), corrected 6/7/2017",
+"(d) preface (for Kindle readers...)",
+"",
+"NO LONGER (a) cover (with cover image) Image must be in THIS directory",
+"Static front material is for the SINGLE page"
+
+],
+
+
+"start_html":
+[
+"<html>",
+"<head>",
+"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
+" PROJECT_COPYRIGHT",
+       "<title>PROJECT_TITLE</title>",
+       "<meta name=\"keywords\" content=\"",
+" PROJECT_KEYWORDS",
+"\"/>",
+        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
+"</head>",
+"<body>"
+],
+
+"title_page":
+[
+"<h1 id=\"title_page\">",
+" PROJECT_TITLE",
+"<br/>",
+"<br/>",
+"</h1>",
+"<h2>",
+"By: PROJECT_AUTHOR",
+"<br/></h2>"
+],
+  
+
+
+   "page_head":[""], 
+
+"front_page":
+[
+"<mbp:pagebreak />",
+"<h1 id=\"front_page\">",
+" PROJECT_TITLE",
+"</h1>",
+
+" PROJECT_FRONT_MATTER"
+],
+
+
+"cover_page":
+[
+"NO LONGER USED",
+"<html>",
+"<head>",
+"<meta name=\"Author\" content=\"Copyright Robert Swanson\"/>",
+       "<title>First World War Domestic Military Facilities of the United States, 1917-1919</title>",
+       "<meta name=\"keywords\" content=\"postal history, wwi, first world war, covers, stamps, history, military, army, marines, facilities, facility, fort, camp, sailor, soldier, 1917, 1918, 1919, navy\"/>",
+        "<meta name=\"description\" content=\"This book contains a listing of and where possible, descriptions of every military facility within the United States (and territories) that operated during the First World War (1917-1919). These facilities could be the source for mail sent by soldiers, sailors, and Marines during that conflict. Where possible, example covers, postcards, and cancellations are illustrated.\"/>",
+"</head>",
+"<body>",
+"<h1 id=\"cover_page\">",
+"<br/>",
+"<img src=\"cover2017_01.jpg\" alt=\"[Book Cover]\"",
+"width=\"95%\" ",
+"/>",
+"</h1>"
+],
+    
+"static_header":[],
+
+        
+"table_of_contents":[],
+
+
+    "preface_page":["Preface for Kindle Users","This is a version of the PROJECT_TYPE for Kindle. You can read this PROJECT_TYPE in the normal fashion, going from page to page, but note that there are many internal links that work like a web page, and send you directly to the referenced item, such as an illustration. The 'index' and 'table of contents' are also made up of links that will send you to the appropriate text or illustration."
+],
+
+
+
+
+"boilerplate": [
+
+"TOC1","<navPoint id=\"navPoint-",
+"TOC2","\" playOrder=\"",
+"TOC3","\">",
+"TOC4","<navLabel>",
+"TOC5","<text>",
+"TOC5_END","</text>",
+"TOC4_END","</navLabel>",
+"TOC6","<content src=\"",
+"TOC7","\" />",
+"TOC1_END","</navPoint>",
+"KINDLE_PAGE_BREAK","<mbp:pagebreak />",
+"KINDLE_SECTION_START","<mbp:section>",
+"KINDLE_SECTION_END","</mbp:section>",
+
+"QUOTE_START","<q>",
+"QUOTE_END","</q>",
+"CITE_START","<cite>",
+"CITE_END","</cite>",
+"BLOCKQUOTE_START","\n<blockquote>",
+"BLOCKQUOTE_END","</blockquote>\n",
+"EMPHASIZED_START","<b>",
+"EMPHASIZED_END","</b>",
+
+"IMAGE_ANCHOR_START","<p style=\"text-align:center;\" ><br /><img ",
+
+"IMAGE_ANCHOR_START_SIMPLE","<p><br/><img ",
+"IMAGE_ANCHOR2","\" src=\"",
+"IMAGE_SOURCE_START","]\"  src=\"",
+
+"IMAGE_LOC1"," alt=\"[", 
+"IMAGE_LOC2","]\" width=\"300\" style=\"color:black;border:solid;border-width:2px\" />\n", 
+"IMAGE_LOC3","\" />\n", 
+
+"IMAGE_CAPTION1","<i>", 
+"IMAGE_CAPTION2", "</i>\n",
+
+
+
+"END_BODY"," <!-- end main section --> <!-- end all content --></body></html>\n",
+"ABBREVIATION_START","<!-- start of abbreviation listing -->\n<p><a id=\"abbreviation_listing\"></a>\n",
+"ABBREVIATION_TABLE_START","<br/><br/><br/></p><table>\n",
+"ABBREVIATION_TABLE_ROW","<tr>\n",
+"ABBREVIATION_TABLE_CELL1","<td>",
+"ABBREVIATION_TABLE_CELL2","</td><td>", 
+"ABBREVIATION_TABLE_CELL_END","</td></tr>\n",
+"ABBREVIATION_TABLE_END","</table>\n",
+"PARAGRAPH_START","<p>\n",
+"PARAGRAPH_END","</p>\n",
+"LINE_BREAK","<br/>\n",
+"SIMPLE_LINE_BREAK","<br />",
+"PARAGRAPH_ANCHOR_START1","<p id=\"",
+"TAG_ID_END", "\">",
+"TAG_ID_MIDDLE","\" ",
+
+"PARAGRAPH_SEPARATOR_START1","<hr id=\"",
+"PARAGRAPH_SEPARATOR_START2", "\"> - - - - - - - - - - - - - - - - - - - -</p>\n",
+"PARAGRAPH_SEPARATOR_END", "\"/>\n",
+"SEPARATOR_PARAGRAPH", "<hr />\n",
+"NEWLINE","\n",
+
+
+"PARAGRAPH_ID_BOLD_START","\"><b>",
+"PARAGRAPH_BOLD_END","</b></p>\n",
+"PARAGRAPH_BOLD_START","<p><b>",        
+"INDEX_LINK_START","<a href=\"#index",  
+"INDEX_LINK_END",">Index</a>\n",
+"TOC_LINK_START","<a href=\"TableOfContents",
+"TOC_LINK_END",">TOC</a>\n",
+
+"START_LIST","<ul>\n",
+"END_LIST","</ul>\n",
+"LIST_ITEM_START1","<li id=\"",
+"LIST_ITEM_START2","<li>",
+"LIST_ITEM_END","</li>",
+
+"HEADER_START","<h",
+"HEADER_END","</h",
+"ANCHOR_START"," id=\"",
+"SIMPLE_ANCHOR_START","<a id=\"",
+"TAG_END",">\n",
+"HEADER1_START","<h1>",
+"HEADER_ID1","<h1 id=\"",
+"TOC_HEADER","<h1 id=\"TOC\">Table of Contents</h1>",
+
+"HEADER_ID2","\">",
+"HEADER1_END","</h1>\n",
+"STATE_HEADER_START","<h3 id=\"state_",
+"STATE_POINTER","#state_",
+"CITY_HEADER_START","<h2>",
+"CITY_HEADER_END","</h3>\n",
+"CITY_HEADER_ENDx","</h2><p>\n",
+"FACILITY_HEADER_START","<h4 id=\"state_",
+"FACILITY_HEADER_END","</h4>\n",
+"FACILITY_HEADER_ENDx","</h3><p>\n",
+
+
+"STATE_ANCHOR_START","<p><a id=\"state_",
+"GENERAL_ANCHOR_START","<p><a id=\"general_",
+"GENERAL_ANCHOR_START2","<a id=\"general_",
+"ANCHOR_END", "\"></a>\n",
+"SIMPLE_ANCHOR_END", "</a>\n",
+"ENDING_BOILERPLATE","<hr/>\n <!-- all content -->\n</body></html>\n",
+"ENDING_INDEX_BOILERPLATE","<!-- end postfix --></body></html>\n",
+
+"CITY_ANCHOR_MARKER","_city_" , 
+"FACILITY_ANCHOR_MARKER","_fac_" , 
+"SOURCE_PAGE_HEADER_START","Source Page: ",
+"OPEN_DATE_HEADER_START","Open: ",
+"CLOSE_DATE_HEADER_START","Closed: ",
+"TROOP_COUNT_HEADER_START","Maximum Troops: ",
+"HOSPITAL_ADMISSION_HEADER_START","Hosp. Admissions: ",
+
+"INDENT_PARAGRAPH","<p style=\"text-indent:0\">",
+
+"FACILITY_FOOTER1","<p ><a href=\"#TOC\">TOC</a>\n<a href=\"#state_", 
+
+"FACILITY_FOOTER2","<a href=\"#state_",
+"INDEX_CRUMB1","<a href=\"#",
+"INDEX_CRUMB10","<p><a href=\"#",
+"INDEX_TARGET1","<a href=\"",
+"INDEX_TARGET10","<p><a href=\"",
+"INDEX_TARGET2","#",
+"INDEX_CRUMB2","\">",
+"INDEX_CRUMB10_END","</a></p>\n",
+"INDEX_CRUMB_END","</a>\n",
+
+"INTRODUCTION_NAME","<a name=\"_introduction\"></a>",
+"APPENDIX_NAME","<a name=\"__",
+"APPENDIX_POINTER","#__",
+
+
+"STATE_INDEX_ID","_state_index",
+"STATE_INDEX_TITLE","State Index",
+"CITY_INDEX_ID","_city_index",
+"CITY_INDEX_TITLE","City Index",
+"FACILITY_INDEX_ID","_facility_index",
+"FACILITY_INDEX_TITLE","Facility Index",
+"FACILITY_NO_INDEX_ID","_facilityno_index",
+"FACILITY_NO_INDEX_TITLE","Facility (No Postal History) Index",
+"GENERAL_INDEX_ID","_general_index",
+"GENERAL_INDEX_TITLE","General Index",
+
+
+
+"",""
+],
+
+"comments_content_opf":[
+" example of subject line for content.opf",
+" will be filled with keywords",
+"      <dc:subject>hobby</dc:subject>",
+"",
+"Must fill in additional GUIDE items directly",
+"from the project json content:",
+" PROJECT_GUIDE_CONTENTS"
+
+],
+
+"kindle_content_opf":[
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+"<package xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\" version=\"2.0\">",
+"  <!-- boilerplate for content.opf file used in Kindle creation -->",
+"  ",
+"  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:dcterms=\"http://purl.org/dc/terms/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:opf=\"http://www.idpf.org/2007/opf\">",
+"      <dc:title>PROJECT_TITLE</dc:title>",
+"      <dc:creator opf:role=\"aut\">PROJECT_AUTHOR</dc:creator>",
+"      <dc:language>en</dc:language>",
+"      <dc:identifier id=\"BookId\" opf:scheme=\"ISBN\">PROJECT_SIMPLE_ISBN</dc:identifier>",
+"      <dc:subject>PROJECT_SUBJECT</dc:subject>",
+"      <dc:description>PROJECT_DESCRIPTION</dc:description>",
+"      <dc:relation>PROJECT_RELATION</dc:relation>",
+"PROJECT_EPUB_KEYWORDS",
+"      <dc:publisher>PROJECT_PUBLISHER</dc:publisher>",
+"      <dc:date>PROJECT_PUBLISH_DATE</dc:date>",
+"      <dc:rights>Copyright PROJECT_COPYRIGHT</dc:rights>",
+"<meta name=\"cover\" content=\"cover-image\"/>",
+"</metadata>",
+"    <manifest>",
+"        <item id=\"toc\" href=\"toc.ncx\"",
+"          media-type=\"application/x-dtbncx+xml\" />",
+"        <item id=\"mainitem\" href=\"kindleindex.html\" media-type=\"application/xhtml+xml\" />",
+"<item id=\"cover-image\" href=\"PROJECT_COVER\" media-type=\"image/jpeg\"/>",
+"",
+"        ",
+"",
+"    </manifest>",
+"    <spine toc=\"toc\">",
+"      <itemref idref=\"mainitem\" linear=\"yes\"/>",
+"    </spine>",
+"    <guide>",
+"    </guide>",
+"</package>"
+
+],
+
+"comments_toc_ncx":[
+" issues: the order in the manifest needs work",
+"  indexes are       <navPoint id=\"navPoint-99\" playOrder=\"99\">",
+"  we dont know how many navPoints there are, it depends on",
+"  number of actual chapters/sections. 99 is a dummy, perhaps",
+"  the code will have to count and insert the index entry"
+],
+
+"kindle_toc_ncx":[
+"<?xml version=\"1.0\" encoding=\"utf-8\" ?>",
+"<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\" \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">",
+"<ncx xmlns=\"http://www.daisy.org/z3986/2005/ncx/\" xml:lang=\"en\" version=\"2005-1\">",
+"    <head>",
+"<!-- boilerplate to make the toc.ncx file for KINDLE -->",
+
+"      <!-- ",
+"      The following four metadata items are required for all",
+"      NCX documents, including those conforming to the relaxed",
+"      constraints of OPS 2.0 -->",
+"      ",
+"        <meta name=\"dtb:uid\" content=\"PROJECT_SIMPLE_ISBN\" />",
+"        <meta name=\"epub-creator\" content=\"PROJECT_AUTHOR\"/>",
+"        <meta name=\"dtb:depth\" content=\"1\" />",
+"        <meta name=\"dtb:totalPageCount\" content=\"0\" />",
+"        <meta name=\"dtb:maxPageNumber\" content=\"0\" />",
+"    </head>",
+"",
+"    <docTitle>",
+"     <text>PROJECT_TITLE</text>",
+"    </docTitle>",
+"    <docAuthor>",
+"      <text>PROJECT_AUTHOR</text>",
+"    </docAuthor>",
+"",
+"",
+"    <navMap>",
+"",
+"",
+"<!-- start of boilerplate, every book has this -->",
+
+"<navPoint id=\"navPoint-1\" playOrder=\"1\">",
+"<navLabel>",
+"<text>Title Page</text>",
+"</navLabel>",
+"<content src=\"kindleindex.html#title_page\" />",
+"</navPoint>",
+"<navPoint id=\"navPoint-2\" playOrder=\"2\">",
+"<navLabel>",
+"<text>Front Matter</text>",
+"</navLabel>",
+"<content src=\"kindleindex.html#front_page\" />",
+"</navPoint>",
+"<navPoint id=\"navPoint-3\" playOrder=\"3\">",
+"<navLabel>",
+"<text>Preface for Kindle Users</text>",
+"</navLabel>",
+"<content src=\"kindleindex.html#preface_page\" />",
+"</navPoint>",
+"<navPoint id=\"navPoint-4\" playOrder=\"4\">",
+"<navLabel>",
+"<text>Table of Contents</text>",
+"</navLabel>",
+"<content src=\"kindleindex.html#TOC\" />",
+"</navPoint>",
+"<navPoint id=\"navPoint-5\" playOrder=\"5\">",
+"<navLabel>",
+"<text>Introduction</text>",
+"</navLabel>",
+"<content src=\"kindleindex.html#_introduction\" />",
+"</navPoint>",
+"<!-- end of boilerplate, every book has this -->",
+
+"PROJECT_TOC_NCX_CONTENT",
+"<!-- entry for indexes is programmatically placed above here -->",
+"    </navMap>",
+"</ncx>"
+]
+  
+
+
+}
+

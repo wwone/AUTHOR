@@ -1,0 +1,269 @@
+   { 
+"documentation":[
+"WORKING 10/7/2018, put city name inside a box for readability",
+"WORKING 9/25/2018, use Helvetica a standard Type 1 font",
+"WORKING 8/4/2018, prevent widows by keeping city name with next",
+"WORKING 7/26/2018, title page layout, and static_header work, among others",
+"WORKING 2/7/2018, allow font set for bulleted list",
+"updated 2/5/2018, allow specifying column, BUT print is always 2-column",
+"updated 5/24/2017 for project-agnostic, format-specific project",
+"NOTHING IN HERE will be specific to any project",
+"COMMENTS ONLY HERE, data not used",
+"",
+"for creating a PDF file that is ONLY PRINTED",
+"Following will no longer be the case, we are changing",
+"to use the standard Helvetica, so that embedding is no longer an issue",
+"start obsolete",
+"CHANGE FONTS FOR EMBEDDING. This means referring",
+"to Arial as main font, and using arial.ttf in the FOP",
+"directory and configuration file. PrinterOrnamentsOne will",
+"be referred to here and in prnoorg.ttf",
+"end obsolete",
+"",
+
+"title_page has FO for the front matter, including",
+"NO COVER PAGE",
+"title page",
+"front material",
+"NOTE that preface will be handled from the 'preface_text' object!",
+" ",
+"for 'title_page', an array of strings, that will be printed, followed",
+"by another array of front matter. first item in front matter is the FORMATTING",
+"string, rest are the content, since each will be in the same format"
+],
+
+    "title_page":[
+        "<!-- inside the first flow of the document -->",
+        "<!-- start title page on new page --><fo:block page-break-before=\"always\" font-size=\"48pt\"\n",
+        "font-weight=\"bold\"\nspace-after.optimum=\"20pt\"\nspace-before.optimum=\"40pt\"\n",
+        "text-align=\"center\">\n",
+" PROJECT_TITLE",
+       
+        "</fo:block>\n",
+         "<!-- subtitle --><fo:block text-align=\"center\" space-before.optimum=\"40pt\"><!-- subtitle --></fo:block>\n",
+        "<!-- author --><fo:block text-align=\"center\"  space-before.optimum=\"40pt\">by PROJECT_AUTHOR</fo:block>\n",
+
+        "<!--  end of title page -->\n",
+        "<!-- start front material on new page (no title) --><fo:block page-break-before=\"always\"> </fo:block>",
+["<!-- front matter will all be this format --><fo:block text-align=\"center\"  space-before.optimum=\"40pt\">", 
+" PROJECT_FRONT_MATTER"]
+],
+
+    "cover_page":[
+        "<!-- inside the first flow of the document -->"
+],
+    
+        
+        "page_head":["<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n",
+        "<rdf:Description rdf:about=\"\"\n",
+        "xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n",
+        "<!-- Dublin Core properties go here -->\n",
+        "<dc:title>PROJECT_TITLE</dc:title>\n",
+        "<dc:creator>PROJECT_AUTHOR</dc:creator>\n",
+        "<dc:description>PROJECT_DESCRIPTION</dc:description>\n",
+
+        "</rdf:Description>\n",
+        "<rdf:Description rdf:about=\"\"\n",
+        "xmlns:xmp=\"http://ns.adobe.com/xap/1.0/\">\n",
+        "<!-- XMP properties go here -->\n",
+        "<xmp:CreatorTool>Apache FOP</xmp:CreatorTool>\n",
+        "</rdf:Description>\n",
+        "</rdf:RDF>\n"],
+
+
+"static_header_comments":[
+"HERE HERE, we need to embed the 'state' item", 
+" for the PRINT version. Start with TITLE, then 'state'", 
+"and try to keep the total length of the heading line", 
+"within the page width. This really won't work", 
+"because the final PDF creation can make a page any width", 
+"we want. So as a generalization of code, this really won't", 
+"work. to make Facilities book creation corrrect, we must", 
+"offer specialized code, or come up with a 'general' way to", 
+"handle it.",
+"",
+" following line is the 'state' variable passed to FOP",
+"", 
+    "(<fo:retrieve-marker retrieve-class-name=\"the_state\"/>)"
+],
+
+"static_header1":
+        ["<!-- title printed at top of each page --><fo:static-content flow-name=\"xsl-region-before\">\n",
+        
+        "<fo:block>PROJECT_TITLE\n",
+
+        "</fo:block>\n",
+        "</fo:static-content>\n"],
+
+"static_header2":
+        ["<!-- title at top of page --><fo:static-content flow-name=\"xsl-region-before\">\n",
+        "<fo:block>PROJECT_TITLE\n",
+
+        "</fo:block>\n",
+        "</fo:static-content>\n"],
+
+"preface_comments":[
+"COMMENTS ONLY, not used!",
+"first string in 'preface_text' is the section heading",
+"remaining strings are the text content, each string in its own paragraph"],
+
+     "preface_text":["Preface for Print Users","This is a version of the PROJECT_TYPE in printed format only. Internal references, and the 'Index' and 'Table of Contents' provide page number references in square brackets. Please note that electronic versions of this PROJECT_TYPE offer clickable links to references and index/table of contents.",
+""
+],
+
+"boilerplate_documentation":[
+"the following are key/value pairs. This makes the actual format",
+"of the FOP tags (XML) something we set here, rather than coding",
+"directly in the Java. It is tiresome to use, as there has to be",
+"a lookup each time we want the actual tag text. Much more flexible",
+"this way."
+],
+
+"boilerplate":[
+"ROOT_XML","<?xml version=\"1.0\" encoding=\"utf-8\"?>\n",
+    "ROOT_FOP","<fo:root xmlns:fo=\"http://www.w3.org/1999/XSL/Format\"\n font-size=\"10pt\"\nfont-family=\"Helvetica\"\nline-height=\"normal\"\ntext-align=\"start\" ",
+    "NORMAL_BLOCK_FOP", "<fo:block space-before=\"15pt\">\n",
+    "PREFORMATTED_BLOCK_FOP", "<fo:block space-before=\"15pt\" linefeed-treatment=\"preserve\">\n",
+    "NORMAL_BLOCK_FOP_REST",  "<fo:block space-before=\"5pt\">\n",
+    "NORMAL_BLOCK_FOP_END", "</fo:block>\n",
+
+    "NORMAL_BLOCK_QUOTE_FOP", "<fo:block \nfont-style=\"italic\"\nmargin-left=\"10%\"\nmargin-right=\"10%\"\nspace-before=\"15pt\">\n",
+    "NORMAL_BLOCK_QUOTE_FOP_END", "</fo:block>\n",
+    "REFERENCE_BLOCK_FOP", "<fo:block font-size=\"8pt\"\nspace-before.optimum=\"8pt\">\n",
+    "REFERENCE_BLOCK_FOP_REST", "<fo:block font-size=\"8pt\" space-before.optimum=\"0\">\n",
+    "REFERENCE_BLOCK_FOP_END", "</fo:block>\n",
+    "CAPTION_BLOCK_FOP_FIRST", "<fo:block keep-with-previous.within-column=\"always\" font-size=\"8pt\"\nfont-style=\"italic\"\nspace-before.optimum=\"8pt\"\ntext-align=\"center\">\n",
+    "CAPTION_BLOCK_FOP_REST", "<fo:block keep-with-previous.within-column=\"always\" font-size=\"8pt\"\nfont-style=\"italic\"\ntext-align=\"center\"\nspace-before.optimum=\"0\">\n",
+    "CAPTION_BLOCK_FOP_END", "</fo:block>\n",
+    
+    "INVISIBLE_BLOCK_FOP1", "<fo:wrapper id=\"",
+    "INVISIBLE_BLOCK_FOP2", "\"/>\n",
+    "ID_FOP1", " id=\"",
+    "ID_FOP2", "\" ",
+
+    "HEADING1_BLOCK_FOP", "<fo:block font-size=\"12pt\"\nfont-weight=\"bold\"\nkeep-with-next.within-column=\"always\"\nspace-before=\"15pt\">\n",
+    "HEADING1_BLOCK_FOP_END", "</fo:block>\n",
+    "FACILITY_HEADING_BLOCK_FOP1", "<fo:block font-size=\"12pt\"\nfont-weight=\"bold\"\nspace-after.optimum=\"10pt\"\nspace-before=\"15pt\" id=\"",
+    "FACILITY_HEADING_BLOCK_FOP2", "\">\n",
+    "FACILITY_HEADING_BLOCK_FOP_END", "</fo:block>\n",
+    "STATE_TITLE_BLOCK_FOP1", "<fo:block page-break-before=\"always\" font-size=\"16pt\"\nfont-weight=\"bold\"\nspace-after.optimum=\"10pt\"\nspace-before.optimum=\"0\"\ntext-align=\"center\" id=\"",
+    "STATE_TITLE_NONBREAKING_BLOCK_FOP1", "<fo:block  font-size=\"16pt\"\nfont-weight=\"bold\"\nspace-after.optimum=\"10pt\"\nspace-before.optimum=\"10\"\ntext-align=\"center\" id=\"",
+
+    "STATE_TITLE_BLOCK_FOP2", "\">\n",
+
+    "STATE_TITLE_BLOCK_FOP_END", "</fo:block>\n",
+
+    "LINK_FOP1", "<fo:basic-link internal-destination=\"",
+    "LINK_EXTERNAL_FOP1", "<fo:basic-link external-destination=\"",
+    "LINK_FOP2" , "\" border-bottom-color=\"#c6deff\" border-bottom-style=\"solid\" border-bottom-width=\"medium\">",
+    "LINK_END", "</fo:basic-link>\n",
+
+    "PAGE_NUMBER_LINK", "<fo:page-number-citation ref-id=\"",
+    "PAGE_NUMBER_LINK_END",  "\"/>",
+        
+        
+    
+    "SEPARATOR_BLOCK_FOP", "<fo:block font-family=\"PrinterOrnamentsOne\" font-size=\"12pt\" text-align=\"center\" space-before=\"15pt\">eeeee</fo:block>\n",
+    "CITY_TITLE_BLOCK_FOP1", "<fo:block font-size=\"12pt\"\nfont-weight=\"bold\"\nspace-after=\"10pt\"\nspace-before=\"14pt\"\nborder=\"solid .1em #aaa\"\ntext-align=\"center\"\npadding-top=\"5pt\"\npadding-bottom=\"5pt\"\nkeep-with-next.within-column=\"always\"\nid=\"",
+    "CITY_TITLE_BLOCK_FOP1_notused2", "<fo:block font-size=\"12pt\"\nfont-weight=\"bold\"\nspace-after=\"10pt\"\nspace-before=\"14pt\"\ntext-decoration=\"underline\"\nkeep-with-next.within-column=\"always\"\nid=\"",
+    "CITY_TITLE_BLOCK_FOP1_notused", "<fo:block font-size=\"12pt\"\nfont-weight=\"bold\"\nspace-after.optimum=\"10pt\"\nspace-before.optimum=\"14pt\"\ntext-decoration=\"underline\" id=\"",
+    "CITY_TITLE_BLOCK_FOP2", "\">\n",
+    "CITY_TITLE_BLOCK_FOP_END", "</fo:block>\n",
+    
+    "INDEX_STATES" , "1",
+    "INDEX_CITIES", "2",
+    "INDEX_FACILITIES","4",
+    "INDEX_GENERAL","8",
+    "INDEX_NO_POSTAL_HISTORY","16",
+    "INDEX_ABBREVIATIONS","32",
+
+"STATE_INDEX_ID","_state_index",
+"STATE_INDEX_TITLE","State Index",
+"CITY_INDEX_ID","_city_index",
+"CITY_INDEX_TITLE","City Index",
+"FACILITY_INDEX_ID","_facility_index",
+"FACILITY_INDEX_TITLE","Facility Index",
+"FACILITY_NO_INDEX_ID","_facilityno_index",
+"FACILITY_NO_INDEX_TITLE","Facility (No Postal History) Index",
+"GENERAL_INDEX_ID","_general_index",
+"GENERAL_INDEX_TITLE","General Index",
+
+
+"FLOW_END_FOP","</fo:flow>\n",
+"BLANK_PAGE_FOP","<fo:block page-break-before=\"always\" font-size=\"16pt\"\nfont-weight=\"bold\"\nspace-after.optimum=\"10pt\"\nspace-before.optimum=\"0\"\ntext-align=\"center\"> </fo:block><fo:block text-align=\"center\" space-before=\"40pt\">(This Page Intentionally Left Blank)</fo:block>\n",
+
+     "TITLE_PAGE_SEQ_FOP","<fo:page-sequence id=\"titlex\" master-reference=\"titlex\">\n",
+"FLOW_START_FOP","<fo:flow flow-name=\"xsl-region-body\">\n",
+"PAGE_SEQ_END_FOP","</fo:page-sequence>\n",
+"ALL_FOP_END","</fo:root>\n",
+"MARKER_START_STATE_FOP","<fo:marker marker-class-name=\"the_state\">",
+"MARKER_END_FOP","</fo:marker>",
+"LIST_END_FOP","</fo:list-block>\n",
+"LIST_START_FOP","<fo:list-block provisional-distance-between-starts=\"12pt\" space-before.optimum=\"12pt\" text-align=\"left\">\n",
+"LIST_START_FONT1_FOP","<fo:list-block font-size=\"",
+"LIST_START_FONT2_FOP", "%\" provisional-distance-between-starts=\"12pt\" space-before.optimum=\"12pt\" text-align=\"left\">\n",
+"LIST_ITEM_START_FOP","<fo:list-item><fo:list-item-label end-indent=\"label-end()\"><fo:block>&#x2022;</fo:block></fo:list-item-label><fo:list-item-body start-indent=\"body-start()\">",
+"LIST_ITEM_END","</fo:list-item-body></fo:list-item>\n",
+"START_INLINE_ITALIC_FOP","<fo:inline font-style=\"italic\">",
+"END_INLINE_FOP","</fo:inline>",
+"START_INLINE_BOLD_FOP","<fo:inline font-weight=\"bold\">",
+"START_IMAGE_FOP","<fo:block ",
+"IMAGE_FOP1"," text-align=\"center\" space-before=\"15pt\">\n",
+"IMAGE_FOP2","<fo:external-graphic src=\"pics/",
+"IMAGE_FOP3",                 "\"  width=\"",
+"IMAGE_FOP4",                 "%\" content-width=\"scale-to-fit\" content-height=\"100%\" />",
+"LAYOUT_MASTER_FOP1","<!-- defines page layout -->\n<fo:layout-master-set>\n<!-- layout for the title page -->\n<fo:simple-page-master master-name=\"titlex\">\n<fo:region-body margin-top=\"1in\" margin-bottom=\"1in\" margin-left=\"1in\" margin-right=\"1in\" />\n</fo:simple-page-master>\n",
+"LAYOUT_MASTER_FOP2","<fo:simple-page-master master-name=\"rest\"\npage-height=\"11in\"\npage-width=\"8.5in\"\nmargin-top=\"0.5in\"\nmargin-bottom=\"0.75in\"\nmargin-left=\"0.75in\"\nmargin-right=\"0.5in\">\n",
+"LAYOUT_MASTER_FOP3_1","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"1\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP3_2","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"2\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP4","<fo:region-before extent=\"1in\"/>\n",
+"LAYOUT_MASTER_FOP5","<fo:region-after extent=\"1in\"/>\n",
+"LAYOUT_MASTER_FOP6","</fo:simple-page-master>\n",
+"LAYOUT_MASTER_FOP7","<fo:simple-page-master master-name=\"right\"\nmargin-top=\"0.5in\"\nmargin-bottom=\"0.75in\"\nmargin-left=\"0.75in\"\nmargin-right=\"0.5in\">\n",
+"LAYOUT_MASTER_FOP8_1","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"1\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP8_2","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"2\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP9","<fo:region-before extent=\"25pt\"/>\n<fo:region-after extent=\"25pt\"/>\n",
+"LAYOUT_MASTER_FOP10","</fo:simple-page-master>\n",
+"LAYOUT_MASTER_FOP11","<fo:simple-page-master master-name=\"left\"\nmargin-top=\"0.5in\"\nmargin-bottom=\"0.75in\"\nmargin-left=\"0.5in\"\nmargin-right=\"0.75in\">\n",
+"LAYOUT_MASTER_FOP12_1","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"1\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP12_2","<fo:region-body\nmargin-top=\"0.5in\" margin-bottom=\"0.75in\"\ncolumn-count=\"2\" column-gap=\"0.5in\"/>\n",
+"LAYOUT_MASTER_FOP13","<fo:region-before extent=\"25pt\"/>\n<fo:region-after extent=\"25pt\"/>\n",
+"LAYOUT_MASTER_FOP14","</fo:simple-page-master>\n",
+"LAYOUT_MASTER_FOP15","<fo:page-sequence-master master-name=\"psmOddEven\" >\n",
+"LAYOUT_MASTER_FOP16","<fo:repeatable-page-master-alternatives>\n",
+"LAYOUT_MASTER_FOP17","<fo:conditional-page-master-reference master-reference=\"right\"\npage-position=\"first\" />\n<fo:conditional-page-master-reference master-reference=\"left\"\nodd-or-even=\"even\" />\n<fo:conditional-page-master-reference master-reference=\"right\"\nodd-or-even=\"odd\" />\n",
+"LAYOUT_MASTER_FOP18","<!-- recommended fallback procedure -->\n<fo:conditional-page-master-reference master-reference=\"rest\" />\n</fo:repeatable-page-master-alternatives>\n",
+"LAYOUT_MASTER_FOP19","</fo:page-sequence-master>\n",
+"LAYOUT_MASTER_FOP20","</fo:layout-master-set>\n",
+"METADATA_FOP1","<fo:declarations>\n<x:xmpmeta xmlns:x=\"adobe:ns:meta/\">\n",
+"METADATA_FOP_END","</x:xmpmeta>\n</fo:declarations>\n",
+
+
+
+"BOOKMARKS_FOP1","<fo:bookmark-tree>\n",
+"BOOKMARKS_DUMMY_FOP","<fo:bookmark internal-destination=\"appendixa\" starting-state=\"hide\">\n",
+"BOOKMARKS_GENERAL_FOP1","<fo:bookmark-title>General Index</fo:bookmark-title>\n",
+"BOOKMARKS_GENERAL_FOP2","<fo:bookmark internal-destination=\"general_",
+"BOOKMARKS_STATE_FOP1","<fo:bookmark-title>State Index</fo:bookmark-title>\n",
+"BOOKMARKS_STATE_FOP2","<fo:bookmark internal-destination=\"state_",
+"BOOKMARKS_CITY_FOP1","<fo:bookmark-title>City Index</fo:bookmark-title>\n",
+"BOOKMARKS_CITY_FOP2","<fo:bookmark internal-destination=\"city_",
+"BOOKMARKS_CITY_FOP3","_city_",
+"BOOKMARKS_FACILITY_FOP1","<fo:bookmark-title>Facility Index</fo:bookmark-title>\n",
+"BOOKMARKS_FACILITYNO_FOP1","<fo:bookmark-title>Facility Index (No Postal History Seen)</fo:bookmark-title>\n",
+"BOOKMARKS_FACILITY_FOP3","_fac_",
+
+"BOOKMARKS_SEP_FOP","_",
+"BOOKMARKS_END_FOP","\">\n",
+"BOOKMARKS_TITLE_FOP","<fo:bookmark-title>",
+"BOOKMARKS_TITLE_END_FOP","</fo:bookmark-title>",
+"BOOKMARKS_BOOKMARK_END_FOP","</fo:bookmark>\n",
+"BOOKMARKS_TREE_END_FOP","</fo:bookmark-tree>\n",
+
+"TOC_LINK_FOP","<fo:basic-link internal-destination=\"_toc\" border-bottom-color=\"#c6deff\" border-bottom-style=\"solid\" border-bottom-width=\"medium\">   [ TOC </fo:basic-link>\n",
+"INDEX_LINK_FOP","<fo:basic-link internal-destination=\"_indexes\" border-bottom-color=\"#c6deff\" border-bottom-style=\"solid\" border-bottom-width=\"medium\">   Index ]</fo:basic-link>\n"
+
+	]
+    
+
+}

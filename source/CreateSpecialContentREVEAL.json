@@ -1,0 +1,278 @@
+{
+"comments":[
+"updated 2/7/2018 to integrated changes for list font sizes",
+"created 1/30/2018 for creating REVEAL HTML ONLY",
+"NOTHING IN HERE will be specific to any project",
+"NOT USED, only for documentation",
+"For HTML, we have to manually make a table of contents(see documentation below)",
+"",
+"Static front material is for the web page (we don't expect more)" 
+
+],
+
+
+    "static_header":
+[
+
+        "<html>\n",
+        "<head>\n",
+"<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
+        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
+       "<meta name=\"keywords\" content=\"",
+" PROJECT_KEYWORDS",
+"\"/>",
+"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>\n",
+" PROJECT_COPYRIGHT",
+       "<title>PROJECT_TITLE</title>\n",
+"<link rel=\"stylesheet\" href=\"css/reveal.css\"/>\n",
+"<link rel=\"stylesheet\" href=\"css/theme/serif.css\"/>\n",
+  "<script type=\"text/javascript\" src=\"utility.js\">\n",
+"<!-- must be full tag set to work with IE 6 -->\n",
+"</script>\n",
+  "<style type=\"text/css\">\n",
+    ".hidx {\n",
+"    display: none;\n",
+    "}\n",
+    "p.toc {\n",
+"    /* for TOC link */\n ",
+	"text-align:left;\n",
+	"font-size:75%;\n",
+	"font-weight: bold;\n",
+	"font-family: verdana,arial,helvetica, sans-serif;\n",
+	"color: #00f;\n",
+	"margin: 0 0 0 0;\n",
+	"border: 0 0 0 0;\n",
+	"padding: 0 0 0 0;\n",
+    "}\n",
+"    p.tocline {\n",
+	"text-align:left;\n",
+	"font-size:75%;\n",
+	"}\n",
+"/*\n",
+"not working?\n",
+	"A:hover {\n",
+		"color: #fff;\n",
+		"background-color: #888;\n ",
+	"}\n",
+"*/\n",
+"  </style>\n",
+
+
+"<!-- google analytics SCRIPTS would be here -->\n",
+        "</head>\n",
+        "<body>\n",
+"<div class=\"reveal\">\n",
+"<div class=\"slides\">\n",
+        "<!-- static header content -->\n" 
+],
+
+
+"boilerplateCOMMENTS": 
+[
+"mostly removed or altered items in progress",
+"AFTER_CAPTION"," <p style=\"font-style: italic;font-size:50%;\">(Click on image to see larger version.)</p>\n",
+"IMAGE_CAPTION_START","</p> <p class=\"caption\">",
+"INLINE_IMAGE_START1","<p ><br /><a id=\"",
+"CITE_START","<cite>",
+"CITE_END", "</cite>",
+"old wayLIST_ITEM_START1","<li style=\"font-size: 50%;\" id=\"",
+"old wayLIST_ITEM_START2","<li style=\"font-size: 50%;\">",
+"LIST_ITEM_START1","<li id=\"",
+"   <li style=\"font-size: 50%;\">",
+"LIST_ITEM_START2","<li>"
+],
+
+"boilerplate": 
+[
+"SKELETON_PAGE_CLOSE"," </div> </div> \n<script src=\"js/reveal.js\"></script> \n<script> // Reveal.initialize();\n Reveal.initialize({ \n// Display controls in the bottom right corner \n//controls: true,\n // Display a presentation progress bar //progress: true,\n // Set default timing of 2 minutes per slide \n//defaultTiming: 120,\n // Display the page number of the current slide \n//slideNumber: false,\n // Push each slide change to the browser history \n//history: false,\n history: true, \n// Vertical centering of slides \n//center: true,\n center: false, \n// Transition style \ntransition: 'slide' \n// none/fade/slide/convex/concave/zoom \n});\n </script>\n </body>\n </html>\n",
+
+ "HIDDEN_MESSAGE","",
+
+"LINE_BREAK","<br/>\n",
+"LINE_BREAK2","<br />",
+
+   "TOC_LINK1","<p ><a href=\"#top\">Table of Contents</a></p>",
+"TOC_LINK2", ">Table of Contents</a></p>",
+"END_SECTION","</div> <!-- end wide col --></div> <!-- end wide row --></div> <!-- main section container -->\n",
+
+"END_BODY", "<!-- terminate POEM --><script type=\"text/javascript\" >\nfinal_cleanup(); // final javascript work to prepare to operate\n</script>\n</body></html>\n",
+
+"ABBREVIATION_START","<!-- start of abbreviation listing -->\n<p><a id=\"abbreviation_listing\"></a>\n",
+"ABBREVIATION_TABLE_START","<br/><br/><br/></p><table>\n",
+"ABBREVIATION_TABLE_ROW","<tr>\n",
+"ABBREVIATION_TABLE_CELL1","<td>",
+"ABBREVIATION_TABLE_CELL2","</td><td>", 
+"ABBREVIATION_TABLE_CELL_END","</td></tr>\n",
+"ABBREVIATION_TABLE_END","</table>\n",
+"PARAGRAPH_START","<p>\n",
+"PARAGRAPH_END","</p>\n",
+"PARAGRAPH_ANCHOR_START1","<p id=\"",
+"PARAGRAPH_ANCHOR_START2","<p  id=\"",
+
+"LIST_END","</ul>\n",
+"LIST_START","<ul >\n",
+"LIST_START_FONT1","<ul style=\"font-size: ",
+"LIST_START_FONT2","%;\">\n",
+"UNDERLINE_END","</u>\n",
+"UNDERLINE_START","<u >\n",
+
+"LIST_ITEM_START1","<li id=\"",
+"LIST_ITEM_START2","<li>",
+"LIST_ITEM_END","</li>",
+
+
+"TAG_ID_END", "\">",
+"TAG_ID_MIDDLE","\" ",
+"REFERENCE_PARAGRAPH_START","<p >\n",
+
+"PARAGRAPH_SEPARATOR_START1","<hr  id=\"",
+
+"PARAGRAPH_SEPARATOR_START2", "\"></hr>\n",
+"SEPARATOR_PARAGRAPH","<hr />\n",
+ 
+"NEWLINE","\n",
+
+"IMAGE_ANCHOR_START","<p><br/><img id=\"",
+"IMAGE_ANCHOR_START_SIMPLE","<p><br/><img ",
+"IMAGE_ANCHOR2","\" src=\"",
+"IMAGE_SOURCE_START","<p><br/><img src=\"",
+"IMAGE_LOC1","\" alt=\"[", 
+"IMAGE_LOC2","]\" width=\"300\" style=\"color:black;border:solid;border-width:2px\" />\n", 
+
+"IMAGE_CAPTION1","<br/><br/><i>", 
+"IMAGE_CAPTION2", "</i><br/><br/>\n",
+"IMAGE_CAPTION_START_OLD","</p> <p style=\"clear:left; font-style: italic;\">",
+"IMAGE_CAPTION_START","<span style=\"font-style: italic;font-size:50%;\"> <br/>\n",
+"AFTER_CAPTION"," (Click on image to see larger version.)</span>\n",
+             
+
+"PARAGRAPH_ID_BOLD_START","\"><b>",
+"PARAGRAPH_BOLD_END","</b></p>\n",
+"PARAGRAPH_BOLD_START","<p><b>",        
+"INDEX_LINK_START","<a href=\"index",  
+"INDEX_LINK_END",">Index</a>\n",
+"TOC_LINK_START","<a href=\"TableOfContents",
+"TOC_LINK_END",">TOC</a>\n",
+
+"START_LIST","<ul>\n",
+"HEADER_START","<h",
+"HEADER_END","</h",
+"ANCHOR_START"," id=\"",
+"SIMPLE_ANCHOR_START","<a id=\"",
+"TAG_END",">\n",
+"HEADER1_START","<h1>",
+"HEADER_ID1","<h1 id=\"",
+"HEADER_ID2","\">",
+"HEADER_ID3","\"" ,
+"HEADER_ID4","<h1 ",
+
+
+"HEADER1_END","</h1>\n",
+"CITY_HEADER_START", "<h3   style=\"padding-top:10pt;\" id=\"state_",
+"FACILITY_HEADER_START","<h4   id=\"state_",
+
+"FACILITY_INDEX_START","<h4 id=\"facility_index\" >All Facilities</h4>\n",
+   
+
+"QUOTE_START","<q>",
+"QUOTE_END","</q>",
+
+"CITE_START","<i>",
+"CITE_END", "</i>",
+
+"BLOCKQUOTE_START","\n<p><blockquote>",
+"BLOCKQUOTE_END","</blockquote></p>\n",
+
+"EMPHASIZED_START","<b>",
+"EMPHASIZED_END","</b>",
+
+
+"PARAGRAPH_START2","<p >", 
+
+
+"CITY_HEADER_END","</h3>\n",
+"CITY_HEADER_ENDx","</h3><p>\n",
+"FACILITY_HEADER_END","</h4>\n",
+"FACILITY_HEADER_ENDx","</h4><p>\n",
+
+
+"STATE_ANCHOR_START","<p><a id=\"state_",
+"STATE_HEADING_START","<h1   id=\"state_",
+"GENERAL_ANCHOR_START","<p><a id=\"general_",
+"GENERAL_ANCHOR_START2","<a id=\"general_",
+"ANCHOR_END", "\"></a>\n",
+"SIMPLE_ANCHOR_END", "</a>\n",
+"ENDING_BOILERPLATE", "<!-- terminate POEM --><script type=\"text/javascript\" >\nfinal_cleanup(); // final javascript work to prepare to operate\n</script>\n</body></html>\n",
+
+"ENDING_INDEX_BOILERPLATE","<!-- terminate POEM --><script type=\"text/javascript\" >\nfinal_cleanup(); // final javascript work to prepare to operate\n</script>\n</body></html>\n",
+
+"POSTFIX_CONTENT","<hr /><h1 >More Links</h1><p ><a href=\"#top\">Table of Contents</a></p>\n",
+
+
+"CITY_ANCHOR_MARKER","_city_" , 
+"FACILITY_ANCHOR_MARKER","_fac_" , 
+"SOURCE_PAGE_HEADER_START","<p>Source Page: ",
+"OPEN_DATE_HEADER_START","<p>Open: ",
+"CLOSE_DATE_HEADER_START","<p>Closed: ",
+"TROOP_COUNT_HEADER_START","<p>Maximum Troops: ",
+"HOSPITAL_ADMISSION_HEADER_START","<p>Hosp. Admissions: ",
+
+"FACILITY_FOOTER1","<p ><a href=\"#top\">Top</a>\n<a href=\"#state_",
+"FACILITY_FOOTER2","<a href=\"#state_",
+"FACILITY_FOOTER_END","<a href=\"#index\">Index</a></p>\n",
+
+"INLINE_IMAGE_START1","<p ><a id=\"",
+"INLINE_IMAGE_START2","\"",
+"INLINE_IMAGE_START3","<p ><a ",
+"INLINE_IMAGE_START4"," href=\"javascript:pop_up_image('",
+"INLINE_IMAGE_START5","',", 
+"INLINE_IMAGE_START6","'", 
+"INLINE_IMAGE_START7","');\"><img ",
+"INLINE_IMAGE_START8","',null,'--');\"><img ",
+"INLINE_IMAGE_START9","<p ><img id=\"",
+"INLINE_IMAGE_START10","<p ><img ",
+
+
+"INLINE_IMAGE_ALT","alt=\"[", 
+"INLINE_IMAGE_STYLE","]\" style=\"color:black;border:solid;border-width:2px\" src=\"thumbs/", 
+"INLINE_IMAGE_END","\"/></a>\n", 
+"INLINE_IMAGE_END2","\"/>\n", 
+
+
+"INDEX_CRUMB1","<a href=\"#",
+"INDEX_CRUMB10","<p><a href=\"#",
+"INDEX_TARGET1","<a href=\"",
+"INDEX_SEEALSO_TARGET1","<a class=\"seealso\" href=\"",
+"INDEX_TARGET10","<p><a href=\"",
+"INDEX_TARGET2","#",
+"INDEX_CRUMB2","\">",
+"INDEX_CRUMB10_END","</a></p>\n",
+"INDEX_CRUMB_END","</a>\n",
+
+"POPUP_CLOSE","<a href=\"javascript:self.close()\">Close</a> the popup.",
+
+
+"STATE_INDEX_ID","_state_index",
+"STATE_INDEX_TITLE","State Index",
+"CITY_INDEX_ID","_city_index",
+"CITY_INDEX_TITLE","City Index",
+"FACILITY_INDEX_ID","_facility_index",
+"FACILITY_INDEX_TITLE","Facility Index",
+"FACILITY_NO_INDEX_ID","_facilityno_index",
+"FACILITY_NO_INDEX_TITLE","Facility (No Postal History) Index",
+"GENERAL_INDEX_ID","_general_index",
+"GENERAL_INDEX_TITLE","General Index",
+"SECTION_FRONT","<p class=\"toc\"><a href=\"#/toc\"><img src=\"pics/menu_image3a.gif\" alt=\"menu\"/></a> </p>\n",
+
+"INSTRUCTION_PAGE","<section id=\"instructions\"><!-- slide instructions --> <p class=\"toc\"><a href=\"#/toc\"><img src=\"pics/menu_image3a.gif\" alt=\"menu\"/></a> </p> <h5 >Instructions for Presentation:</h5> <ul> <li> Computer: Use your arrow keys to move from one slide to another.  See: <a href=\"how_to.html\">a How-To webpage</a> with more options.  (You can also click on the small arrow images in lower right corner.) </li> <li> Phone/Tablet: Swipe left/right on your screen to move from one slide to another.  </li> <li> Select Image for Table of Contents <img src=\"pics/menu_image3a.gif\" alt=\"menu\"/> (in upper left corner) to view Table of Contents.  </li> </ul> </section> <!-- end slide instructions -->",
+
+"TOC_FRONT","<section id=\"toc\"><!-- slide TOC --> <h5>Table of Contents</h5> <p class=\"tocline\">",
+
+"TOC_END","<a href=\"#/instructions\">Instructions for Reading Presentation</a> <br/><br/><a href=\"http://militaryphs.org/presentations.html\">Main Presentations Page</a> </p> </section> <!-- end slide TOC -->",
+
+"",""
+]
+
+        
+}
+
