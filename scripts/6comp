@@ -1,0 +1,35 @@
+JAVAC=javac
+echo "- - - - - - -"
+echo "- - - - - - -"
+echo "- - - - - - -"
+echo "- - - - - - -"
+
+
+# no longer using XML
+###CP=$CP:XMLUtil.jar
+##CP=$CP:dom4j-1.6.1.jar
+# following for JSON
+CP=$CP:jackson-core-2.8.8.jar
+CP=$CP:jackson-databind-2.8.8.jar
+CP=$CP:.
+
+OBJ=BookCreate
+
+## using wildcard now TIT="CreateSpecialContentHTML.java CreateSpecialContentFOPPDF.java CreateSpecialContentFOPPrint.java CreateSpecialContentKINDLE.java CreateSpecialContentREVEAL.java CreateSpecialContentHTMLSingle.java"
+
+rm  *.class
+
+echo "$JAVAC" -classpath "$CP" $OBJ.java
+"$JAVAC" -classpath "$CP" $OBJ.java
+
+##for xx in $TIT
+##do echo "$JAVAC" -classpath "$CP" $xx ; "$JAVAC" -classpath "$CP" $xx
+##done
+
+echo "$JAVAC" -classpath "$CP" Create*.java
+"$JAVAC" -classpath "$CP" Create*.java
+
+echo "$JAVAC" -classpath "$CP" *Sink.java
+"$JAVAC" -classpath "$CP" *Sink.java
+
+
