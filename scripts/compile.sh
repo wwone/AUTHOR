@@ -44,3 +44,13 @@ echo "$JAVAC" -classpath "$CP" Create*.java
 echo "$JAVAC" -classpath "$CP" *Sink.java
 "$JAVAC" -classpath "$CP" *Sink.java
 
+#
+# now make JAR for us, which comprises the compiled Java
+# classes
+#
+# NOTE for runtime, the JSON files must be present, and are
+# not (currently) embedded in the JAR file
+#
+jar cf author.jar *.class
+
+
