@@ -35,5 +35,5 @@ Most formatting material is embedded in JSON files, so it is possible to
 customize most output. For more intricate work, a knowledge of Java is
 required.
 
-Source will be provided here on GITHub as Java files, compilation scripts,
-JSON example files, and execution scripts.
+Source is provided here on GITHub as Java files, compilation scripts,
+JSON example files (TBA), and execution scripts (TBA).
