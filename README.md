@@ -6,8 +6,9 @@ Java features are required.
 
 In its current state, the execution scripts are written as Linux/Unix shell scripts.
 
-To convert the output to certain formats, the user should have a copy of the "Calibre" program
-running on their computer.
+See the "dependencies.txt" file for the files and applications on which successful
+creation of e-documents depends. For instance, to convert the output to certain formats, 
+the user should have a copy of the "Calibre" program running on their computer.
 
 Metadata input is done through JSON files, which requires a little care in setting up. Examples
 are provided.
