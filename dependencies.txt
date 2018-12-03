@@ -6,41 +6,70 @@ the HTML creator, which makes the output files ready to use.
 Thus, this product depends on other systems to do a lot of
 the heavy lifting (THANKS!).
 
-Required JAR's
-- - - - - - - - 
 
-Required CSS Files
-- - - - - - - - - - 
 
-skeleton.css (for one mode of HTML)
+Required Java JAR's (for Java compilation and execution)
+- - - - - - - - - - - -
+
+Since JSON is handled by the Java code, you need all
+3 of the Jackson JAR's. I'm currently using:
+
+jackson-core-2.8.8.jar
+jackson-databind-2.8.8.jar
+jackson-annotations-2.8.0.jar
+
+
+
+
+Required CSS Files (for use when output is HTML)
+- - - - - - - - - - - - - -
+
+skeleton.css (for one mode of HTML, not the default)
 
 poem.css (for default mode of HTML)
 
-Required Javascript Files
+
+
+Required Javascript Files (for use when output is HTML)
 - - - - - - - - - - -
 poem.js (for default mode of HTML)
+
 
 utility.js (for HTML output, to handle images)
 
 reveal.js (for REVEAL mini-presentations)
 
+
+
+
 Required Helper Apps
 - - - - - - - - - -
 
 kindlegen -- used only if you want to make Kindle files, such as
-   AZW3 or MOBI format. Get this program from Amazon.
+   AZW3 or MOBI format. Get this program from Amazon. AUTHOR
+   provides templates for the metadata files used by "kindlegen".
+   Hand-modification is needed before running "kindlegen".
    
 Apache FOP -- used only if you want to make PDF files. Get
-   the command-line version from the Apache website
+   the command-line version from the Apache website. See
+   info on "Fonts" below.
    
 Calibre -- used to make EPUB format from AZW3 format. Also very
    useful for conversion of e-document formats. It has its own
    viewers, which are pretty nice. Get from website.
+
+Kindle Viewer -- Recommended for viewing Kindle output, to ensure
+   it appears and runs as desired. Various versions are around,
+   including "okular" (Linux), and Kindle Previewer from Amazon
+   (Windows). The Previewer can be made to run under "wine"
+   on a Linux system.
+   
+   
    
 Required Fonts
 - - - - - - - - 
 
-Fonts are a rather sticky issue. Your computer may have
+Fonts can become a rather sticky issue. Your computer may have
 different fonts from those used by the person viewing your
 e-document. In most cases, this is not a big issue. AUTHOR
 keeps the font usage quite simple. We are not a word processor!
@@ -48,10 +77,13 @@ keeps the font usage quite simple. We are not a word processor!
 The biggest issue I've run into is embedding fonts for
 published PDF files for print-on-demand. For instance, to
 upload a PDF to LuLu (lulu.com), you must have embedded all
-fonts in the PDF. Be sure you have them around, and make sure
+fonts in the PDF file. Be sure you have them around, and make sure
 they are specified. This is a FOP issue, and must be addressed
 in this case.
 
 For interactive PDF, or PDF that will be read on a computer only,
 no big deal, each machine will find an appropriate font, and use
-it.
+it. Kindle is not an issue at all, nor is EPUB output. The
+HTML output is not font-specific. You could alter the CSS
+to make it such, it's your call.
+
