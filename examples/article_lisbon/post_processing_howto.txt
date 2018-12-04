@@ -1,0 +1,15 @@
+This file will contains descriptions of how to make the actual
+e-document output from AUTHOR. Note that HTML output will have
+been created by the initial execution of the Java code.
+
+The other outputs of this example will be:
+
+1) Interactive FOP PDF  (run FOP per script)
+
+2) Print FOP PDF  (run FOP per script)
+
+3) Kindle (run creation script from the "pics" folder)
+
+4) EPUB (Use Calibre product to make conversion from AZW3 (Kindle)
+    to EPUB
+    
