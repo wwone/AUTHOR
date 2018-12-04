@@ -1,0 +1,72 @@
+{
+"comments":[
+"NOT USED, only for documentation",
+"updated 5/25/2018, add empty CSS override",
+"updated 3/24/2018, added link for cover image",
+"updated 12/15/2017 for fraser article",
+"   which will be copied into 'project.json' before running book create",
+"",
+"ALL of this metadata is specific to the",
+"fraser article. It is made up",
+"of key-value pairs. The key is embedded in",
+"the generic boilerplate, and must be pretty",
+"unique. I use PROJECT_thingie as the pattern.",
+"Value is the replacement. Example PROJECT_AUTHOR",
+"has the value 'Bob Swanson'",
+"",
+"WARNING: when designing keywords, do not let any keyword be a substring of",
+" another, because the simple lookup search will see",
+" the substring FIRST and substitute it!",
+"",
+"Example: PROJECT_ISBN and PROJECT_ISBN_SIMPLE will find the",
+" first item before the second",
+"",
+"NOR should any keyword be the same as an actual boilerplate",
+" item. For instance, some schemas want ISBN as a field",
+" which could conflict with a keyword of the same name. Sooo",
+" use PROJECT_ as the start of keywords, please",
+"",
+"when there are multiple values in the value field",
+"they are separated with colons for later stripping",
+"",
+"NOTE: PROJECT_EPUB_KEYWORDS are used for Kindle, also"
+
+],
+
+"project":[
+"PROJECT_AUTHOR","Ed Fraser",
+"PROJECT_PUBLISHER","Military Postal History Society",
+"PROJECT_COPYRIGHT","Ed Fraser, the Military Postal History Society, 2017",
+"PROJECT_TYPE"," article ",
+"PROJECT_HTML_CSS","skeleton.css",
+"PROJECT_OVERRIDE_CSS","",
+"PROJECT_COVER_IMAGE","fraser/cover1.jpg",
+"PROJECT_EPUB_CSS","mphs.css",
+"PROJECT_PUBLISH_DATE","2018-03-28",
+"PROJECT_DESCRIPTION","This article about a newly discovered WW II undercover address in Lisbon, Portugal was created by Ed Fraser. It is his property, but is offered to the public and members of the Military Postal History Society (MPHS) for educational purposes.",
+
+"PROJECT_TITLE","How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!",
+"PROJECT_FRONT_MATTER","How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!:By -- Ed Fraser, Military Postal History  Society:Created and Copyright by  Ed Fraser, The Military Postal History Society, all rights reserved, except this article may be redistributed for non-profit uses.:Web Contact -- militaryphs.org",
+
+
+"PROJECT_RELATION","http://militaryphs.org",
+"PROJECT_EPUB_KEYWORDS","postal history: wwii: second world war: covers: stamps: history: military: censorship: belgium: RAF: undercover address: lisbon portugal ",
+"PROJECT_KEYWORDS","postal history: wwii: second world war: covers: stamps: history: military: censorship: belgium: RAF: undercover address: lisbon portugal ",
+
+"PROJECT_SUBJECT","Newly discovered undercover address used during the Second World War in Lisbon, Portugal",
+
+
+"PROJECT_TOC_NCX_CONTENT","to_be_filled_in",
+
+"PROJECT_SPINE_CONTENTS","to_be_filled_in",
+
+"PROJECT_CONTENT_MANIFEST","to_be_filled_in",
+
+"PROJECT_IMAGE_MANIFEST","to_be_filled_in",
+
+"PROJECT_GUIDE_CONTENTS","<!-- unique to this project -->\n"
+
+ ]
+
+}
+
