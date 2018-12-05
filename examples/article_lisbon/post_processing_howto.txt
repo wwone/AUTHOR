@@ -4,9 +4,14 @@ been created by the initial execution of the Java code.
 
 The other outputs of this example will be:
 
-1) Interactive FOP PDF  (run FOP per script)
+1) Interactive FOP PDF  (run FOP per "createPDF.sh" script)
 
-2) Print FOP PDF  (run FOP per script)
+2) Print FOP PDF  (run FOP per "createPRINT.sh" script)
+
+Follow directions in the two PDF example scripts above. Certain files
+must be present in the working directory. The scripts are very
+similar, the primary differences being the input files and
+scripts used.
 
 3) Kindle (run creation script from the "pics" folder)
 
