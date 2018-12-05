@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"
+ font-size="10pt"
+font-family="Arial"
+line-height="normal"
+text-align="start" >
+<!-- defines page layout -->
+<fo:layout-master-set>
+<!-- layout for the title page -->
+<fo:simple-page-master master-name="titlex">
+<fo:region-body margin-top="25pt" margin-bottom="25pt" margin-left="20pt" margin-right="20pt" />
+</fo:simple-page-master>
+<fo:simple-page-master master-name="rest"
+page-height="11in"
+page-width="8.5in"
+margin-top="0.5in"
+margin-bottom="0.75in"
+margin-left="0.75in"
+margin-right="0.5in">
+<fo:region-body
+margin-top="0.5in" margin-bottom="0.75in"
+column-count="2" column-gap="0.5in"/>
+<fo:region-before extent="1in"/>
+<fo:region-after extent="1in"/>
+</fo:simple-page-master>
+<fo:simple-page-master master-name="right"
+margin-top="0.5in"
+margin-bottom="0.75in"
+margin-left="0.75in"
+margin-right="0.5in">
+<fo:region-body
+margin-top="0.5in" margin-bottom="0.75in"
+column-count="2" column-gap="0.5in"/>
+<fo:region-before extent="25pt"/>
+<fo:region-after extent="25pt"/>
+</fo:simple-page-master>
+<fo:simple-page-master master-name="left"
+margin-top="0.5in"
+margin-bottom="0.75in"
+margin-left="0.5in"
+margin-right="0.75in">
+<fo:region-body
+margin-top="0.5in" margin-bottom="0.75in"
+column-count="2" column-gap="0.5in"/>
+<fo:region-before extent="25pt"/>
+<fo:region-after extent="25pt"/>
+</fo:simple-page-master>
+<fo:page-sequence-master master-name="psmOddEven" >
+<fo:repeatable-page-master-alternatives>
+<fo:conditional-page-master-reference master-reference="right"
+page-position="first" />
+<fo:conditional-page-master-reference master-reference="left"
+odd-or-even="even" />
+<fo:conditional-page-master-reference master-reference="right"
+odd-or-even="odd" />
+<!-- recommended fallback procedure -->
+<fo:conditional-page-master-reference master-reference="rest" />
+</fo:repeatable-page-master-alternatives>
+</fo:page-sequence-master>
+</fo:layout-master-set>
+<fo:declarations>
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about=""
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+<!-- Dublin Core properties go here -->
+<dc:title>How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!</dc:title>
+<dc:creator>Ed Fraser</dc:creator>
+<dc:description>This article about a newly discovered WW II undercover address in Lisbon, Portugal was created by Ed Fraser. It is his property, but is offered to the public and members of the Military Postal History Society (MPHS) for educational purposes.</dc:description>
+</rdf:Description>
+<rdf:Description rdf:about=""
+xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+<!-- XMP properties go here -->
+<xmp:CreatorTool>Apache FOP</xmp:CreatorTool>
+</rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+</fo:declarations>
+
+<fo:page-sequence  initial-page-number="1" id="N2528" master-reference="psmOddEven">
+<!-- page number at bottom --><fo:static-content flow-name="xsl-region-after">
+<fo:block text-align-last="center" color="gray" space-before.optimum="0">
+Page - <fo:page-number/>
+</fo:block>
+</fo:static-content>
+<!-- title printed at top of each page --><fo:static-content flow-name="xsl-region-before">
+
+<fo:block>How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!
+
+</fo:block>
+
+</fo:static-content>
+
+<fo:flow flow-name="xsl-region-body">
+<fo:block page-break-before="always" font-size="16pt"
+font-weight="bold"
+space-after.optimum="10pt"
+space-before.optimum="0"
+text-align="center" id="_iiii">
+Introduction</fo:block>
+<fo:wrapper id="_intro"/>
+<fo:wrapper id="general_Introduction_0001"/>
+<fo:block font-size="12pt"
+font-weight="bold"
+keep-with-next.within-column="always"
+space-before="15pt">
+How Another WWII Undercover Address in Lisbon is "Uncovered" -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!</fo:block>
+<fo:block space-before="15pt">
+<fo:inline font-weight="bold">by Ed Fraser, Military Postal History Society</fo:inline></fo:block>
+<fo:block space-before="15pt">
+This article was created by Ed Fraser of the Military Postal History Society, and his sole property. The article describes the discovery of a new undercover address used in Lisbon, Portugal during the Second World War. Illustrations of postal history items provide insight into this subject. This article is offered to the general public and members of the MPHS for educational purposes.</fo:block>
+<fo:block page-break-before="always" font-size="16pt"
+font-weight="bold"
+space-after.optimum="10pt"
+space-before.optimum="0"
+text-align="center" id="background">
+<fo:marker marker-class-name="the_state">Background and Cover Illustrations</fo:marker></fo:block>
+<fo:wrapper id="back"/>
+<fo:block font-size="12pt"
+font-weight="bold"
+keep-with-next.within-column="always"
+space-before="15pt">
+Background and Cover Illustrations</fo:block>
+<fo:wrapper id="general_Belgapost_0002"/>
+<fo:wrapper id="general_Belgian_Philatelic_Study_Circle_0003"/>
+<fo:block space-before="15pt">
+This story was first reported in the Autumn 2017 "Belgapost" quarterly of the Belgian Philatelic Study Circle in the U.K.   As perhaps an instructive example of how after 75 years such an address can be identified in today's partly-digitized world, and in hopes further information may be uncovered, here is a re-telling of it. </fo:block>
+<fo:wrapper id="general_Germany_0004"/>
+<fo:wrapper id="general_German_Occupation_0005"/>
+<fo:wrapper id="general__Belgium_0006"/>
+<fo:wrapper id="general__Portugal_0007"/>
+<fo:block space-before="15pt">
+The two covers, front and back, shown in Figures 1  [<fo:page-number-citation ref-id="img01"/>]and 
+2 [<fo:page-number-citation ref-id="img02"/>], are an interesting study in several ways.  As examples of mail from German occupied Belgium to neutral Portugal, both have the routine Munich office censor tape, indicated by the "d" on the tape.  That was the German censor office that mail to Portugal was typically censored at. However, on top of German censor tape or markings, and the Lisbon arrival cancel, is a British P.C. 90 censor tape.  Those tapes have censor numbers on them believed to have been in the U.K.  </fo:block>
+<fo:block  id="img01"  text-align="center" space-before="15pt">
+<fo:external-graphic src="pics/fraser/img1a.jpg"  width="50.0%" content-width="scale-to-fit" content-height="100%" /></fo:block>
+<fo:block keep-with-previous.within-column="always" font-size="8pt"
+font-style="italic"
+space-before.optimum="8pt"
+text-align="center">
+Front of Cover #1</fo:block>
+<fo:block  id="img01b"  text-align="center" space-before="15pt">
+<fo:external-graphic src="pics/fraser/img1b.jpg"  width="50.0%" content-width="scale-to-fit" content-height="100%" /></fo:block>
+<fo:block keep-with-previous.within-column="always" font-size="8pt"
+font-style="italic"
+space-before.optimum="8pt"
+text-align="center">
+Front of Cover #2</fo:block>
+<fo:block space-before="15pt">
+Two covers from Belgium to the same addressee, with German censorship, and British censorship after reaching Lisbon.  Top cover stamps' date and place covered by German censor tape, but backstamped Antwerpen (the German for Antwerp) 21 Dec 1943 and Lisbon 6 Jan 1944. Bottom cover stamp canceled Antwerpen but date seems unclear &#8211; possibly 1 Feb 1944 (?), but backstamped (in Belgium?) 31 Jan 1944 and Lisbon 19 Feb 1944. </fo:block>
+<fo:block  id="img02"  text-align="center" space-before="15pt">
+<fo:external-graphic src="pics/fraser/img2a.jpg"  width="50.0%" content-width="scale-to-fit" content-height="100%" /></fo:block>
+<fo:block keep-with-previous.within-column="always" font-size="8pt"
+font-style="italic"
+space-before.optimum="8pt"
+text-align="center">
+Back of Cover #1</fo:block>
+<fo:block  id="img02b"  text-align="center" space-before="15pt">
+<fo:external-graphic src="pics/fraser/img2b.jpg"  width="50.0%" content-width="scale-to-fit" content-height="100%" /></fo:block>
+<fo:block keep-with-previous.within-column="always" font-size="8pt"
+font-style="italic"
+space-before.optimum="8pt"
+text-align="center">
+Back of Cover #2</fo:block>
+<fo:block space-before="15pt">
+The backs of the 2 covers in Figure 1 [<fo:page-number-citation ref-id="img01"/>].  No sender or return address indicated.</fo:block>
+ <!-- general section -->
+<fo:block page-break-before="always" font-size="16pt"
+font-weight="bold"
+space-after.optimum="10pt"
+space-before.optimum="0"
+text-align="center" id="discussion">
+<fo:marker marker-class-name="the_state">Discussion</fo:marker></fo:block>
+<fo:wrapper id="discuss"/>
+<fo:block font-size="12pt"
+font-weight="bold"
+keep-with-next.within-column="always"
+space-before="15pt">
+Discussion</fo:block>
+<fo:block space-before="15pt">
+Might this have been some private arrangement with a friend in Portugal to forward correspondence between Belgium and the U.K.?  The clues to that are pretty good. There is no listing for the address 34 Rua Ernesto da Silva in a Lisbon suburb in the reference "Undercover Addresses of WWII &#8211; Third Edition" by Charles Entwistle, and he confirmed that in a recent e-mail. There is nothing unusual about the building currently at that address which appears to possibly be the home and location of a plumbing and electrical service person, without any signage in Google map/street photos.</fo:block>
+<fo:block space-before="15pt">
+And then there is a bit of "education" in European penmanship here. What is the addressee's name? First noting between the 2 covers, apparently by the same hand, the "L" in Lisbon. It is very suggestive of a name Gabriel "Leydel".  The "a" and "d" in "da Silva" of the address explain the "odd looking" letter "d" in "Leydel" &#8211; not the penmanship strokes used in the U.S, but consistent and neat in any case...and a European style sometimes seen elsewhere.  However, while a common enough name in a Google search, but not with clear Belgian ties, that went nowhere.  Trying again, and looking at the strokes of that "L" of "Lisbon" seemed quite convincing that it was not exactly a match to the name, but rather to the "S" in the street name "da Silva".  The amazing result was, via Google, the Belgian ties of one quite noteworthy WWII RAF pilot, one Gabriel "Seydel".</fo:block>
+<fo:block space-before="15pt">
+One thing I liked about these two covers was that the name was underlined &#8211; for example in red, and also in red was an added number "349", and the "349" was on both covers. This had suggested to me a strong possibility of the forwarder in Portugal working off a card file or notebook of addresses for mail forwarding, and this addressee was number "349".  Recently I had written an article for the Scandinavian Collectors Club "Posthorn" magazine (May 2016, cover and pages 13-19) about such a card file used by the Norwegian Embassy in Lisbon for mail routing between Occupied Norway and many escaped Norwegians especially one's tied to the Government in Exile &#8211; and the Embassy person who oversaw this effort frequently used various residential addresses in hopes of not attracting German censorship attention.  Maybe the Belgians did something similar?  That was the thought.</fo:block>
+<fo:block space-before="15pt">
+Anyway, back to our addressee Gabriel Seydel.  The first result was 100% in French, and with a lot of military abbreviations that meant nothing to me. It was clear there might be a link, though. Refining that search now produced a fascinating biography, and even a photo! That information is shown below [<fo:page-number-citation ref-id="bio"/>]. And the key item -- the greatest key assuming it was put on the cover at the time of its original handling -- is that number 349, and being on both covers!  That turns out to apparently have been used to direct the addressee's mail to his RAF Squadron of Belgian Volunteers, Squadron 349!  As an aside, our addressee bounced between Squadron 350 and 349 during the war years, but the mail sorter here had it right for the time of these letter mailings.</fo:block>
+<fo:block  id="bio"  text-align="center" space-before="15pt">
+<fo:external-graphic src="pics/fraser/bio.jpg"  width="50.0%" content-width="scale-to-fit" content-height="100%" /></fo:block>
+<fo:block keep-with-previous.within-column="always" font-size="8pt"
+font-style="italic"
+space-before.optimum="8pt"
+text-align="center">
+Biography of Gabriel Seydel</fo:block>
+<fo:block space-before="15pt">
+Above, a  biographical piece about Gabriel Seydel from the website  http://www.350sqn.be/biography/Seydel%20Gabriel.htm The website is dedicated to information about RAF Squadron 350 and those who served in it at any time during the war -- which he did for a time.</fo:block>
+ <!-- general section -->
+<fo:block page-break-before="always" font-size="16pt"
+font-weight="bold"
+space-after.optimum="10pt"
+space-before.optimum="0"
+text-align="center" id="conclusion">
+<fo:marker marker-class-name="the_state">Conclusion</fo:marker></fo:block>
+<fo:wrapper id="conc"/>
+<fo:block font-size="12pt"
+font-weight="bold"
+keep-with-next.within-column="always"
+space-before="15pt">
+Conclusion</fo:block>
+<fo:wrapper id="general_RAF_0008"/>
+<fo:wrapper id="general_Belgian_0009"/>
+<fo:block space-before="15pt">
+So, as a likely hypothesis, it would seem there is a good case for this address in Lisbon being one for mail handling between Belgian RAF military and Belgium --  or perhaps elsewhere in Occupied Europe as well.  </fo:block>
+<fo:block space-before="15pt">
+Any further information or detail greatly appreciated.  My collecting focus is on undercover mail, including that involving the Thomas Cook &amp; Son wartime civilian undercover mail scheme. </fo:block>
+<fo:block space-before="15pt">
+edfraser@gmail.com</fo:block>
+ <!-- general section -->
+</fo:flow>
+</fo:page-sequence>
+<fo:page-sequence  initial-page-number="1" id="N2528" master-reference="psmOddEven">
+<!-- page number at bottom --><fo:static-content flow-name="xsl-region-after">
+<fo:block text-align-last="center" color="gray" space-before.optimum="0">
+Index - <fo:page-number/>
+</fo:block>
+</fo:static-content>
+<!-- title printed at top of each page --><fo:static-content flow-name="xsl-region-before">
+
+<fo:block>How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!
+
+</fo:block>
+
+</fo:static-content>
+
+<fo:flow flow-name="xsl-region-body">
+<fo:block page-break-before="always" font-size="16pt"
+font-weight="bold"
+space-after.optimum="10pt"
+space-before.optimum="0"
+text-align="center" id="_general_index">
+General Index</fo:block>
+<fo:block space-before="5pt">
+ Belgium (background, background)   (<fo:page-number-citation ref-id="general__Belgium_0006"/>)</fo:block>
+<fo:block space-before="5pt">
+ Portugal (background, background)   (<fo:page-number-citation ref-id="general__Portugal_0007"/>)</fo:block>
+<fo:block space-before="5pt">
+Belgapost (background, background)   (<fo:page-number-citation ref-id="general_Belgapost_0002"/>)</fo:block>
+<fo:block space-before="5pt">
+Belgian (conclusion, conclusion)   (<fo:page-number-citation ref-id="general_Belgian_0009"/>)</fo:block>
+<fo:block space-before="5pt">
+Belgian Philatelic Study Circle (background, background)   (<fo:page-number-citation ref-id="general_Belgian_Philatelic_Study_Circle_0003"/>)</fo:block>
+<fo:block space-before="5pt">
+German Occupation (background, background)   (<fo:page-number-citation ref-id="general_German_Occupation_0005"/>)</fo:block>
+<fo:block space-before="5pt">
+Germany (background, background)   (<fo:page-number-citation ref-id="general_Germany_0004"/>)</fo:block>
+<fo:block space-before="5pt">
+Introduction (main section, introduction)   (<fo:page-number-citation ref-id="general_Introduction_0001"/>)</fo:block>
+<fo:block space-before="5pt">
+RAF (conclusion, conclusion)   (<fo:page-number-citation ref-id="general_RAF_0008"/>)</fo:block>
+</fo:flow>
+</fo:page-sequence>
+</fo:root>
