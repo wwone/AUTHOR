@@ -16,10 +16,18 @@ IN=lisbon.auth
 y=${IN%.*}
 echo stripped filename $y
 
-# the following files must be present in this directory:
+# the following project-related files must be present in this directory:
 #
 # project.json
 # options.json
+
+# note from below that certain JAR files must be present in this
+# directory, including the "author.jar" created when the AUTHOR
+# Java code is compiled
+#
+# ALSO, if the AUTHOR source is not present in this directory, you
+# must also have all of the Create*.json files (from "source"
+# folder) present
 
 
 JAVA=java
