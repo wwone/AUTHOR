@@ -1,35 +1,42 @@
+# 
+# from the FOP input (made by AUTHOR), create
+# an interactive PDF distribution file
 #
-# from the ".fopdf" files created by AUTHOR,
-# use the Apache FOP program to create
-# an interactive PDF version of the article
+# The working directory will contain the
+# following:
 #
-# assumes that the FOP configuration file
-# "fop99.xconf" is in this directory
-# assumes that the Apache FOP script and
-# program is accessable in this directory
+# article.fo     (FOP previously combined from AUTHOR output)
+#                one way to combine the FOP files is the
+#                following command:
+#                cat book*.fopdf > article.fo
 #
-# the script "fop" is to be executed
+# Arial*.ttf     (Arial fonts used for this example, any other
+#                 may be used. However note that generally they will be 
+#                 embedded. see the configuration file "fop99.xconf")
+# fop99.xconf    (Configuration file for FOP, expecially note
+#                information about fonts used)
 #
-# first, create the .fo file
+# following is the pathway to the installed FOP executable
+# package from the Apache FOP site. The "fop" at the
+# end of the script pathway is the Linux/Unix executable
+# shell script. Per my testing, no other environment variables
+# need to be set, besides those below. It is assumed that the
+# "java" command will execute the runtime on this sytem.
 #
-echo COPYING FO FILES for PDF
-
-echo cat book*.fopdf into lisbon.fo
-
-cat book*.fopdf > lisbon.fo
-
-# the input ".fo" file is now ready to pass to
-# Apache FOP
+# this is an EXAMPLE, you must specify the full pathway for your
+# FOP installation
+#
+SCRIPT=/media/bob/DATA/work/fop/fop-2.2/fop/fop
 #
 CONF=fop99.xconf
-#
-# CONFIGURATION file is NECESSARY to embed
-# fonts and other stuff that is not
-# necessarily in the .fo file
+# following is the only FOP-related environment variable set for
+# this FOP execution
 #
 FOP_OPTS="-Xms400m -Xmx400m" 
 export FOP_OPTS
 echo $FOP_OPTS
 
-echo sh fop -nocs -x -c $CONF lisbon.fo lisbon_pdf.pdf
-sh fop -nocs -x -c $CONF lisbon.fo lisbon_pdf.pdf
+
+echo sh $SCRIPT -nocs -x -c $CONF article.fo article_pdf.pdf
+sh $SCRIPT -nocs -x -c $CONF article.fo article_pdf.pdf
+
