@@ -1,0 +1,40 @@
+The AUTHOR language is, in its basic form, simple. However,
+adding particular formatting, requires special markup.
+
+If you just wanted to write a book, just start typing.
+Whenever you enter an empty "return" (empty line),
+you make a new paragraph.
+
+Only one line needs to be added to all that text
+to make a book, article, etc.
+
+There is a little more, in that you have to
+ultimately supply "metadata" so that AUTHOR
+can embed it in the final e-documents. It
+is VITALLY important to include metadata
+with any electronic document. If you don't, you
+could lose copyright status, and your 
+document could become an internet "orphan",
+with no one knowing who wrote it, where it
+came from, etc, etc.
+
+SYNTAX
+
+As noted, all text is simply typed in, using
+a plain text editor ("gvim" is one example, but
+there are many others). Empty lines indicate
+a new paragraph.
+
+MARKUP, however, is indicated by special
+text in COLUMN 1 (very important!). The
+markup is followed by a single colon (:).
+
+COMMENTs, are lines that start in column
+1 with the string "!:". The exclamation (!)
+is the markup flag, the colon (:) indicates
+that all the rest of the line is ignored, but could
+contain lots of other things. For instance, if
+you have an existing line you don't want, but
+would like to keep around, just insert "!:"
+at column 1, and voila, it is a comment.
+
