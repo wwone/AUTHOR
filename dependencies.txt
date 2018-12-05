@@ -87,3 +87,14 @@ it. Kindle is not an issue at all, nor is EPUB output. The
 HTML output is not font-specific. You could alter the CSS
 to make it such, it's your call.
 
+For the examples I provide, I've uploaded, and use, the Arial font. You may
+use any fonts you want. In the case of printed PDF (especially for POD),
+you must embed those fonts. The FOP configuration file must specify
+embedded fonts, and their locations. Non-embedded fonts can be specified
+in the FOP input, and the running software will pick something "close". This
+includes that possibility that the PDF reader being used will also
+pick something "close".
+
+Note that the Arial fonts are FOR EXAMPLE ONLY, I'm not a font
+distributor or seller.
+
