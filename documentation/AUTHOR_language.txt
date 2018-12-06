@@ -38,3 +38,15 @@ you have an existing line you don't want, but
 would like to keep around, just insert "!:"
 at column 1, and voila, it is a comment.
 
+TEXT MARKUP
+
+If you want to add text in BOLDFACE, you place that
+text in its own line, starting with "B:" in column 1.
+If the previous line is non-empty, the bold text will
+be concatenated with it. The following non-empty line
+will be concatenated after the bold. Note that you
+should check whitespace carefully, both before and
+after the.
+
+
+
