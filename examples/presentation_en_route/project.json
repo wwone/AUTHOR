@@ -1,0 +1,72 @@
+{
+"comments":[
+"NOT USED, only for documentation",
+"updated 5/25/2018 to add empty CSS override",
+"updated 2/1/2018  for swanson en-route reveal presentation",
+"   which will be copied into 'project.json' before running book create",
+"",
+"ALL of this metadata is specific to the",
+"swanson en-route german presentation. It is made up",
+"of key-value pairs. The key is embedded in",
+"the generic boilerplate, and must be pretty",
+"unique. I use PROJECT_thingie as the pattern.",
+"Value is the replacement. Example PROJECT_AUTHOR",
+"has the value 'Bob Swanson'",
+"",
+"WARNING: when designing keywords, do not let any keyword be a substring of",
+" another, because the simple lookup search will see",
+" the substring FIRST and substitute it!",
+"",
+"Example: PROJECT_ISBN and PROJECT_ISBN_SIMPLE will find the",
+" first item before the second",
+"",
+"NOR should any keyword be the same as an actual boilerplate",
+" item. For instance, some schemas want ISBN as a field",
+" which could conflict with a keyword of the same name. Sooo",
+" use PROJECT_ as the start of keywords, please",
+"",
+"when there are multiple values in the value field",
+"they are separated with colons for later stripping",
+"",
+"NOTE: PROJECT_EPUB_KEYWORDS are used for Kindle, also"
+
+],
+
+"project":[
+"PROJECT_AUTHOR","Bob Swanson",
+"PROJECT_PUBLISHER","Military Postal History Society",
+"PROJECT_COPYRIGHT","Copyright by the author, 2018, but may be used freely for research or educational purposes.",
+"PROJECT_SIMPLE_ISBN","",
+"PROJECT_PAPER_ISBN","",
+"PROJECT_TYPE"," presentation ",
+"PROJECT_PUBLISH_DATE","2018-02-01",
+"PROJECT_HTML_CSS","dummy_not_used.css",
+"PROJECT_OVERRIDE_CSS","",
+"PROJECT_EPUB_CSS","dummy_not_used.css",
+"PROJECT_COVER_IMAGE","cover2017.jpg",
+"PROJECT_ISBN","",
+"PROJECT_TITLE","'En Route' Military Mail in the United States, 1917-19",
+"PROJECT_DESCRIPTION","This web page is a mini-presentation created by Bob Swanson, showcasing various 'en route' mail items from the First World War era, 1917-19 in the United States. Military men were moved by train throughout the US and a number of cards and letters survive, mailed onboard the trains. Many of the postal items show the handstamp of the Railway Post Office (RPO) clerks. RPO's were special cars on the trains that held mail and Post Office clerks who sorted and marked mail on the fly. This presentation is the property of its author, but is supplied to The Military Postal History Society (MPHS) for the benefit of its members and the general public for research and educational purposes. The MPHS is a non-profit organization for philatelists and stamp collectors interested in the collecting and studying of the postal aspects of all wars and military actions of all countries, including soldiers' campaign covers, naval mail, occupation and internment covers, patriotics, propaganda, V-mail, censorship and similar related material.",
+
+"PROJECT_RELATION","http://militaryphs.org",
+"PROJECT_SUBJECT","'En Route' Mail from military personnel on trains in the United States, 1917-19",
+
+"PROJECT_FRONT_MATTER","",
+
+"PROJECT_TOC_NCX_CONTENT","to_be_filled_in",
+
+"PROJECT_SPINE_CONTENTS","to_be_filled_in",
+
+"PROJECT_CONTENT_MANIFEST","to_be_filled_in",
+
+"PROJECT_IMAGE_MANIFEST","to_be_filled_in",
+
+"PROJECT_GUIDE_CONTENTS","<!-- unique to this project -->\n<reference type=\"acknowledgements\" title=\"Acknowledgements\" href=\"appendixe.xhtml\" />\n<reference type=\"bibliography\" title=\"Sources\" href=\"appendixc.xhtml\" />\n",
+
+"PROJECT_EPUB_KEYWORDS"," postal history: military mail: military: mphs: military postal history society: war:  war cover club: philately: stamp collecting: postal history: military mail: presentation: rpo: railway post office:train:railroad:en route:traveling post office:history",
+"PROJECT_KEYWORDS"," postal history: military mail: military: mphs: military postal history society: war:  war cover club: philately: stamp collecting: postal history: military mail: presentation: rpo: railway post office:train:railroad:en route:traveling post office:history"
+
+ ]
+        
+}
+

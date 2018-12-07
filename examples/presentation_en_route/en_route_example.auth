@@ -1,0 +1,94 @@
+PROJECT:CreateSpecialContent
+!: updated 3/21/2018 to conform to generalized project layout
+!: updated 2/8/2018 with changes for bullet list font sizes
+!:
+!:title page slide
+SECTION:title::Title Page::pics/en_route/mail_train.jpg
+H2:'En Route' Postal History
+H3:United States, First World War, 1917-19
+I:by Bob Swanson
+
+L:#/instructions::How To View This Presentation
+!:slide 1
+SECTION:about::About This Presentation:: 
+H3:About This Presentation
+LIST:90
+LI:Large numbers of military men were transported by rail throughout the United States during the First World War (1917-1919)
+LI:They often mailed cards and letters while onboard the trains
+LI:Some items are canceled by Railway Post Office (RPO) markings
+LI:The content of these postal items can be of great interest
+LI:These are only a small subset of such covers and cards
+LISTEND:
+!:slide 2
+SECTION:rules::Troop Train "Ground Rules":: 
+H3:Troop Train "Ground Rules"
+LIST:95
+LI:The men were not allowed off the train (a rare exception: time for exercise drill)
+LI:Generally, they were not informed of their destination
+LI:Sometimes letters were handed to Red Cross women at train stations for mailing (some even provided a stamp for the soldier's mailed item)
+LI:Otherwise, letters would have to be placed in the RPO slot on the train, or handed to a helpful civilian
+LISTEND:
+!:slide 3
+SECTION:wyoming::Cover and Letter Posted in Wyoming:: 
+H3:Cover and Letter Posted in Wyoming
+IM:en_route/wyoming_en_route_cover.jpg::en_route/wyoming_en_route_cover.jpg::.9::200::f::imxx409
+Cover from Soldier, posted in Green River, Wyoming, written on train
+LIST:80
+LI:Mailed in Green River, Wyoming
+LI:Letter indicates "written on train"
+LI:(Appears to be  mailed by civilian "Hugo" after letter handed to them by the soldier "Edward")
+LISTEND:
+!:slide 4
+SECTION:hospital_car::Postcard from Wounded Soldier in a Hospital Car:: 
+H3:Postcard from Wounded Soldier in a Hospital Car
+IM:en_route/pitts_chicago.jpg::en_route/pitts_chicago.jpg::.9::200::f::imxx410
+Postcard from Wounded Returning Soldier in a special hospital car
+LIST:70
+LI:Government Postal Card (GPC) mailed by wounded returning soldier, 1919
+LI:He writes that he is going to General Hospital #32, in a special hospital car
+LI:Canceled by RPO handstamp on train (Pittsburg & Chicago RPO)
+LISTEND:
+!:slide 5
+SECTION:hospital_car_back::Postcard from Wounded Soldier in a Hospital Car:: 
+H3:Postcard from Wounded Soldier in a Hospital Car
+IM:en_route/pitts_chicago_back.jpg::en_route/pitts_chicago_back.jpg::.9::200::f::imxx411
+Back of GPC from Wounded Returning Soldier in a special hospital car
+The image shows his written message.
+!:slide 6
+SECTION:little_rock::Little Rock, Arkansas:: 
+H3:Little Rock, Arkansas "En Route"
+IM:en_route/little_rock_transit.jpg::en_route/little_rock_transit.jpg::.9::200::f::imxx412
+Little Rock, Arkansas, Transit Clerk Handstamp
+LIST:
+LI:Soldier writes "going to Houston" (October 1917)
+LI:Canceled by "Transit Clerk" handstamp for Little Rock (Tr. Clerk office was usually located in a train station)
+LISTEND:
+!:slide 7
+SECTION:rpo_handstamp::"En Route" With RPO Handstamp:: 
+H3:"En Route" With RPO Handstamp
+IM:en_route/en_route_st_louis_rpo.jpg::en_route/en_route_st_louis_rpo.jpg::.9::200::f::imxx413
+En Route Card with RPO Handstamp
+LIST:
+LI:Written message: "we are on our way to somewhere"
+LI:Canceled by St. Louis & Parsons RPO handstamp (applied on board train in RPO car)
+LISTEND:
+!:slide 8
+SECTION:sailor::Sailor "En Route" From Great Lakes:: 
+H3:Sailor "En Route" From Great Lakes
+IM:en_route/columbus_from_great_lakes.jpg::en_route/columbus_from_great_lakes.jpg::.9::200::f::imxx414
+En Route Card with RPO Handstamp
+LIST:75
+LI:Sailor writes: "am standing a 2 hr watch now on train"
+LI:Uncommon to find 'en route' items from navy personnel
+LI:Canceled by International machine from main Columbus, Ohio, post office
+LISTEND:
+SECTION:ack::Acknowledgements:: 
+H3:Acknowledgements
+Examples from the collection of 
+L:http://swansongrp.com/mpos.html::Bob Swanson
+
+Mini-Presentation updated 8 February 2018
+
+This online slide presentation created with 
+L:http://lab.hakim.se/reveal-js/#/::reveal.js
+.
