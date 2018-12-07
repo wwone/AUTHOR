@@ -10,3 +10,7 @@ presentation may not meet expectations.
 It may be necessary to use a different 
 AUTHOR input, or re-design some of the layout
 to make the PDF appear more to your liking.
+
+Note that to create the PDF (not needed for
+REVEAL), you need the *.ttf (font) files from
+the other example.
