@@ -4,4 +4,9 @@ uses the REVEAL.js system.
 
 It is also possible to use the same AUTHOR input
 to create the presentation content as interactive
-PDF and print PDF.
+PDF and print PDF. However, note that the format
+and appearance of the PDF versions of the
+presentation may not meet expectations.
+It may be necessary to use a different 
+AUTHOR input, or re-design some of the layout
+to make the PDF appear more to your liking.
