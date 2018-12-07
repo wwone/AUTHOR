@@ -17,6 +17,7 @@
 # Courier.ttf     (Courier font used for this example, any other
 #                 may be used. However note that it will be 
 #                 embedded. see the configuration file "fop99.xconf")
+#                 The ABOVE fonts are located in the folder for the other example.
 # fop99.xconf    (Configuration file for FOP, expecially note
 #                information about fonts used, and landscape orientation)
 #
