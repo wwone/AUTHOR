@@ -14,3 +14,8 @@ to make the PDF appear more to your liking.
 Note that to create the PDF (not needed for
 REVEAL), you need the *.ttf (font) files from
 the other example.
+
+The good news, is that REVEAL is available
+on GitHub:
+
+https://github.com/hakimel/reveal.js#api
