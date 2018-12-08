@@ -1,0 +1,6 @@
+While the entire AUTHOR project is being run under
+the MIT license, note that the CONTENT of this
+example is Copyright 2018 by Bob Swanson. However, the
+content may be used freely for educational and
+research purposes. One such purpose is to act as
+an example of usage of the AUTHOR system.
