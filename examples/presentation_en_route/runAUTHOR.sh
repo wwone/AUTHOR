@@ -32,7 +32,9 @@ MEM=" -Xms100m -Xmx100m "
 #
 # the following listed JAR files must be in this
 # directory along with the "author.jar" which is
-# the executable for the AUTHOR system.
+# the executable for the AUTHOR system. NOTE that the
+# "author.jar" archive executable is available in the "lib"
+# folder of the GitHub repository
 #
 # ALSO, the Creat*json files must be present
 #
@@ -41,6 +43,7 @@ MEM=" -Xms100m -Xmx100m "
 CP=$CP:jackson-core-2.8.8.jar
 CP=$CP:jackson-databind-2.8.8.jar
 CP=$CP:jackson-annotations-2.8.0.jar
+# following can be the "author.jar" present in the "lib" folder of GitHub
 CP=$CP:author.jar
 CP=$CP:.
 
