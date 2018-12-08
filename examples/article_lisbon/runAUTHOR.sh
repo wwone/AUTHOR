@@ -23,7 +23,8 @@ echo stripped filename $y
 
 # note from below that certain JAR files must be present in this
 # directory, including the "author.jar" created when the AUTHOR
-# Java code is compiled
+# Java code is compiled. NOTE that "author.jar" is available
+# in this GitHub repository, in the "lib" folder.
 #
 # ALSO, if the AUTHOR source is not present in this directory, you
 # must also have all of the Create*.json files (from "source"
@@ -38,6 +39,7 @@ MEM=" -Xms100m -Xmx100m "
 CP=$CP:jackson-core-2.8.8.jar
 CP=$CP:jackson-databind-2.8.8.jar
 CP=$CP:jackson-annotations-2.8.0.jar
+# following can be the "author.jar" file from the "lib" folder on GitHub
 CP=$CP:author.jar
 CP=$CP:.
 
