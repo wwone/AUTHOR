@@ -6,7 +6,7 @@ published on a particular subject. Given the Java executable material
 of the folder to create the output e-documents from the AUTHOR
 source.
 
-The folder "presentation" is another example set. It is a
+The folder "presentation_en_route" is another example set. It is a
 presentation which AUTHOR converts to a REVEAL.js web page.
 Thus, the user can have a PowerPoint-like presentation that
 runs in the user's browser. The example also creates PDF
