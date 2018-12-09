@@ -1,0 +1,18 @@
+Once the AUTHOR program is executed correctly, there will be
+a "reveal.html" file in the working directory. For purposes
+of deploying this REVEAL.js web-based presentation, you
+will need to have not only this HTML file, but also
+the "utility.js" file. The directories "js", "css",
+"pics", and "thumbs" directories must also be present with
+the HTML. You may want to rename the "reveal.html"
+file to match your project.
+
+Once set up and tested, it is simple to combine all of these files
+into a ZIP archive and send the presentation to
+anyone, who can then view it with any browser that
+supports REVEAL. In my experience, it works well
+on computer screens (Win and Linux) with a variety of
+browsers, phones (Android), and tablets (Android). This 
+"website in a box" method of deployment can be much easier 
+than trying to distribute an e-document that requires a specific
+tool to read, such as PowerPoint, or even Kindle or PDF.
