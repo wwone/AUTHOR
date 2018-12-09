@@ -19,3 +19,8 @@ The good news, is that REVEAL is available
 on GitHub:
 
 https://github.com/hakimel/reveal.js#api
+
+Once the output has been created by AUTHOR,
+you will need to deploy the web-based presentation.
+See the "deployment.txt" file for more 
+information.
