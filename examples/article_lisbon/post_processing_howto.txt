@@ -1,6 +1,25 @@
 This file will contains descriptions of how to make the actual
-e-document output from AUTHOR. Note that HTML output will have
-been created by the initial execution of the Java code.
+e-document output from AUTHOR. 
+
+
+HTML
+-----
+
+Note that HTML output will have been created by the initial execution of 
+the Java code. In particular the file "single_page.html" will contain
+the entire e-document. To view it properly in a browser, you will, by default, 
+need the "poem.css", "poem.js", and "utility.js" files in the
+same directory as the HTML file. Naturally, if there are
+any images, you will also need the appropriate "pics" and
+"thumbs" directories in that directory. 
+
+All of these files an be combined into a ZIP file for distribution of your 
+e-document as a "website in a box", that can be sent to anyone, and read
+by anyone with a browser.
+
+
+PDF
+----
 
 The other outputs of this example will be:
 
@@ -13,8 +32,11 @@ must be present in the working directory. The scripts are very
 similar, the primary differences being the input files and
 scripts used.
 
+OTHER
+------
+
 3) Kindle (run creation script from the "pics" folder)
 
 4) EPUB (Use Calibre product to make conversion from AZW3 (Kindle)
-    to EPUB
+    to EPUB)
     
