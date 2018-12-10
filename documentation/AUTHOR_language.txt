@@ -68,7 +68,75 @@ By default, the document starts with an "Introduction"
 section. That can be the entire document, if you wish.
 However, to mark a new chapter, appendix, of other
 section, use the markup "SECTION:" starting in column
-1.
+1. The format of the SECTION: markup is:
+
+SECTION:name::title1::title2
+
+First of all, note that multiple values used in markup
+are separated from each other by double colons (::).
+The first field in a SECTION: is the name of the
+section. Names must be unique throughout the
+document. The two titles that follow are placed in the
+body of the document as headings, and are used in the
+Table of Contents (if you wish one).
+
+ANCHORS
+
+An "anchor" is a named location within your document.
+These are used as the references for "see also" links.
+If you do not need any interactivity in your document,
+don't bother. However, be aware that HTML, EPUB, PDF
+(interactive), and Kindle documents can have
+hyperlinks. At the very least, an index and Table of
+Contents uses hyperlinks to navigate through your
+document.
+
+You specify an anchor with two formats of markup:
+
+A:name
+
+Simple name. When this is referenced in a "see also", the
+reader product (browser, etc) will allow a jump to the
+location of the "A:" anchor, usually by clicking on
+the "see also" narrative. While the standard for 
+e-documents allows for such jumps, be aware that, sadly,
+not every reader product supports linkage.
+
+Be sure you create unique names for anchors. The
+AUTHOR program will be unhappy if it finds
+duplicates.
+
+A:name::group::narrative
+
+This anchor markup does double duty. It not
+only provides a destination for a jump, but it
+also allows anchors to be "grouped". The "group"
+name in the A: markup is used to allow you to 
+group locations by some scheme of your own creation.
+The "narrative" on the end, is the wording used for
+the link created. Example:
+
+(content)
+A:choc:ICECREAM::Chocolate Ice Cream
+(content)
+A:van:ICECREAM::Vanilla Ice Cream
+(content)
+A:straw::ICECREAM::Strawberry Ice Cream
+(content)
+Summary
+
+Various ice cream products in this document
+are:
+
+MAKELIST:ICECREAM
+
+(content)
+
+The "MAKELIST:" markup will take all of the
+assembled anchors that have that name (ICECREAM) and
+create a list in place that has all of the links to
+those locations. The "narrative" text will be 
+the text for the jumps.
 
 
 
