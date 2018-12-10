@@ -5,7 +5,7 @@ If you just wanted to write a book, just start typing.
 Whenever you enter an empty "return" (empty line),
 you make a new paragraph.
 
-Only one line needs to be added to all that text
+Only one line of markup needs to be added to all that text
 to make a book, article, etc.
 
 There is a little more, in that you have to
@@ -29,13 +29,23 @@ MARKUP, however, is indicated by special
 text in COLUMN 1 (very important!). The
 markup is followed by a single colon (:).
 
-COMMENTs, are lines that start in column
+If your text contains any of the markup items,
+such as "IM:", you can easily make it part of your
+document: just don't put it in column 1.
+
+Text is strung together as read by the program,
+so text can be in many fragments. But remember,
+an empty line means end of paragraph!
+
+COMMENTS
+
+These are lines that start in column
 1 with the string "!:". The exclamation (!)
 is the markup flag, the colon (:) indicates
-that all the rest of the line is ignored, but could
-contain lots of other things. For instance, if
-you have an existing line you don't want, but
-would like to keep around, just insert "!:"
+that all the rest of the line is ignored. That line 
+could contain lots of other things. For instance, if
+you have an existing line you don't want in your
+document right now, just insert "!:"
 at column 1, and voila, it is a comment.
 
 TEXT MARKUP
@@ -48,5 +58,44 @@ will be concatenated after the bold. Note that you
 should check whitespace carefully, both before and
 after the.
 
+Add "italic" text (often used for quoted material)
+by entering it on its own line, starting in column 1
+with "I:".
+
+CHAPTERS (aka SECTIONS)
+
+By default, the document starts with an "Introduction"
+section. That can be the entire document, if you wish.
+However, to mark a new chapter, appendix, of other
+section, use the markup "SECTION:" starting in column
+1.
 
 
+
+
+WHITESPACE
+
+For AUTHOR, this term means spaces. The final output from
+AUTHOR is used in many products, such as Kindle and
+web browsers. In these products, multiple spaces are
+collapsed to a single space. For that reason, you can
+use any number of spaces in your text. Just don't expect them
+to appear in the final output.
+
+Some difficulties will appear, if certain markup tags are
+not preceeded by spaces. Be sure the output appears the
+way you want.
+
+Example:
+
+We had a
+B:great
+time!
+
+Should appear as (cheating) "We had a <bold>great</bold> time!"
+You probably want a space between the "a" and "great". The way
+to ensure that, is to leave a trailing space after the "a" on the
+end of the first line. You may leave a space after the bolded
+text for readability, as well. Naturally, a bolded space is
+no different than a normal space. This pitfall also applies
+to "see also" markup, and other markup items.
