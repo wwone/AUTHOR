@@ -1,6 +1,11 @@
-This folder contains the full-quality images to be used
-in this article. Note, however, that for creation
-of PDF files, the images are limited to 500 pixels wide.
+This folder contains a sub-folder with the full-quality images 
+to be used in this article. The images should NOT be placed in
+this ("pics") directory, but rather in the sub-directory
+"fraser". This is done to allow multiple projects to share
+the same working space.
+
+Note, that for creation of PDF files, the images are limited to 500 
+pixels wide.
 
 When HTML created by AUTHOR is run in a browser, these
 "pics" will be referenced as the full-size image.
