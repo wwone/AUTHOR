@@ -12,3 +12,14 @@ When HTML created by AUTHOR is run in a browser, these
 When the PDF versions of this article are created,
 these images are embedded in the PDF file.
 Same applies to Kindle and EPUB output.
+
+- - - - - 
+
+KINDLE FILE CREATION
+
+This directory ("pics") contains the example files
+used when creating a Kindle e-document of the
+Fraser Lisbon article.
+
+Check the "create_kindle.sh" script for more
+information.
