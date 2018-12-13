@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
+  <!-- boilerplate for content.opf file used in Kindle creation -->
+  
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!</dc:title>
+      <dc:creator opf:role="aut">Ed Fraser</dc:creator>
+      <dc:language>en</dc:language>
+      <dc:subject>Newly discovered undercover address used during the Second World War in Lisbon, Portugal</dc:subject>
+      <dc:description>This article about a newly discovered WW II undercover address in Lisbon, Portugal was created by Ed Fraser. It is his property, but is offered to the public and members of the Military Postal History Society (MPHS) for educational purposes.</dc:description>
+      <dc:relation>http://militaryphs.org</dc:relation>
+<dc:subject>postal history</dc:subject>
+<dc:subject> wwii</dc:subject>
+<dc:subject> second world war</dc:subject>
+<dc:subject> covers</dc:subject>
+<dc:subject> stamps</dc:subject>
+<dc:subject> history</dc:subject>
+<dc:subject> military</dc:subject>
+<dc:subject> censorship</dc:subject>
+<dc:subject> belgium</dc:subject>
+<dc:subject> RAF</dc:subject>
+<dc:subject> undercover address</dc:subject>
+<dc:subject> lisbon portugal </dc:subject>
+
+      <dc:publisher>Military Postal History Society</dc:publisher>
+      <dc:date>2018-03-28</dc:date>
+      <dc:rights>Copyright Ed Fraser, the Military Postal History Society, 2017</dc:rights>
+	<meta name="cover" content="cover-image"/>
+</metadata>
+    <manifest>
+        <item id="toc" href="toc.ncx"
+          media-type="application/x-dtbncx+xml" />
+        <item id="mainitem" href="kindleindex.html" media-type="application/xhtml+xml" />
+<item id="cover-image" href="fraser/cover1.jpg" media-type="image/jpeg" />
+
+    </manifest>
+    <spine toc="toc">
+      <itemref idref="mainitem" linear="yes"/>
+    </spine>
+    <guide>
+    </guide>
+</package>

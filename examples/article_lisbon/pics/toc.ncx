@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" xml:lang="en" version="2005-1">
+    <head>
+<!-- boilerplate to make the toc.ncx file for KINDLE -->
+      <!-- 
+      The following four metadata items are required for all
+      NCX documents, including those conforming to the relaxed
+      constraints of OPS 2.0 -->
+      
+        <!-- <meta name="dtb:uid" content="978-0-9791085-2-5" /> -->
+        <meta name="epub-creator" content="Ed Fraser"/>
+        <meta name="dtb:depth" content="1" />
+        <meta name="dtb:totalPageCount" content="0" />
+        <meta name="dtb:maxPageNumber" content="0" />
+    </head>
+
+    <docTitle>
+     <text>How Another WWII Undercover Address in Lisbon is 'Uncovered' -- 34 Rua Ernesto da Silva, R/C Alges Esq., Lisboa, Portugal!</text>
+    </docTitle>
+    <docAuthor>
+      <text>Ed Fraser</text>
+    </docAuthor>
+
+
+    <navMap>
+
+
+<!-- start of boilerplate, every book has this -->
+<navPoint id="navPoint-1" playOrder="1">
+<navLabel>
+<text>Introduction</text>
+</navLabel>
+<content src="kindleindex.html#_introduction" />
+</navPoint>
+<navPoint id="navPoint-2" playOrder="2">
+<navLabel>
+<text>Background and Cover Illustrations</text>
+</navLabel>
+<content src="kindleindex.html#__background" />
+</navPoint>
+<navPoint id="navPoint-3" playOrder="3">
+<navLabel>
+<text>Discussion</text>
+</navLabel>
+<content src="kindleindex.html#__discussion" />
+</navPoint>
+<navPoint id="navPoint-4" playOrder="4">
+<navLabel>
+<text>Conclusion</text>
+</navLabel>
+<content src="kindleindex.html#__conclusion" />
+</navPoint>
+<navPoint id="navPoint-5" playOrder="5">
+<navLabel>
+<text>General Index</text>
+</navLabel>
+<content src="kindleindex.html#_general_index" />
+</navPoint>
+<!-- entry for indexes is programmatically placed above here -->
+    </navMap>
+</ncx>
