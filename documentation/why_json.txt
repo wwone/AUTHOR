@@ -1,0 +1,98 @@
+Why JSON in AUTHOR?
+
+The configuration and metadata
+input files to AUTHOR are written
+in Javascript Object Notation (JSON).
+
+Why?
+
+I have worked with various input file
+formats over the years, and this format
+seems to be the most compatible with
+software, while being fairly easy
+to be human-modified.
+
+For instance, XML, is a major data standard,
+but is very difficult for a human to
+read and modify.
+
+How?
+
+Nearly all of the JSON files used by AUTHOR
+consist of simple lists of strings. Some are pairs
+of keyword and value, still all strings.
+
+Each grouping of such data is named, which
+makes it easy to find, while editing the
+metadata.
+
+Example:
+
+"project":[
+"PROJECT_AUTHOR","Ed Fraser",
+"PROJECT_PUBLISHER","Military Postal History Society",
+"PROJECT_COPYRIGHT","Ed Fraser, the Military Postal History Society, 2017"]
+
+This data grouping is called "project", and lives in the
+"project.json" file. It contains keyword/value
+pairs for important metadata. It can easily be modified by
+the AUTHOR user to reflect the metadata for the project
+being created.
+
+Note that each string (keyword and value) is surrounded
+by double quotes. Each line is terminated by a comma
+(except the last string set). The set of strings
+is surrounded by square brackets ([]).
+
+Since the strings are surrounded by quotes, you have to
+"escape" any quotes that appear as text in your
+data. Example:
+
+"PROJECT_PUBLISHER","Military Postal History \"Society\"",
+
+Note that to pass the double quotes through that surround
+the word "Society", you have to place a backslash before
+the desired double quote character. This type of escaping
+MUST balance! The errors issued by the JSON processor
+can be confusing, so use with caution!
+
+
+You can use the example JSON files provided with
+this project, to enter your project metadata.
+
+- - - - - -
+
+The "canned" strings used to create the
+output of AUTHOR are, for the most part,
+embedded in the "Creat*.json" files, one
+for each output format. By modifying these
+files, you can change the look and feel of
+the appropriate e-document.
+
+Example:
+
+    "cover_page":[
+        "<!-- inside the first flow of the document --><fo:block text-align=\"center\">\n<!-- cover image follows -->\n",
+        "<fo:external-graphic src=\"pics/PROJECT_COVER_IMAGE\"  content-width=\"scale-to-fit\" content-height=\"80%\" />",
+        "</fo:block>\n"
+],
+
+This fragment is used by the Java code to create
+an Apache FOP file (which is later made into PDF).
+This is true XML, and should only be changed by
+someone familiar with XML and Apache FOP. (Note the
+use of escaping the double quotes, as discussed
+above.)
+
+Note the ALL CAPS items embedded in the value string. 
+The same field's value entered in the metadata (project.json) 
+file, will be inserted into this information, before it
+is written to the Apache FOP output. This feature
+allows the "boilerplate" nuts and bolts code
+to remain the same, while preventing the user from
+having to change complex XML files. The more-easily
+entered data in the "project.json" file is moved
+into the output, when it is called for.
+
+Similar JSON named entities are used for boilerplate
+information, such as HTML header text, etc.
