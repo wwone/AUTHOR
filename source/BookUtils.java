@@ -32,7 +32,11 @@ import com.fasterxml.jackson.databind.JsonNode;
  * we can handle it, we will have escaped output
  * in all the popular formats.
  *
- * updated 6/5/2018
+ * NOTE, as of 12/26/2018 we will try to escape the
+ * greater-than and less-than. These had not been
+ * experienced before. (see eT() method)
+ *
+ * updated 12/26/2018
  */
 
 public class BookUtils
@@ -180,11 +184,13 @@ public class BookUtils
         // not null, so replace the ampersands with the special HTML escape code
         //
         String newer = cont.replaceAll("&","&amp;");   // escape and signs with XML-compliant stuff
+        String newer2 = newer.replaceAll("<","&lt;");   // escape less-than
+        String newer3 = newer2.replaceAll(">","&gt;");   // escape less-than
 /*
  * convert to array of char, then check each one for more than 126, which is
  * the decimal for "normal" characters. Anything larger, gets escaped.
  */        
- 	     char input_characters[] = newer.toCharArray();
+ 	     char input_characters[] = newer3.toCharArray();
  	     StringBuffer result = new StringBuffer(); // good idea?
  	     for (int inner = 0; inner < input_characters.length ; inner++)
  	     {
