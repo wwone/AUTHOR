@@ -1,3 +1,6 @@
+[Note; This document will probably be replaced by a
+language writeup, created in LibreOffice.]
+
 The AUTHOR language is, in its basic form, simple. However,
 adding particular formatting, requires special markup.
 
