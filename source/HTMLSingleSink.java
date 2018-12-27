@@ -9,7 +9,10 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 12/1/2018
+ * last edited 12/26/2018
+ *
+ * correct H2 header for General section to have an ID for
+ * jumping purposes (TOC)
  *
  * remove dependency on old XMLUtils
  *
@@ -375,7 +378,9 @@ System.err.println("TOC:" + toc); // debugging
 		// print header for this SECTION
 	        g_state_pr.print(g_tit.gT("HEADER_START") +
 		"2" + // type 2 header seems right
-                g_tit.gT("TAG_END"));
+                g_tit.gT("ANCHOR_START") +
+		"_" + general_name +  // preceding _ for uniqueness
+                g_tit.gT("HEADER_ID2")); // make header2 with an ID for TOC jumping
 		g_state_pr.print(BookUtils.eT(general_title) + 
                  g_tit.gT("HEADER_END") +
 		"2" + // type 2 header seems right
