@@ -16,14 +16,9 @@
 #                cat book*.foprint > babb_print.fo
 # babb_print.fo  (FOP input after being combined from AUTHOR output)
 #
-# NEEDED? Arial*.ttf     (Arial fonts used for this example, any other
-#                 may be used. However note that they will be 
-#                 embedded. see the configuration file "fop99.xconf")
-# NEEDED? Courier.ttf     (Courier font used for this example, any other
-#                 may be used. However note that they will be 
-#                 embedded. see the configuration file "fop99.xconf")
 # fop99.xconf    (Configuration file for FOP, expecially note
-#                information about fonts used)
+#                information about fonts used, since this is sent
+#                to a printing company)
 #
 # following is the pathway to the installed FOP executable
 # package from the Apache FOP site. The "fop" at the
@@ -47,7 +42,7 @@ FOP_OPTS="-Xms400m -Xmx400m"
 export FOP_OPTS
 echo $FOP_OPTS
 
-echo sh $SCRIPT -nocs -x -c $CONF babb_print.fo babb_print.pdf
-sh $SCRIPT -nocs -x -c $CONF babb_print.fo babb_print.pdf >ppdf_create_temp1.txt 2>ppdf_create_temp2.txt
+echo sh $SCRIPT -nocs -x -c $CONF babb_print.fo babbage_book_print.pdf
+sh $SCRIPT -nocs -x -c $CONF babb_print.fo babbage_book_print.pdf >ppdf_create_temp1.txt 2>ppdf_create_temp2.txt
 
 tail ppdf*temp*txt
