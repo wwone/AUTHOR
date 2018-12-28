@@ -1,6 +1,8 @@
 {
 "overallCOMMENTS":[
 "updated 12/27/2018 for Babbage book",
+        "NOTE: the flag for default Introduction has been set to 'no'",
+        "'start_with_introduction' is the flag key",
 "updated 3/18/2018 for allowing general options in this file",
 "NOT USED, only for documentation",
 "updated 2/4/2018 as project-agnostic, format-specific data",
