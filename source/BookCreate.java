@@ -32,7 +32,19 @@ import org.w3c.dom.Element;
 
 /*
  * 
- * edited 12/1/2018
+ * edited 12/27/2018
+ *
+ * TO ADD: allow primitive tables. All of the output formats
+ * support table setup. Some are more sophisticated than others.
+ * TABLE: starts, ENDTABLE: ends. Each line between is
+ * assumed to be a row. Each cell is separated by ::
+ * Each SINK has to be altered to handle this. Kindle uses
+ * simple HTML <table>, HTML is naturally OK. FOP requires
+ * special tags for table construction.
+ *
+ *
+ * If user does not want "default" introduction, do not
+ * add to manifest.
  *
  * Remove dependency on old XMLUtils
  *
@@ -718,8 +730,12 @@ System.out.println("Options: " + g_options); // debugging
 	// NOTE we have not started the document, per the sink, just
 	// accumulating important items into the sink
 	//
-		g_sink.addToManifest("introduction","Introduction",
-			GenericSink.MANIFEST_GENERAL);
+		if (g_options.wantIntroductionByDefault())
+		{
+			// ONLY if the user wants it
+			g_sink.addToManifest("introduction","Introduction",
+				GenericSink.MANIFEST_GENERAL);
+		}
 		processGlobalContentReferences(main_section,"introduction" + g_file_extension);
 	/*
 	 * NOW, pre-process each of the other sections
