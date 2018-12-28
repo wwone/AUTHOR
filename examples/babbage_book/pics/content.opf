@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
+  <!-- boilerplate for content.opf file used in Kindle creation -->
+  
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>Economy Of Machinery And Manufactures</dc:title>
+      <dc:creator opf:role="aut">Charles Babbage</dc:creator>
+      <dc:language>en</dc:language>
+      <dc:subject>This book is an exposition on the state of manufacturing in Great Britain during the early 19th century.</dc:subject>
+      <dc:description>This book was written by Charles Babbage in 1832. It is an exposition on the state of manufacturing in Great Britain during that era. This edition was initially created by Project Gutenberg (read introduction information within the book).</dc:description>
+      <dc:relation>http://gutenberg.net</dc:relation>
+<dc:subject>manufacturing</dc:subject>
+<dc:subject>history</dc:subject>
+<dc:subject>gutenberg</dc:subject>
+<dc:subject>babbage</dc:subject>
+<dc:subject>great britain</dc:subject>
+<dc:subject>industry</dc:subject>
+<dc:subject>technology</dc:subject>
+      <dc:publisher>Project Gutenberg</dc:publisher>
+      <dc:date>2018-12-25</dc:date>
+<meta name="copyright" content="none, but read Project Gutenberg information embedded in the document"/>
+
+	<meta name="cover" content="cover-image"/>
+</metadata>
+    <manifest>
+        <item id="toc" href="toc.ncx"
+          media-type="application/x-dtbncx+xml" />
+        <item id="mainitem" href="kindleindex.html" media-type="application/xhtml+xml" />
+<item id="cover-image" href="cover1.jpg" media-type="image/jpeg" />
+
+    </manifest>
+    <spine toc="toc">
+      <itemref idref="mainitem" linear="yes"/>
+    </spine>
+    <guide>
+    </guide>
+</package>
