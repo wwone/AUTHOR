@@ -1,6 +1,7 @@
 The "lib" folder contains JAR files, and other executables needed for the AUTHOR system.
 
-Currently, 12/8/2018, the "author.jar" has been uploaded. Thus, a user does not
+The "author.jar" archive was first uploaded 12/8/2018, and updated
+12/28/2018. For trying examples, a user does not
 need to compile the Java code, in order to run AUTHOR. Be aware, that only
 the CLASS files are in this JAR, that is only the compiled Java code.
 
