@@ -1,0 +1,69 @@
+{
+"comments":[
+"NOT USED, only for documentation",
+"created 12/27/2018",
+"",
+"ALL of this metadata is specific to the",
+"babbage book, Project Gutenberg version. It is made up",
+"of key-value pairs. The key is embedded in",
+"the generic boilerplate, and must be pretty",
+"unique. I use PROJECT_thingie as the pattern.",
+"Value is the replacement. Example PROJECT_AUTHOR",
+"has the value 'Bob Swanson'",
+"",
+"WARNING: when designing keywords, do not let any keyword be a substring of",
+" another, because the simple lookup search will see",
+" the substring FIRST and substitute it!",
+"",
+"Example: PROJECT_ISBN and PROJECT_ISBN_SIMPLE will find the",
+" first item before the second",
+"",
+"NOR should any keyword be the same as an actual boilerplate",
+" item. For instance, some schemas want ISBN as a field",
+" which could conflict with a keyword of the same name. Sooo",
+" use PROJECT_ as the start of keywords, please",
+"",
+"when there are multiple values in the value field",
+"they are separated with colons for later stripping",
+"",
+"NOTE: PROJECT_EPUB_KEYWORDS are used for Kindle, also"
+
+],
+
+"project":[
+"PROJECT_AUTHOR","Charles Babbage",
+"PROJECT_PUBLISHER","Project Gutenberg",
+"PROJECT_COPYRIGHT","none, but read Project Gutenberg information embedded in the document",
+"PROJECT_TYPE"," book ",
+"PROJECT_HTML_CSS","skeleton.css",
+"PROJECT_OVERRIDE_CSS","",
+"PROJECT_COVER_IMAGE","cover1.jpg",
+"PROJECT_EPUB_CSS","mphs.css",
+"PROJECT_PUBLISH_DATE","2018-12-27",
+"PROJECT_DESCRIPTION","This book was written by Charles Babbage in 1832. It is an exposition on the state of manufacturing in Great Britain during that era. This edition was initially created by Project Gutenberg (read introduction information within the book).",
+
+"PROJECT_TITLE","Economy Of Machinery And Manufactures",
+"PROJECT_FRONT_MATTER","Economy Of Machinery And Manufactures:By -- Charles Babbage:Originally published 1832:Project Gutenberg version (see book introduction for information and license)",
+
+
+"PROJECT_RELATION","http://gutenberg.net",
+"PROJECT_EPUB_KEYWORDS","manufacturing:history:gutenberg:babbage:great britain:industry:technology",
+"PROJECT_KEYWORDS","manufacturing:history:gutenberg:babbage:great britain:industry:technology",
+
+"PROJECT_SUBJECT","This book is an exposition on the state of manufacturing in Great Britain during the early 19th century.",
+
+
+"PROJECT_TOC_NCX_CONTENT","to_be_filled_in",
+
+"PROJECT_SPINE_CONTENTS","to_be_filled_in",
+
+"PROJECT_CONTENT_MANIFEST","to_be_filled_in",
+
+"PROJECT_IMAGE_MANIFEST","to_be_filled_in",
+
+"PROJECT_GUIDE_CONTENTS","<!-- unique to this project -->\n"
+
+ ]
+
+}
+

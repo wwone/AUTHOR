@@ -1,0 +1,71 @@
+{
+"overallCOMMENTS":[
+"updated 12/27/2018 for Babbage book",
+"updated 3/18/2018 for allowing general options in this file",
+"NOT USED, only for documentation",
+"updated 2/4/2018 as project-agnostic, format-specific data",
+"created an options structure, which will",
+"drive the Sinks for various formats",
+"",
+"It is made up",
+"of key-value pairs. ",
+""
+
+],
+
+
+"format_optionsCOMMENTS":[
+"COMMENTS only, 12/27/2018",
+"",
+"format-specific options drive certain Sink objects",
+"",
+"if an option is not present, or this section",
+"is not present, assume DEFAULT behavior of",
+"each affected Sink",
+"",
+"HTMLSink:",
+"    HTML_MULTIPLE_PAGES, all HTML output is either",
+"         a single web page, or else all Sections",
+"         are separate web pages",
+"    HTML_FRONT_MATERIAL, do or do not include",
+"         front matter web pages, such as title page",
+"         cover page, preface, etc",
+"    HTML_FORMAT, is format used, which includes POEM",
+"         or SKELETON; POEM is default",
+"PDFSink (interactive)",
+"    PDF_COLUMN_COUNT, will be either 2 or 1",
+"         for the present time",
+"",
+"See, these options are NOT GENERIC!!",
+"HTML_FORMAT","SKEL"
+],
+
+"format_options":[
+"PDF_COLUMN_COUNT","1",
+"PDF_ORIENTATION","NOTUSED, setting is done in FOP configuration file, when actual PDF is created! So, Java code does not have to perform any special processing",
+"HTML_MULTIPLE_PAGES","true",
+"HTML_FRONT_MATERIAL","true",
+"HTML_FORMAT","POEM"
+],
+
+"general_optionsCOMMENTS":[
+"COMMENTS only, 12/25/2018",
+"DOCUMENT_TYPE", "ARTICLE",
+"DOCUMENT_TYPE", "PRESENTATION",
+"DOCUMENT_TYPE", "NEWSLETTER",
+""
+],
+
+"general_options":[
+"DOCUMENT_TYPE", "BOOK",
+"TOC", "yes",
+"index", "general",
+"title_page", "yes",
+"cover_page", "yes",
+"front_page", "no",
+"preface_page", "no",
+"start_with_introduction", "no"
+]
+        
+}
+
