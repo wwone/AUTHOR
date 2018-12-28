@@ -1,6 +1,0 @@
-PAT=/home/bob/bin/kindlegen/kindlegen
-
-##echo $PAT  -verbose -c2 -o USFacilitiesOfWWI.azw3 content.opf  >temp 2>temp2
-##$PAT  -verbose -c2 -o USFacilitiesOfWWI.azw3 content.opf  >temp 2>temp2
-echo $PAT  -verbose -c2 -o babbage_manufacture.azw3 content.opf 
-$PAT  -verbose -c2 -o babbage_manufacture.azw3 content.opf  >temp 2>temp2
