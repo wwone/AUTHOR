@@ -1,0 +1,32 @@
+A SIMPLE ALTERNATIVE TO AUTHOR
+
+Frankly, this system is not for every content
+creator. As noted before, one of the most
+powerful features is handling large numbers
+of images. In addition, the syntax of AUTHOR
+makes it easy to insert hyperlinks, so making
+an e-document fully interactive.
+
+If you don't need a system this complex, I
+recommend the following:
+
+1) Create your book using LibreOffice. If you
+   are only interested in the text, this is
+   a very good (and cheap) product to use.
+   
+2) Install "Calibre" on your computer.
+
+3) Import your LibreOffice file into
+   Calibre
+   
+4) VERY CAREFULLY update the metadata
+   information for your product, using
+   Calibre. Select or create a good cover image.
+   
+5) Create your e-document, using the
+   "convert books" feature of Calibre.
+   
+6) Carefully review your created e-documents
+   in Calibre, using its viewers.
+
+Publish
