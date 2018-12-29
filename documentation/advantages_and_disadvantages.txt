@@ -1,0 +1,61 @@
+Use of the AUTHOR system comes with both advantages and disadvantages.
+Carefully study this information, before jumping in to a project.
+
+ADVANTAGES
+- - - - - - -
+
+Simple input, using plain text, regardless of output format
+
+Wide variety of e-doc output formats created, using well-established
+   tools (Adobe FOP, Kindle "kindlegen", Calibre)
+
+Limited number of markups (some projects may not need much markup at all)
+
+Can handle large numbers of images (most "publish" systems choke
+   on large numbers of images)
+   
+Easy to add hyperlinks to an e-document, so creating a fully
+   interactive user experience
+   
+While not the official tool of choice, does a pretty good job of
+   creating REVEAL.js web-based presentations.
+   
+NOT a WYSIWYG editor
+
+Simple layout
+
+Output doesn't look like a fully-designed, sophisticated layout, such
+   that created by Microsoft Publisher (yes, that is an
+   advantage to some readers)
+   
+Output is designed to work well with small screens (phones)
+   and flow-specific reading documents, such as EPUB and
+   Kindle
+
+
+
+DISADVANTAGES
+- - - - - - - -
+
+
+Simple layout (yes, some people want 5 columns 
+   across)
+
+Does not support many sophisticated markups
+
+NOT a WYSIWYG editor
+
+Under "simple layout", note that this product does NOT flow
+  text around images
+  
+Output doesn't look like a fully-designed, sophisticated layout, such
+   that created by Microsoft Publisher
+   
+The Technical Editor who actually runs the product and produces
+the e-documents, must have a decent knowledge of file management
+and execution of programs on a computer. They also need to be able
+to manipulate images, if the e-document uses them. They need to be
+able to carefully edit JSON in a text editor, and in some cases, they may
+even have to program in Java to achieve sophisticated layout results.
+  
+  
