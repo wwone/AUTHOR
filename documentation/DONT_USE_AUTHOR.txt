@@ -29,4 +29,4 @@ recommend the following:
 6) Carefully review your created e-documents
    in Calibre, using its viewers.
 
-Publish
+7) Publish your e-documents
