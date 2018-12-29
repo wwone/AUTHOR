@@ -19,3 +19,6 @@ The "documentation" folder will contain various "how-to" writeups. Examples will
    roles is explained. The two roles are: (1) Content Creator
    and (2) Technical Editor. This document is in LibreOffice
    format.
+
+7) Document describing the advantages and disadvantages of
+   using AUTHOR for an e-document project. Text document.
