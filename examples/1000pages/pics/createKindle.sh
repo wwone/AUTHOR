@@ -1,18 +1,3 @@
-Skip to content
- 
-Pull requests
-Issues
-Marketplace
-Explore
- @wwone Sign out
-0
-0 0 wwone/AUTHOR
- Code  Issues 2  Pull requests 0  Projects 0  Wiki  Insights  Settings
-AUTHOR/examples/babbage_book/pics/make_kindle.sh
-@wwone wwone Update and rename makeK to make_kindle.sh
-fc87f2a  on Dec 28, 2018
-94 lines (90 sloc)  3.31 KB
-  
 #
 # this script combines the necessary files, and
 # then invokes the "kindlegen" program (from Amazon)
@@ -39,7 +24,7 @@ fc87f2a  on Dec 28, 2018
 # toc.ncx
 #
 # the example here contains both files, formatted
-# specifically for the Babbage book.
+# specifically for the 1,000 page example book.
 #
 # note that when AUTHOR executes, it creates two "template" 
 # files that contain nearly all of the information required by
@@ -73,13 +58,13 @@ fc87f2a  on Dec 28, 2018
 #
 PAT=/home/bob/bin/kindlegen/kindlegen
 
-echo $PAT  -verbose -c2 -o babbage_manufacture.azw3 content.opf 
-$PAT  -verbose -c2 -o babbage_manufacture.azw3 content.opf  >temp 2>temp2
+echo $PAT  -verbose -c2 -o x1000.azw3 content.opf 
+$PAT  -verbose -c2 -o x1000.azw3 content.opf  >temp 2>temp2
 
 #
 # the AZW3 file created is a valid Kindle ebook, and could be
-# uploaded to Amazon to be published and sold (but not for this
-# Project Gutenberg item). It can be
+# uploaded to Amazon to be published and sold (but NOT for
+this example, which contains non-interesting content). It can be
 # read by the ebook reading programs provided in Calibre.
 #
 # In addition, Amazon offers a "Kindle Previewer" program
@@ -106,15 +91,3 @@ $PAT  -verbose -c2 -o babbage_manufacture.azw3 content.opf  >temp 2>temp2
 # and this avenue could certainly be investigated by 
 # budding e-publishers.
 #
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
