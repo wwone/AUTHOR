@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
+  <!-- boilerplate for content.opf file used in Kindle creation -->
+  
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>Book Test (1,000 Pages)</dc:title>
+      <dc:creator opf:role="aut">Bob Swanson</dc:creator>
+      <dc:language>en</dc:language>
+      <dc:identifier id="BookId" opf:scheme="ISBN">PROJECT_SIMPLE_ISBN</dc:identifier>
+      <dc:subject>Example AUTHOR book, created to show that a 1,000 page book (with 1,000 illustrations) can be easily converted to e-document formats</dc:subject>
+      <dc:description>This book is an example provided to people interested in trying the AUTHOR system. It contains roughly 1,000 pages and 1,000 images. The intention is to demonstrate how easily AUTHOR handles such a large book content. The embedded text is from the Military Postal History Society (MPHS), and is provided for educational purposes. The content and format of this book is provided as an example freely under the MIT license, 2019</dc:description>
+      <dc:relation>https://github.com/wwone/AUTHOR</dc:relation>
+<dc:subject>electronic publishing</dc:subject>
+<dc:subject> author system</dc:subject>
+<dc:subject> github</dc:subject>
+<dc:subject> mit license</dc:subject>
+<dc:subject> example</dc:subject>
+<dc:subject> electronic document creation</dc:subject>
+
+      <dc:publisher>Bob Swanson</dc:publisher>
+      <dc:date>2019-03-10</dc:date>
+<meta name="copyright" content="Bob Swanson, for example purposes only, released under the MIT license, 2019"/>
+<meta name="cover" content="cover-image"/>
+</metadata>
+    <manifest>
+        <item id="toc" href="toc.ncx"
+          media-type="application/x-dtbncx+xml" />
+        <item id="mainitem" href="kindleindex.html" media-type="application/xhtml+xml" />
+<item id="cover-image" href="x1000/cover1.jpg" media-type="image/jpeg" />
+
+        
+
+    </manifest>
+    <spine toc="toc">
+      <itemref idref="mainitem" linear="yes"/>
+    </spine>
+    <guide>
+    </guide>
+</package>
