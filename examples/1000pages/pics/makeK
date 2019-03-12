@@ -1,4 +1,0 @@
-PAT=/home/bob/bin/kindlegen/kindlegen
-
-echo $PAT  -verbose -c2 -o x1000.azw3 content.opf  >temp 2>temp2
-$PAT  -verbose -c2 -o x1000.azw3 content.opf  >temp 2>temp2
