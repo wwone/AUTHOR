@@ -12,3 +12,10 @@ Thus, the user can have a PowerPoint-like presentation that
 runs in the user's browser. The example also creates PDF
 output files, but the format may not be of interest to the
 user. (More work needed on PDF output of presentations)
+
+The "1000" directory contains the necessary files to create
+a 1,000 page example of what AUTHOR can do. The input
+file is padded to a size that creates a 1,000 page (or so)
+PDF output. The other output formats have all been tested
+as well. The example includes 1,000 images as well (repeated
+from the same 10 JPG files...)
