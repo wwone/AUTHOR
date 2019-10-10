@@ -9,7 +9,10 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 10/8/2019
+ * last edited 10/9/2019
+ *
+ * add code for Tables. Note that we will use very simple table notation
+ * and not be dependent on format (VAN, SKEL, POEM)
  *
  * add coverage for vanilla framework HTML
  *
@@ -1006,5 +1009,37 @@ not appropriate for single page system
         } // end for each general index item
         return current_group;
     } // end create general index
+
+    public void startTable(String [] header_cells) throws Exception
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("<table>");
+		if (header_cells != null) // optional
+		{
+			pr.println("<th>");
+			for (int i = 0 ; i < header_cells.length ; i++)
+			{
+				pr.println("<td>" + header_cells[i] + "</td>");
+			}
+			pr.println("</th>");
+		}
+	} // end start table
+            
+    public void endTable() throws Exception
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("</table>");
+	}
+            
+    public void insertTableRow(String [] cells) throws Exception // multiple items in a row
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("<tr>");
+		for (int i = 0 ; i < cells.length ; i++)
+		{
+			pr.println("<td>" + cells[i] + "</td>");
+		}
+		pr.println("</tr>");
+	} // end insert table row
 
 } // end  html single sink
