@@ -1,14 +1,6 @@
 {
 "comments":[
-"updated 4/13/2018 change POEM headers to use publish date from project.json",
-"updated 4/10/2018 add identifiers for regular page locations",
-"updated 3/30/2018 for new object, single HTML output, many changes",
-"updated 3/20/2018 to break POEM into its own structure by name",
-"updated 3/20/2018 to break SKEL into its own structure by name",
-"updated 3/19/2018 fix syntax errors",
-"updated 2/7/2018 for setting font size in a list",
-"updated 2/5/2018 for making TOC a popup/down",
-"updated 1/27/2018 for creating any HTML using options settings",
+"updated 10/8/2019 add VANILLA as a layout system ",
 "  ALL entries will be grouped and start with name of format, such as 'POEM",
 "updated 5/21/2017 for project-agnostic, format-specific project",
 "NOTHING IN HERE will be specific to any project",
@@ -34,37 +26,7 @@
 
 "<a href=\"#index\">Jump to Indexes</a>",
 "<!-- end of page, but no POEM termination  -->\n\n"],
-"SKEL":
-["<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-"<!DOCTYPE html",
-"PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-"<html>",
-"<head>",
-"<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
-   "<meta http-equiv=\"Content-Type\" content=\"text/html\"/>\n",
-"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
-" PROJECT_COPYRIGHT",
-"<link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/>",
-       "<title>PROJECT_TITLE</title>",
-       "<meta name=\"keywords\" content=\"",
-" PROJECT_KEYWORDS",
-"\"/>",
-        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
-        "<meta name=\"EPB-UUID\" content=\"PROJECT_ISBN\"/>\n",
-
-   
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>",
-
-        
-  "<script type=\"text/javascript\" src=\"utility.js\">\n",
-        "<!-- must be full tag set to work with IE 6 -->\n",
-        "</script>\n",
-"<!-- google analytics SCRIPTS would be here -->\n",
-"</head>",
-"<body>",
-"  <div class=\"container\">",
- "   <div class=\"row\">",
-  "    <div class=\"twelve columns\" style=\"margin-top: 5%\">",
+"SKEL":[
   "<h1 id=\"_title_page\">",
 " PROJECT_TITLE",
 "<br/>",
@@ -73,11 +35,17 @@
 "</h1>",
 
 "<a href=\"#index\">Jump to Indexes</a>",
-"</div> <!-- wide col -->",
-"</div> <!-- wide row -->",
-"</div> <!-- container -->",
-"</body>",
-"</html>"]
+"<!-- end of page, but no skeleton termination  -->\n\n"],
+"VAN":[
+  "<h1 id=\"_title_page\">",
+" PROJECT_TITLE",
+"<br/>",
+"By: PROJECT_AUTHOR",
+"<br/>",
+"</h1>",
+
+"<a href=\"#index\">Jump to Indexes</a>",
+"<!-- end of page, but no vanilla termination  -->\n\n"]
 },
 
 "front_page":
@@ -92,32 +60,6 @@
 "<a href=\"#index\">Jump to Indexes</a>",
 "<!-- end of page, but no POEM termination  -->\n\n"],        
 "SKEL":[
-"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-"<!DOCTYPE html",
-"PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">",
-"<head>",
-"<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
-"<meta http-equiv=\"Content-Type\" content=\"text/html\"/>",
-"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
-" PROJECT_COPYRIGHT",
-"<link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/>",
-       "<title>PROJECT_TITLE</title>",
-       "<meta name=\"keywords\" content=\"",
-" PROJECT_KEYWORDS",
-"\"/>",
-        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
-        "<meta name=\"EPB-UUID\" content=\"PROJECT_ISBN\"/>\n",
-
-
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>",
-
-"<!-- google analytics SCRIPTS would be here -->\n",
-"</head>",
-"<body>",
-"  <div class=\"container\">",
- "   <div class=\"row\">",
-  "    <div class=\"twelve columns\" style=\"margin-top: 5%\">",
   "<a name=\"_front_page\"></a>",
 " PROJECT_FRONT_MATTER",
 "<br/>",
@@ -125,12 +67,16 @@
 "<br/>",
 "<br/>",
 "<a href=\"#index\">Jump to Indexes</a>",
-"</p>",
-"</div> <!-- wide col -->",
-"</div> <!-- wide row -->",
-"</div> <!-- container -->",
-        "</body>",
-        "</html>"]        
+"<!-- end of page, but no skeleton termination  -->\n\n"],
+"VAN":[
+  "<a name=\"_front_page\"></a>",
+" PROJECT_FRONT_MATTER",
+"<br/>",
+"<br/>",
+"<br/>",
+"<br/>",
+"<a href=\"#index\">Jump to Indexes</a>",
+"<!-- end of page, but no vanilla termination  -->\n\n"]
 },
 
 "cover_page":
@@ -152,31 +98,6 @@
 "<!-- end of page, but no POEM termination  -->\n\n"
 ],
 "SKEL":[
-"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-"<!DOCTYPE html",
-"PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-"<html>",
-"<head>",
-"<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
-"<meta http-equiv=\"Content-Type\" content=\"text/html\"/>",
-"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
-" PROJECT_COPYRIGHT",
-"<link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/>",
-       "<title>PROJECT_TITLE</title>",
-       "<meta name=\"keywords\" content=\"",
-" PROJECT_KEYWORDS",
-"\"/>",
-        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
-        "<meta name=\"EPB-UUID\" content=\"PROJECT_ISBN\"/>\n",
-
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>",
-
-"<!-- google analytics SCRIPTS would be here -->\n",
-"</head>",
-"<body>",
-"  <div class=\"container\">",
- "   <div class=\"row\">",
-  "    <div class=\"twelve columns\" style=\"margin-top: 5%\">",
   "<h1 id=\"_cover_page\">",
 "<br/>",
 "<img src=\"pics/PROJECT_COVER_IMAGE\" alt=\"[Book Cover]\"",
@@ -188,11 +109,25 @@
 "<br/>",
 "<br/>",
 "<a href=\"#index\">Jump to Indexes</a>",
-"</div> <!-- wide col -->",
-"</div> <!-- wide row -->",
-"</div> <!-- container -->",
-"</body>",
-"</html>"
+"<br/>",
+"<br/>",
+"<!-- end of page, but no skeleton termination  -->\n\n"
+],
+"VAN":[
+  "<h1 id=\"_cover_page\">",
+"<br/>",
+"<img src=\"pics/PROJECT_COVER_IMAGE\" alt=\"[Book Cover]\"",
+"width=\"95%\" ",
+"style=\"color:black;border:solid;border-width:2px\"/>",
+"</h1>",
+"<br/>",
+"<br/>",
+"<br/>",
+"<br/>",
+"<a href=\"#index\">Jump to Indexes</a>",
+"<br/>",
+"<br/>",
+"<!-- end of page, but no vanilla termination  -->\n\n"
 ]
 },
 
@@ -259,22 +194,21 @@
 "    write_controls2('Updated PROJECT_PUBLISH_DATE');\n",
 "</script>\n",
 
-        "<!-- end static header content -->\n\n" 
+        "<!-- end poem static header content -->\n\n" 
 ],
-"POEMORIG":[
+"SKEL":[
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n",
         "<!DOCTYPE html\n",
         "PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n",
         "<html>\n",
+        "<!-- start static header content -->",
         "<head>\n",
 "<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
         "<meta http-equiv=\"Content-Type\" content=\"text/html\"/>\n",
         "<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
 " PROJECT_COPYRIGHT",
 "<!-- hard-code CSS, not this <link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/> -->",
-"<link rel=\"stylesheet\" href=\"poem.css\"/>",
-"<script type=\"text/javascript\" src=\"poem.js\"> <!-- for layout -->",
-"<!-- must be full tag set to work with IE 6 --></script>",
+"<link rel=\"stylesheet\" href=\"skeleton.css\"/>",
 
        "<title>PROJECT_TITLE</title>",
        "<meta name=\"keywords\" content=\"",
@@ -289,7 +223,7 @@
         "<!-- must be full tag set to work with IE 6 -->\n",
         "</script>\n",
                  
-"<!-- override POEM settings and add special items for our use -->\n",
+"<!-- override skeleton settings and add special items for our use -->\n",
 "<style type=\"text/css\">\n",
 "a\n",
 "  {\n",
@@ -312,29 +246,26 @@
 "<!-- google analytics SCRIPTS would be here -->\n",
         "</head>\n",
         "<body>\n",
-"<!-- boilerplate for top of webpage -->\n",
-"<script type=\"text/javascript\" >\n",
-"    write_controls1();\n",
-"</script>\n",
-"<!-- DO NOT encase title in Javascript, let it be found by search engines -->\n",
-"<script type=\"text/javascript\" >\n",
-"    write_controls2('Updated PROJECT_PUBLISH_DATE');\n",
-"</script>\n",
-
-        "<!-- static header content -->" 
+"<div class=\"container\">",
+"<div class=\"row\">",
+      
+"<div class=\"twelve columns\" style=\"margin-top: 5%\">",
+        "<!-- end skeleton static header content -->\n\n" 
 ],
-"SKEL":[
+"VAN":[
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n",
         "<!DOCTYPE html\n",
         "PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n",
         "<html>\n",
+        "<!-- start VANILLA static header content -->",
         "<head>\n",
 "<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
         "<meta http-equiv=\"Content-Type\" content=\"text/html\"/>\n",
         "<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
 " PROJECT_COPYRIGHT",
 "<!-- hard-code CSS, not this <link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/> -->",
-"<link rel=\"stylesheet\" href=\"skeleton.css\"/>",
+"<link rel=\"stylesheet\" href=\"vanilla-framework-version-2.0.1.min.css\"/>",
+
        "<title>PROJECT_TITLE</title>",
        "<meta name=\"keywords\" content=\"",
 " PROJECT_KEYWORDS",
@@ -348,11 +279,33 @@
         "<!-- must be full tag set to work with IE 6 -->\n",
         "</script>\n",
                  
+"<!-- override vanilla settings and add special items for our use -->\n",
+"<style type=\"text/css\">\n",
+"a\n",
+"  {\n",
+"  font-size: 80%; \n",
+"  /* font-size: 110%; */\n",
+"  }\n",
+"  a.seealso\n",
+"  {\n",
+"  font-size: 100%;  /* inline no special size */\n",
+"  }\n",
+"p.caption\n",
+"  {\n",
+"   clear:left; \n",
+"   font-size: 80%; \n",
+"   font-style: italic;\n",
+"  }\n",
+"</style>\n",
+"TTOCC",
+
 "<!-- google analytics SCRIPTS would be here -->\n",
         "</head>\n",
         "<body>\n",
-        "<!-- static header content -->",
-"  <div class=\"container\">"
+"<section class=\"p-strip \" style=\"border: 1px solid #cdcdcd;\">",
+  "<div class=\"row\">",
+    "<div class=\"col-12\">",
+        "<!-- end VANILLA static header content -->\n\n" 
 ]
 },
 
@@ -371,6 +324,10 @@
 ],
 "SKEL":[
             "<h1 id=\"top\" >Table of Contents</h1>"
+            
+],
+"VAN":[
+            "<h1 id=\"top\" >Table of Contents </h1>"
             
 ]
 },
@@ -407,49 +364,23 @@
 "<!-- end of page, but no POEM termination  -->\n\n"
 ],
 "SKEL":[
-"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-"<!DOCTYPE html",
-"PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-"<html>",
-"<head>",
-"<!-- COMMENT NO EXTERNAL ACCESS, this page is for offline reading -->\n",
-"<meta http-equiv=\"Content-Type\" content=\"text/html\"/>",
-"<meta name=\"Author\" content=\"PROJECT_AUTHOR\"/>",
-" PROJECT_COPYRIGHT",
-        "<meta name=\"EPB-UUID\" content=\"PROJECT_ISBN\"/>\n",
-
-"<link rel=\"STYLESHEET\" href=\"PROJECT_HTML_CSS\"/>",
-       "<title>PROJECT_TITLE</title>",
-       "<meta name=\"keywords\" content=\"",
-" PROJECT_KEYWORDS",
-"\"/>",
-        "<meta name=\"description\" content=\"PROJECT_DESCRIPTION\"/>\n",
-
-
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>",
-
-"<!-- google analytics SCRIPTS would be here -->\n",
-"</head>",
-"<body>",
-"  <div class=\"container\">",
- "   <div class=\"row\">",
-  "    <div class=\"twelve columns\" style=\"margin-top: 5%\">",
   "<h1 id=\"_preface_page\">",
 "Preface for HTML Users</h1>",
 "<p>",
 "This is a version of the PROJECT_TYPE for use in a web browser. As such, this PROJECT_TYPE is a completely",
 "self-contained, interactive product, just as if you were reading a website. ",
-"There is a simple Table of Contents near the index listings, if present.",
+"The 'index' links within the document point to both a Table of Contents and all document indexes, if present.",
 "The PROJECT_TYPE is meant to be read in any order, with",
-"no specific flow, but since it is a single HTML page, content will flow from the beginning to the end.",
-"Using your web browser, you have complete control to move 'back' through your reading pathway. This is not",
+"no specific flow, but since this web page is a single HTML file,",
+"most content will flow downward from the beginning.",
+"With your web browser, you have complete control to move 'back' through your reading pathway. This is not",
 "the same as an EPUB or PDF document, which have a specific flow from page to page. Both the indexes and Table",
 "of Contents are made up of links that will send you to the appropriate text or illustration.",
-" The font and layout were designed to work with computer screens, phones, and tablets. However, the viewer may have trouble with the font size, depending on the device used. It is recommended that computer users, in particular use the CRTL+ key combination to make the screen view larger, if the font appears to be too small.",
+" The font and layout were designed to work with computer screens, phones, and tablets. The viewer may not always get the ideal font size, depending on the device used. Just use the buttons at the top of each page to make the text larger or smaller.",
 "</p>",
 "<p>",
 "The illustrations seen in-line are smaller thumbnails of the full illustrations.",
-"Clicking on a thumbnail activates a pop-up window with the full-quality illustration.",
+"Clicking on a thumbnail activates a pop-up window with a higher-quality illustration.",
 "Use of this feature requires that you configure your browser to 'allow pop-up",
 "windows'. The method of enabling this feature differs with each browser type.",
 "<br/>",
@@ -459,11 +390,36 @@
 "<br/>",
 "<a href=\"#index\">Jump to Indexes</a>",
 "</p>",
-"</div> <!-- wide col -->",
-"</div> <!-- wide row -->",
-"</div> <!-- container -->",
-"</body>",
-"</html>"
+"<!-- end of page, but no skeleton termination  -->\n\n"
+],
+"VAN":[
+  "<h1 id=\"_preface_page\">",
+"Preface for HTML Users</h1>",
+"<p>",
+"This is a version of the PROJECT_TYPE for use in a web browser. As such, this PROJECT_TYPE is a completely",
+"self-contained, interactive product, just as if you were reading a website. ",
+"The 'index' links within the document point to both a Table of Contents and all document indexes, if present.",
+"The PROJECT_TYPE is meant to be read in any order, with",
+"no specific flow, but since this web page is a single HTML file,",
+"most content will flow downward from the beginning.",
+"With your web browser, you have complete control to move 'back' through your reading pathway. This is not",
+"the same as an EPUB or PDF document, which have a specific flow from page to page. Both the indexes and Table",
+"of Contents are made up of links that will send you to the appropriate text or illustration.",
+" The font and layout were designed to work with computer screens, phones, and tablets. The viewer may not always get the ideal font size, depending on the device used. Just use the buttons at the top of each page to make the text larger or smaller.",
+"</p>",
+"<p>",
+"The illustrations seen in-line are smaller thumbnails of the full illustrations.",
+"Clicking on a thumbnail activates a pop-up window with a higher-quality illustration.",
+"Use of this feature requires that you configure your browser to 'allow pop-up",
+"windows'. The method of enabling this feature differs with each browser type.",
+"<br/>",
+"<br/>",
+"<br/>",
+"<br/>",
+"<br/>",
+"<a href=\"#index\">Jump to Indexes</a>",
+"</p>",
+"<!-- end of page, but no vanilla termination  -->\n\n"
 ]
 },
 
@@ -472,6 +428,7 @@
 "boilerplate": 
 {
 "POEM":[
+"POEMHERE","start boilerplate for POEM",
 "SKELETON_PAGE_CLOSE","<!-- terminate page, but no POEM termination -->\n",
 "SKELETON_PAGE_CLOSEprev","<!-- terminate POEM --><script type=\"text/javascript\" >\nfinal_cleanup(); // final javascript work to prepare to operate\n</script>\n</body></html>\n",
 "HIDDEN_MESSAGE","",
@@ -658,10 +615,13 @@
 
 
 
+"POEMHEREEND","end boilerplate for POEM",
 "",""
 ],
 "SKEL":[
-"SKELETON_PAGE_CLOSE","</div> <!-- container --></body></html>\n",
+"SKELETONHERE","start boilerplate for SKELETON",
+"SKELETON_PAGE_CLOSEprev","</div> <!-- container --></body></html>\n",
+"SKELETON_PAGE_CLOSE","<!-- terminate page, but no skeleton termination -->\n",
 "INDEX_SEEALSO_TARGET1","<a  href=\"",
 "HIDDEN_MESSAGE","",
 
@@ -672,7 +632,8 @@
 "TOC_LINK2", ">Table of Contents</a></p>",
 "END_SECTION","</div> <!-- end wide col --></div> <!-- end wide row --></div> <!-- main section container -->\n",
 
-"END_BODY"," <!-- end main section --> <!-- end all content --></body></html>\n",
+"END_BODY"," <!-- end main skeleton section --> <!-- end all skeleton content --></body></html>\n",
+"END_BODY_FINAL"," <!-- end main skeleton(f) section --> <!-- end all skeleton(f) content --></body></html>\n",
 "ABBREVIATION_START","<!-- start of abbreviation listing -->\n<p><a id=\"abbreviation_listing\"></a>\n",
 "ABBREVIATION_TABLE_START","<br/><br/><br/></p><table>\n",
 "ABBREVIATION_TABLE_ROW","<tr>\n",
@@ -777,7 +738,7 @@
 "ANCHOR_END", "\"></a>\n",
 "SIMPLE_ANCHOR_END", "</a>\n",
 "ENDING_BOILERPLATE","<hr/>\n <!-- all content -->\n</body></html>\n",
-"ENDING_INDEX_BOILERPLATE","<!-- end postfix --></body></html>\n",
+"ENDING_INDEX_BOILERPLATE","<!-- end skeleton postfix --></body></html>\n",
 
 "POSTFIX_CONTENT","<hr /><h1 >More Links</h1><p ><a href=\"#top\">Table of Contents</a></p>\n",
 
@@ -837,6 +798,190 @@
 
 
 
+"SKELETONHEREEND","end boilerplate for SKELETON",
+"",""
+],
+"VAN":[
+"VANILLAHERE","start boilerplate for VANILLA",
+"SKELETON_PAGE_CLOSEprev","</div> <!-- container --></body></html>\n",
+"SKELETON_PAGE_CLOSE","<!-- terminate page, but no VANILLA termination -->\n",
+"INDEX_SEEALSO_TARGET1","<a  href=\"",
+"HIDDEN_MESSAGE","",
+
+"LINE_BREAK","<br/>\n",
+"LINE_BREAK2","<br />",
+
+   "TOC_LINK1","<p ><a href=\"#top\">Table of Contents</a></p>",
+"TOC_LINK2", ">Table of Contents</a></p>",
+"END_SECTION","</div> <!-- end wide col --></div> <!-- end wide row --></div> <!-- main section container -->\n",
+
+"END_BODY"," <!-- end main vanilla section --> <!-- end all vanilla content --></body></html>\n",
+"END_BODY_FINAL"," <!-- end main vanilla(f) section, col, row --> </div></div> <!-- end all vanilla(f) content --></section></body></html>\n",
+"ABBREVIATION_START","<!-- start of abbreviation listing -->\n<p><a id=\"abbreviation_listing\"></a>\n",
+"ABBREVIATION_TABLE_START","<br/><br/><br/></p><table>\n",
+"ABBREVIATION_TABLE_ROW","<tr>\n",
+"ABBREVIATION_TABLE_CELL1","<td>",
+"ABBREVIATION_TABLE_CELL2","</td><td>", 
+"ABBREVIATION_TABLE_CELL_END","</td></tr>\n",
+"ABBREVIATION_TABLE_END","</table>\n",
+"PARAGRAPH_START","<p>\n",
+"PARAGRAPH_END","</p>\n",
+"PARAGRAPH_ANCHOR_START1","<p id=\"",
+"PARAGRAPH_ANCHOR_START2","<p  id=\"",
+
+"LIST_END","</ul>\n",
+"LIST_START","<ul >\n",
+"LIST_START_FONT1","<ul style=\"font-size: ",
+"LIST_START_FONT2","%;\">\n",
+"UNDERLINE_END","</u>\n",
+"UNDERLINE_START","<u >\n",
+
+"LIST_ITEM_START1","<li id=\"",
+"LIST_ITEM_START2","<li>",
+"LIST_ITEM_END","</li>",
+
+
+"TAG_ID_END", "\">",
+"TAG_ID_MIDDLE","\" ",
+"REFERENCE_PARAGRAPH_START","<p >\n",
+
+"PARAGRAPH_SEPARATOR_START1","<hr  id=\"",
+
+"PARAGRAPH_SEPARATOR_START2", "\"></hr>\n",
+"SEPARATOR_PARAGRAPH","<hr />\n",
+ 
+"NEWLINE","\n",
+
+"IMAGE_ANCHOR_START","<p><br/><img id=\"",
+"IMAGE_ANCHOR_START_SIMPLE","<p><br/><img ",
+"IMAGE_ANCHOR2","\" src=\"",
+"IMAGE_SOURCE_START","<p><br/><img src=\"",
+"IMAGE_LOC1","\" alt=\"[", 
+"IMAGE_LOC2","]\" width=\"300\" style=\"color:black;border:solid;border-width:2px\" />\n", 
+
+"IMAGE_CAPTION1","<br/><br/><i>", 
+"IMAGE_CAPTION2", "</i><br/><br/>\n",
+"IMAGE_CAPTION_START","</p> <p style=\"clear:left; font-style: italic;\">",
+             
+
+"PARAGRAPH_ID_BOLD_START","\"><b>",
+"PARAGRAPH_BOLD_END","</b></p>\n",
+"PARAGRAPH_BOLD_START","<p><b>",        
+"INDEX_LINK_START","<a href=\"#index",  
+"INDEX_LINK_END",">Index</a>\n",
+"TOC_LINK_START","<a href=\"TableOfContents",
+"TOC_LINK_END",">TOC</a>\n",
+
+"START_LIST","<ul>\n",
+"HEADER_START","<h",
+"HEADER_END","</h",
+"ANCHOR_START"," id=\"",
+"SIMPLE_ANCHOR_START","<a id=\"",
+"TAG_END",">\n",
+"HEADER1_START","<h1>",
+"HEADER_ID1","<h1 id=\"",
+"HEADER_ID2","\">",
+"HEADER_ID3","\"" ,
+"HEADER_ID4","<h1 ",
+
+
+"HEADER1_END","</h1>\n",
+"CITY_HEADER_START","<h2   id=\"state_",
+"FACILITY_HEADER_START","<h4   id=\"state_",
+
+"FACILITY_INDEX_START","<h4 id=\"facility_index\" >All Facilities</h4>\n",
+   
+
+"QUOTE_START","<q>",
+"QUOTE_END","</q>",
+
+"CITE_START","<cite>",
+"CITE_END", "</cite>",
+
+"BLOCKQUOTE_START","\n<p><blockquote>",
+"BLOCKQUOTE_END","</blockquote></p>\n",
+
+"EMPHASIZED_START","<b>",
+"EMPHASIZED_END","</b>",
+
+
+"PARAGRAPH_START2","<p >", 
+
+
+"CITY_HEADER_END","</h2>\n",
+"CITY_HEADER_ENDx","</h2><p>\n",
+"FACILITY_HEADER_END","</h4>\n",
+"FACILITY_HEADER_ENDx","</h4><p>\n",
+
+
+"STATE_ANCHOR_START","<p><a id=\"state_",
+"STATE_HEADING_START","<h1   id=\"state_",
+"GENERAL_ANCHOR_START","<p><a id=\"general_",
+"GENERAL_ANCHOR_START2","<a id=\"general_",
+"ANCHOR_END", "\"></a>\n",
+"SIMPLE_ANCHOR_END", "</a>\n",
+"ENDING_BOILERPLATE","<hr/>\n <!-- all content -->\n</body></html>\n",
+"ENDING_INDEX_BOILERPLATE","<!-- end vanilla postfix --></body></html>\n",
+
+"POSTFIX_CONTENT","<hr /><h1 >More Links</h1><p ><a href=\"#top\">Table of Contents</a></p>\n",
+
+
+"CITY_ANCHOR_MARKER","_city_" , 
+"FACILITY_ANCHOR_MARKER","_fac_" , 
+"SOURCE_PAGE_HEADER_START","<p>Source Page: ",
+"OPEN_DATE_HEADER_START","<p>Open: ",
+"CLOSE_DATE_HEADER_START","<p>Closed: ",
+"TROOP_COUNT_HEADER_START","<p>Maximum Troops: ",
+"HOSPITAL_ADMISSION_HEADER_START","<p>Hosp. Admissions: ",
+
+"FACILITY_FOOTER1","<p ><a href=\"#top\">Top</a>\n<a href=\"#state_",
+"FACILITY_FOOTER2","<a href=\"#state_",
+"FACILITY_FOOTER_END","<a href=\"#index\">Index</a></p>\n",
+
+"INLINE_IMAGE_START1","<p ><br /><a id=\"",
+"INLINE_IMAGE_START2","\"",
+"INLINE_IMAGE_START3","<p ><br /><a ",
+"INLINE_IMAGE_START4"," href=\"javascript:pop_up_image('",
+"INLINE_IMAGE_START5","',", 
+"INLINE_IMAGE_START6","'", 
+"INLINE_IMAGE_START7","');\"><img ",
+"INLINE_IMAGE_START8","',null,'--');\"><img ",
+"INLINE_IMAGE_START9","<p ><br /><img id=\"",
+"INLINE_IMAGE_START10","<p ><br /><img ",
+
+
+"INLINE_IMAGE_ALT","alt=\"[", 
+"INLINE_IMAGE_STYLE","]\" style=\"color:black;border:solid;border-width:2px\" src=\"thumbs/", 
+"INLINE_IMAGE_END","\"/></a>\n", 
+"INLINE_IMAGE_END2","\"/>\n", 
+
+
+"INDEX_CRUMB1","<a href=\"#",
+"INDEX_CRUMB10","<p><a href=\"#",
+"INDEX_TARGET1","<a href=\"",
+"INDEX_TARGET10","<p><a href=\"",
+"INDEX_TARGET2","#",
+"INDEX_CRUMB2","\">",
+"INDEX_CRUMB10_END","</a></p>\n",
+"INDEX_CRUMB_END","</a>\n",
+
+"POPUP_CLOSE","<a href=\"javascript:self.close()\">Close</a> the popup.",
+
+
+"STATE_INDEX_ID","_state_index",
+"STATE_INDEX_TITLE","State Index",
+"CITY_INDEX_ID","_city_index",
+"CITY_INDEX_TITLE","City Index",
+"FACILITY_INDEX_ID","_facility_index",
+"FACILITY_INDEX_TITLE","Facility Index",
+"FACILITY_NO_INDEX_ID","_facilityno_index",
+"FACILITY_NO_INDEX_TITLE","Facility (No Postal History) Index",
+"GENERAL_INDEX_ID","_general_index",
+"GENERAL_INDEX_TITLE","General Index",
+
+
+
+"VANILLAHEREEND","endboilerplate for VANILLA",
 "",""
 ]
 }
