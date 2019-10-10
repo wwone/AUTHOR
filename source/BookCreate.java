@@ -32,15 +32,15 @@ import org.w3c.dom.Element;
 
 /*
  * 
- * edited 12/27/2018
- *
- * TO ADD: allow primitive tables. All of the output formats
- * support table setup. Some are more sophisticated than others.
- * TABLE: starts, ENDTABLE: ends. Each line between is
- * assumed to be a row. Each cell is separated by ::
- * Each SINK has to be altered to handle this. Kindle uses
- * simple HTML <table>, HTML is naturally OK. FOP requires
- * special tags for table construction.
+ * modifed 10./9/2019
+ * 
+ * adding TABLE handling (very simple)
+ *    allow primitive tables. All of the output formats
+ *    support table setup. Some are more sophisticated than others.
+ *    TABLE: starts, ENDTABLE: ends. ROW: starts a row
+ *    ENDROW: ends a row, CELL: contains cell contents
+ *    NO formatting is allowed now, as this could become
+ *    very complex. 
  *
  *
  * If user does not want "default" introduction, do not
@@ -219,6 +219,8 @@ public class BookCreate extends GenericSource
 	public final static String OPTIONS_JSON = "options.json"; 
     
     public int g_char;
+
+	public List g_table_cell_contents = null; // for table cell contents
     
     public Facility g_facility = null; // no facility seen yet
 
@@ -1452,6 +1454,14 @@ System.out.println("Options: " + g_options); // debugging
                         author_state = 1; // now looking for end of paragraph
                         break;
                     } // end if P:
+                    if (the_line.startsWith("TABLE:"))
+                    {
+                        dump_paragraph(current_paragraph);
+                        // above starts a new paragraph
+                        author_state = 30; // now looking for rest of table
+			g_sink.startTable(null); // NO HEADER for now (future feature)
+                        break;
+                    } // end if TABLE:
                     if (the_line.startsWith("A:"))
                     {
                         anchor_processing(the_line);
@@ -1704,6 +1714,14 @@ System.out.println("Options: " + g_options); // debugging
                         index_processing(the_line,ref);
                         break;
                     } // end if IN:
+                    if (the_line.startsWith("TABLE:"))
+                    {
+                        dump_paragraph(current_paragraph);
+                        // above starts a new paragraph
+                        author_state = 30; // now looking for rest of table
+			g_sink.startTable(null); // NO HEADER for now (future feature)
+                        break;
+                    } // end if TABLE:
                     /*
                      * drop in here if no special markers, we treat this as plain text. However,
                      * to prevent too many "more text" entries, we will concatenate this
@@ -2012,6 +2030,55 @@ System.out.println("Options: " + g_options); // debugging
                     break;
                     
                 } // case 21, waiting end of listitem
+                
+                case 30:
+                    // waiting for ROW marker for TABLE (previous paragraph gone)
+                {
+                        
+                    if (the_line.startsWith("ROW:"))
+                    {
+			author_state = 31; // ready for CELL's
+			g_table_cell_contents = new ArrayList(); // for cell contents
+			// fall through to break...
+                    } // end if ROW:
+                        
+                    if (the_line.startsWith("ENDTABLE:"))
+                    {
+			g_sink.endTable(); // could be empty???!
+                    } // end if ENDTABLE:
+		// fall through, do nothing, will eventually lead to trouble...
+                    break;
+                } // end case 30, waiting for ROW
+                case 31:
+                    // waiting for CELL marker for current ROW in TABLE 
+			// g_table_cell_contents ready
+                {
+                    if (the_line.startsWith("ENDTABLE:"))
+			{
+				// force end of row, and table (ugly)
+				// take List and convert to array of String...
+				String [] xx = (String[])g_table_cell_contents.toArray(new String[0]);
+				g_sink.insertTableRow(xx);
+				g_sink.endTable();
+				author_state = 0; // back to look for text and markers
+				break;
+			}
+                    if (the_line.startsWith("ENDROW:"))
+			{
+				// end of this row, send out information
+				// take List and convert to array of String...
+				String [] xx = (String[])g_table_cell_contents.toArray(new String[0]);
+				g_sink.insertTableRow(xx);
+				author_state = 30; // back to look for ROW
+				break;
+			}
+                    if (the_line.startsWith("CELL:"))
+			{
+				g_table_cell_contents.add(the_line.substring(5)); // rest of line becomes cell (NO FORMATTING)
+				break; // keep looking for cells
+			}
+			// fall through, not cells, something may be wrong
+                } // end case 31, waiting for CELL
                 case 100:
                 {
                 	// accumulate text until ENDPRE:
