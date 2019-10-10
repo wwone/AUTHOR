@@ -13,7 +13,9 @@ import java.util.List;
 /*
  * base class for all HTML-specific special content creators. 
  *
- * Updated 6/5/2018
+ * Updated 10/8/2019
+ * 
+ * Adding Vanilla output for that HTML design 
  * 
  * Added code to create the "no postal history" listing 
  * as a separate stand-alone HTML page
@@ -33,6 +35,7 @@ public  class HTMLContentCreator extends SpecialContentCreator
 	 */
     public final static int FORMAT_SKELETON  = 0;
     public final static int FORMAT_POEM  = 1;
+    public final static int FORMAT_VANILLA  = 1;
 
 	/*
 	 * static methods that should not be in
@@ -52,6 +55,23 @@ public  class HTMLContentCreator extends SpecialContentCreator
          }
          INSIDE_FULL_WIDTH =  true;
          pr.println("<!-- full width -->\n<div class=\"row\"><div class=\"twelve columns\" style=\"margin-top: 5%\">");
+
+    }
+    /*
+     * print out a full page width "vanilla" grid starting div
+     */
+    public  static  void fullWidthVanilla(PrintWriter pr)
+    {
+        /*
+         * make lines to start a full-width section
+         */
+         if (INSIDE_FULL_WIDTH)
+         {
+         		pr.println("<!-- ALREADY IN FULL WIDTH -->\n");
+         }
+         INSIDE_FULL_WIDTH =  true;
+         pr.println("<!-- full width -->\n<div class=\"row\"><div class=\"twelve columns\" style=\"margin-top: 5%\">");
+// HERE VANILLA NEEDED
 
     }
 
@@ -81,6 +101,21 @@ public  class HTMLContentCreator extends SpecialContentCreator
      * ALSO works with full-width
      */
     public  static  void finishSkeleton(PrintWriter pr)
+    {
+    		if (!INSIDE_FULL_WIDTH)
+    		{
+    			pr.println("<!-- not inside full width area -->\n"); // problem?
+    		}
+        pr.print("<!-- finish col and row --></div> <!-- end of column --></div> <!-- end of row -->\n");
+        INSIDE_FULL_WIDTH = false; // no longer inside
+    }
+    /*
+     * print final code for a vanilla grid line entry
+     * this "line" may have contained several grid components
+     *
+     * ALSO works with full-width
+     */
+    public  static  void finishVanilla(PrintWriter pr)
     {
     		if (!INSIDE_FULL_WIDTH)
     		{
@@ -156,6 +191,11 @@ public  class HTMLContentCreator extends SpecialContentCreator
 		    make2ColumnsPoem(pr, items);
 			return;
 		}
+		if (format_flag == FORMAT_VANILLA)
+		{
+		    make2ColumnsPoem(pr, items); // FOR NOW, this is just a <table>
+			return;
+		}
 		// fell through, wrong format
 		pr.println("<!-- ERROR, WRONG FORMAT -->");
 	} // end make2Columns
@@ -173,7 +213,8 @@ public  class HTMLContentCreator extends SpecialContentCreator
 		// odd, we will just add a blank item
 		items.add(" ");
 	}
-        tot = items.size(); // recalculate, always even
+        tot = items.size();
+ // recalculate, always even
         int half = tot / 2;  
 	pr.println("<table>");
 	// write as left-right pairs

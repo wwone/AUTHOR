@@ -9,7 +9,9 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 12/1/2018
+ * last edited 10/8/2019
+ *
+ * add vanilla format for HTML
  *
  * remove dependency on old XMLUtils
  *
@@ -245,6 +247,10 @@ public class HTMLSink extends GenericSink
 	if (aform.equalsIgnoreCase("skel"))
 	{
 		g_html_format = HTMLContentCreator.FORMAT_SKELETON;
+	}
+	if (aform.equalsIgnoreCase("van"))
+	{
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA;
 	}
 	// none of the above, problems
         /*
@@ -1851,7 +1857,7 @@ System.err.println("TOC:" + toc); // debugging
          * content is spread around various files, such is also
          * done with HTML
          */
-        pr.print(" <!-- start postfix -->\n");  // no div
+        pr.print(" <!-- start postfix from Java(2) -->\n");  // no div
         
 	if (g_options.wantAnyIndex())
         {
