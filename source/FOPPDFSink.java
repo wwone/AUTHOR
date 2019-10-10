@@ -9,7 +9,10 @@ import java.util.TreeMap;
 
 /*
  *
- * last edited 12/1/2018
+ * updated 10/9/2019
+ * 
+ * first cut at Tables. We will use FOP table notation
+ *    these are VERY SIMPLE tables, no internal formatting
  * 
  * remove dependency on old XMLUtils 
  * 
@@ -2621,4 +2624,40 @@ not sure about following, omitted
 	{
 		g_options = op;
 	}
+
+    public void startTable(String [] header_cells) throws Exception
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("<fo:table>");
+		if (header_cells != null) // optional
+		{
+			// separate table header section, ONE ROW
+			pr.println("<fo:table-header><fo:table-row>");
+			for (int i = 0 ; i < header_cells.length ; i++)
+			{
+				pr.println("<fo:table-cell><fo:block>" + header_cells[i] + "</fo:block></fo:table-cell>");
+			}
+			pr.println("</fo:table-row></fo:table-header>");
+		}
+		pr.println("<fo:table-body>"); // start body
+	} // end start table
+            
+    public void endTable() throws Exception
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("</fo:table-body>"); // end body
+		pr.println("</fo:table>");
+	}
+            
+    public void insertTableRow(String [] cells) throws Exception // multiple items in a row
+	{
+		PrintWriter pr = getCurrentWriter();
+		pr.println("<fo:table-row>");
+		for (int i = 0 ; i < cells.length ; i++)
+		{
+			pr.println("<fo:table-cell><fo:block>" + cells[i] + "</fo:block></fo:table-cell>");
+		}
+		pr.println("</fo:table-row>");
+	} // end insert table row
+
 } // end  FOP interactive PDF sink
