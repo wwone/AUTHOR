@@ -8,7 +8,9 @@ import org.w3c.dom.Document;
 
 /*
  *
- * edited 12/1/2018
+ * updated 10/9/2019
+ * 
+ * initial work to create Tables
  * 
  * remove dependency on old XMLUtils, and stub out Adapter usage 
  * 
@@ -330,5 +332,36 @@ public abstract class GenericSink
 
 	public abstract void addToManifest(String name, String title,
 		int manifest_flag); // flag is from MANIFEST_items
+
+	/*
+	 * Table code
+	 * 
+	 * 1) start and end table
+	 * 
+	 * 2) start and end table row
+	 * 
+	 * 3) insert cell content
+	 * 
+	 * AS OF NOW, cell content is simple text. Making it more 
+	 * complex is a mess. The design of table management in AUTHOR
+	 * is a problem, just as it is a problem with underlying display
+	 * technology. Tables are a bitch in HTML, they are a bitch in
+	 * PDF (using FOP), etc, etc. Note that tables are handled pretty
+	 * well in Kindle and EPUB, because they inherit behavior from
+	 * the underlying HTML.
+	 * 
+	 * First cut tags: 
+	 * 
+	 * TABLE: and ENDTABLE:
+	 * ROW: and ENDROW: 
+	 * CELL:
+	 * 
+	 */
+            
+    public abstract void startTable(String [] header_cells) throws Exception; // header optional
+            
+    public abstract void endTable() throws Exception;
+            
+    public abstract void insertTableRow(String [] cells) throws Exception; // multiple items in a row
     
 } // end generic sink
