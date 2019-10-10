@@ -10,7 +10,9 @@ import java.util.Map;
 
 /*
  *
- * updated 12/1/2018
+ * updated 10/9/2019
+ *
+ * stub out Table handling (might work?) for now
  *
  * remove dependency on old XMLUtils
  *
@@ -1251,6 +1253,20 @@ throw new Exception("REVEAL system does not handle facilities");
         finishSkeletonx(pr);
         pr.print(g_tit.gT("SKELETON_PAGE_CLOSE"));
     } // end create postfix HTML
-
-
+            
+    public void startTable(String [] header_cells) throws Exception
+	{
+		throw new Exception ("REVEAL sink does not handle tables at this time.");
+	}
+            
+    public void endTable() throws Exception
+	{
+		throw new Exception ("REVEAL sink does not handle tables at this time.");
+	}
+            
+    public void insertTableRow(String [] cells) throws Exception // multiple items in a row
+	{
+		throw new Exception ("REVEAL sink does not handle tables at this time.");
+	}
+    
 } // end  REVEAL sink
