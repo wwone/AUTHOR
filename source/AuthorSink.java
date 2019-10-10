@@ -6,20 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.TreeMap;
+
 /*
  *
- * Rarely used, but kept for historical purposes
- *
- * Originally, the input to AUTHOR was XML-based. This
- * proved to be useless to the typical author, as few
- * people can "think in XML". When the text-based
- * AUTHOR input was created, this output Sink provided
- * a bridge for older XML intput to the newer system.
- */
- 
-/*
- *
- * last edited 12/1/2018
+ * modified 10/9/2019
+ * 
+ * add stubs for TABLES 
  * 
  * remove dependency on old XMLUtils 
  *
@@ -822,5 +814,20 @@ public void insertIntermediateBreak()
     {
         g_pr.println("NEWLINE REQUEST");
     }
+
+    public void startTable(String [] header_cells) throws Exception
+	{
+		throw new Exception ("AUTHOR output cannot handle tables");
+	} // end start table
+            
+    public void endTable() throws Exception
+	{
+		throw new Exception ("AUTHOR output cannot handle tables");
+	}
+            
+    public void insertTableRow(String [] cells) throws Exception // multiple items in a row
+	{
+		throw new Exception ("AUTHOR output cannot handle tables");
+	} // end insert table row
     
  } // end  Author sink in bulletins
