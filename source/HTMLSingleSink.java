@@ -9,7 +9,9 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 12/26/2018
+ * last edited 10/8/2019
+ *
+ * add coverage for vanilla framework HTML
  *
  * correct H2 header for General section to have an ID for
  * jumping purposes (TOC)
@@ -537,7 +539,7 @@ System.err.println("TOC:" + toc); // debugging
         fullWidth(pr); 
                 finishSkeletonx(pr);
 
-        pr.print(" <!-- start postfix -->\n");  // no div
+        pr.print(" <!-- start postfix from Java -->\n");  // no div
         
         fullWidth(pr);    
         makeNewLine(pr);
@@ -599,6 +601,10 @@ pr.println("<p><a href=\"#top\">Top</a></p>"); // get to top of page
 	if (aform.equalsIgnoreCase("skel"))
 	{
 		g_html_format = HTMLContentCreator.FORMAT_SKELETON;
+	}
+	if (aform.equalsIgnoreCase("van"))
+	{
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA;
 	}
 	// none of the above, problems
         /*
@@ -710,7 +716,7 @@ pr.println("<p><a href=\"#top\">Top</a></p>"); // get to top of page
          * content is spread around various files, such is also
          * done with HTML
          */
-        pr.print(" <!-- start postfix -->\n");  // no div
+        pr.print(" <!-- start postfix from Java -->\n");  // no div
         
 	if (g_options.wantAnyIndex())
         {
