@@ -38,4 +38,4 @@ customize most output. For more intricate work, a knowledge of Java is
 required.
 
 Source is provided here on GITHub as Java files, compilation scripts,
-documentation, and 3 examples of e-document creation.
+documentation, and 4 examples of e-document creation.
