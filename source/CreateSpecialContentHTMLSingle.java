@@ -18,7 +18,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /*
- * Modified 5/29/2018
+ * Modified 10/8/2019
+ *
+ * TODO: adding Vanilla to the layout systems available
  *
  * Work on making cover page, title page, etc OPTIONAL
  *
@@ -196,6 +198,10 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		if (format.equalsIgnoreCase("SKEL"))
 		{
 			the_format = FORMAT_SKELETON;
+		}
+		if (format.equalsIgnoreCase("VAN"))
+		{
+			the_format = FORMAT_VANILLA;
 		}
             IndexEntry the_entry = null;
             ReturnInformation to_return = null;
@@ -576,6 +582,10 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 					{
 						createTOCSKEL(pr, g_toc_content);
 					}
+					if (search_for.equalsIgnoreCase("VAN"))
+					{
+						createTOCVAN(pr, g_toc_content);
+					}
 				} // end if want TOC included
                             break;
                         } // end complete index for HTML
@@ -623,7 +633,8 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		all_toc.add(new TOCEntry("",""));
 		// BAD BAD BAD all_toc.add(" ");
 	}
-        tot = all_toc.size(); // recalculate, always even
+        tot = all_toc.size();
+ // recalculate, always even
         int half = tot / 2;  
 	pr.println("<table>");
 	// write as left-right pairs
@@ -717,6 +728,83 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
                 pr.println("</div>"  + "<!-- end row " + (rownum + 1) + " -->"); // one row per pair
             } // loop through half the items
 } // end make TOC SKEL version
+         
+	/*
+	 * override parent
+	 * 
+	 * special version of TOC for single page 
+	 */
+    public void createTOCVAN(PrintWriter pr,
+	List all_toc) throws Exception
+	{
+		// TOC title heading first
+//            HTMLSink.fullWidthSkeleton(pr);
+        
+            fullWidthVanilla(pr); // this is child should work
+                 pr.print("<h3  >Table of Contents</h3>\n");
+                 //pr.print("<h3 id=\"top\" >Table of Contents</h3>\n");
+//            HTMLSink.finishSkeleton(pr); // finish col and row only
+            finishVanilla(pr); // finish col and row only
+
+	TOCEntry the_item = null;
+
+	/*
+	 * TOC structure is:
+	 *	 the List contains TOCEntry objects
+	 * which will be written    in the 2-column layout
+	 */
+        
+            /*
+             * 2-column layout follows. 
+             * for 960, we passed each half in its own
+             * flow. For skeleton, we do alternate entries.
+             * so, 10 items, first row is item 1 and 6
+             * second is 2 and 7, third is 3 and 8, etc, etc
+             * NO HELPER for skeleton
+             */
+// no longer use            HTMLSink.make2Columns(pr,inner);
+            int tot = all_toc.size();
+            int half = tot / 2;  // will truncate, so 1 becomes 0, 2 becomes 1, 3 becomes 1, 4 becomes 2, etc
+            /*
+             * if the number of items is odd, we have to add one to the row count. we will not
+             * print any trailing item, in this case. if the number of items is even, nothing needs
+             * to be done
+             */
+            if ((tot & 1) != 0) // ok, figure out if odd (strange....)
+            {
+                half++;
+            }
+            for (int rownum = 0 ; rownum < half ; rownum++)
+            {
+                pr.println("<div class=\"row\">" + "<!-- row " + (rownum + 1) + " -->"); // one row per pair
+        //NEEDS WORK HERE
+        pr.print("<div class=\"five columns\" ");
+                if (rownum == 0)
+                {
+                    pr.print("style=\"margin-top: 5%\""); // padding on first row only
+                }
+                pr.println(">"); // first column
+                the_item = (TOCEntry)(all_toc.get(rownum)); // col item
+                pr.println("<a href=\"" + the_item.link +
+			"\">" + the_item.toc_title + "</a>"); // col item
+                pr.println("</div><!-- first column -->");
+                if ((rownum + half) < tot)
+                {
+                    // allow second column item
+                    pr.print("<div class=\"five columns\" ");
+                    if (rownum == 0)
+                    {
+                        pr.print("style=\"margin-top: 5%\""); // padding on first row only
+                    }
+                    pr.println(">"); // second column
+                the_item = (TOCEntry)(all_toc.get(rownum + half)); // col item
+                pr.println("<a href=\"" + the_item.link +
+			"\">" + the_item.toc_title + "</a>"); // col item
+                    pr.println("</div><!-- second column -->");
+                }
+                pr.println("</div>"  + "<!-- end row " + (rownum + 1) + " -->"); // one row per pair
+            } // loop through half the items
+} // end make TOC VAN version
 
     public ReplacementString getProjectKeyValue(String xx) throws Exception
     {
