@@ -13,9 +13,13 @@ import java.util.List;
 /*
  * base class for all HTML-specific special content creators. 
  *
- * Updated 10/8/2019
+ * Updated
+ * Wed 15 Jul 2020 06:44:43 AM CDT
  * 
- * Adding Vanilla output for that HTML design 
+ * Adding Vanilla output for that HTML design, AND setting it up 
+ *   so that the default is VANLIGHT (usual default p-strip). In addition,
+ *   allow VANDARK (uses p-strip--accent) so that we can have image-heavy
+ *   AUTHOR HTML output with a dark background. Default will be VANLIGHT.
  * 
  * Added code to create the "no postal history" listing 
  * as a separate stand-alone HTML page
@@ -35,7 +39,9 @@ public  class HTMLContentCreator extends SpecialContentCreator
 	 */
     public final static int FORMAT_SKELETON  = 0;
     public final static int FORMAT_POEM  = 1;
-    public final static int FORMAT_VANILLA  = 1;
+    public final static int FORMAT_VANILLA  = 2;
+    public final static int FORMAT_VANILLA_LIGHT  = 2; // default vanilla mode
+    public final static int FORMAT_VANILLA_DARK  = 3;
 
 	/*
 	 * static methods that should not be in
@@ -191,13 +197,18 @@ public  class HTMLContentCreator extends SpecialContentCreator
 		    make2ColumnsPoem(pr, items);
 			return;
 		}
-		if (format_flag == FORMAT_VANILLA)
+		if (format_flag == FORMAT_VANILLA) // default is LIGHT
+		{
+		    make2ColumnsPoem(pr, items); // FOR NOW, this is just a <table>
+			return;
+		}
+		if (format_flag == FORMAT_VANILLA_DARK)
 		{
 		    make2ColumnsPoem(pr, items); // FOR NOW, this is just a <table>
 			return;
 		}
 		// fell through, wrong format
-		pr.println("<!-- ERROR, WRONG FORMAT -->");
+		pr.println("<!-- ERROR, WRONG FORMAT: " + format_flag + " -->");
 	} // end make2Columns
 
     /*
@@ -231,9 +242,9 @@ public  class HTMLContentCreator extends SpecialContentCreator
 	/*
 	 * because we are trying to descend from
 	 * SpecialContentCreator, we have to implement
-	 * a bunch of stuff. These will all throw
-	 * exceptions. In fact, the HTML-creating children
-	 * of this object must override.
+	 * a bunch of stuff. As written here, these will all throw
+	 * exceptions. Thus, THEY MUST BE OVERRIDDEN, something we
+	 * cannot enforce during compilation.
 	 */    
        public void createStaticHeaders(Object out,
 	Object toc_content) throws Exception
