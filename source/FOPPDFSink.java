@@ -9,10 +9,12 @@ import java.util.TreeMap;
 
 /*
  *
- * updated 10/9/2019
+ * updated 10/24/2019
  * 
  * first cut at Tables. We will use FOP table notation
  *    these are VERY SIMPLE tables, no internal formatting
+ * 
+ * Fix table output so it is escaped (!) for XML 
  * 
  * remove dependency on old XMLUtils 
  * 
@@ -2635,7 +2637,9 @@ not sure about following, omitted
 			pr.println("<fo:table-header><fo:table-row>");
 			for (int i = 0 ; i < header_cells.length ; i++)
 			{
-				pr.println("<fo:table-cell><fo:block>" + header_cells[i] + "</fo:block></fo:table-cell>");
+				pr.println("<fo:table-cell><fo:block>" + 
+				 BookUtils.eT(header_cells[i]) + "</fo:block></fo:table-cell>"); // escape text for XML
+//				pr.println("<fo:table-cell><fo:block>" + header_cells[i] + "</fo:block></fo:table-cell>");
 			}
 			pr.println("</fo:table-row></fo:table-header>");
 		}
@@ -2655,7 +2659,9 @@ not sure about following, omitted
 		pr.println("<fo:table-row>");
 		for (int i = 0 ; i < cells.length ; i++)
 		{
-			pr.println("<fo:table-cell><fo:block>" + cells[i] + "</fo:block></fo:table-cell>");
+			pr.println("<fo:table-cell><fo:block>" + 
+                         BookUtils.eT(cells[i]) + "</fo:block></fo:table-cell>"); // escape text for XML
+			// cells[i] + "</fo:block></fo:table-cell>");
 		}
 		pr.println("</fo:table-row>");
 	} // end insert table row
