@@ -12,14 +12,15 @@ Required Java JAR's (for Java compilation and execution)
 - - - - - - - - - - - -
 
 Since JSON is handled by the Java code, you need all
-3 of the Jackson JAR's. I'm currently using:
+3 of the Jackson JAR's. I've previously used (successfully):
 
 jackson-core-2.8.8.jar
 jackson-databind-2.8.8.jar
 jackson-annotations-2.8.0.jar
 
-I have successfully tested the AUTHOR code with the
-latest Jackson. Therefore, you may used the current versions of 
+After testing the AUTHOR code with newer versions of Jackson,
+I can say that these work with no problems. The newer version
+I'm using is 2.9.7. Therefore, you may use the current versions of 
 these JAR's, which are located at:
 
 http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar
@@ -35,20 +36,27 @@ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.9
 Required CSS Files (for use when output is HTML)
 - - - - - - - - - - - - - -
 
+vanilla-framework-version-2.0.1.min.css (for both light (default) and dark)
+
+Previous, but should still work are:
+
 skeleton.css (for one mode of HTML, not the default)
 
-poem.css (for default mode of HTML)
+poem.css (was default mode of HTML, no longer)
 
 
 
 Required Javascript Files (for use when output is HTML)
 - - - - - - - - - - -
-poem.js (for default mode of HTML)
 
+utility_v.js (for Vanilla HTML output, to handle images)
 
-utility.js (for HTML output, to handle images)
+poem.js (ONLY if using the POEM format for HTML)
 
-reveal.js (for REVEAL mini-presentations. NOTE that several other
+utility.js (for non-Vanilla HTML output, to handle images) Use
+  the utility_v.js for Vanilla layout
+
+reveal.js (for REVEAL mini-presentations ONLY. NOTE that several other
      components of REVEAL are needed)
 
 
