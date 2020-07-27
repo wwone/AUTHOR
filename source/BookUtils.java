@@ -1302,5 +1302,5 @@ public class BookUtils
         } // end for each facility (NO) index item ordered by state,city
 	return nof_by_city;
     } // end create full facility with no postal history index ordered by state, city
-        
+
 } // end bookutils
