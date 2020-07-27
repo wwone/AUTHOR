@@ -28,7 +28,9 @@ Kindle (AZW3)
 
 EPUB (converted from Kindle using Calibre)
 
-HTML
+HTML, both as a single HTML file, or multiple HTML files for each SECTION
+       of the document. (HTML supports the Vanilla layout system, and
+       has code present to support POEM and Skeleton layouts.)
 
 "reveal.js" online presentation (HTML)
 
