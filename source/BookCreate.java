@@ -32,7 +32,7 @@ import org.w3c.dom.Element;
 
 /*
  * 
- * modifed 10./9/2019
+ * modified 10/23/2019
  * 
  * adding TABLE handling (very simple)
  *    allow primitive tables. All of the output formats
@@ -41,6 +41,16 @@ import org.w3c.dom.Element;
  *    ENDROW: ends a row, CELL: contains cell contents
  *    NO formatting is allowed now, as this could become
  *    very complex. 
+ *
+ * Add "RCELLS:" for multiple cells in a row. Entries separated by
+ *     "::" (This may be easier to use, than lots and lots of
+ *     CELL: entries inside ROW:
+ *
+ * TABLE: handler needs better error handling. If ANY
+ *    non-table informaiton occurs between TABLE: and ENDTABLE:
+ *    this should throw a recognizable error (DONE, with counter
+ *    for the nearby line where the error occurred)
+ *
  *
  *
  * If user does not want "default" introduction, do not
@@ -219,6 +229,12 @@ public class BookCreate extends GenericSource
 	public final static String OPTIONS_JSON = "options.json"; 
     
     public int g_char;
+
+	/* 
+	 * used for debugging user input
+	 * 
+	 */
+	int g_line_count = 0; // used for debugging user input
 
 	public List g_table_cell_contents = null; // for table cell contents
     
@@ -1147,9 +1163,12 @@ System.out.println("Options: " + g_options); // debugging
 		
         current_paragraph.clear(); // make sure empty
     	
+
     	while (lines.hasNext())
     	{
     		String the_line = (String)lines.next();
+		g_line_count++; // used for debugging user input
+//		System.out.println(g_line_count + ": " + the_line); // DEBUG
             
             String trimmed = the_line.trim();
             if (trimmed.length() == 0)
@@ -2042,6 +2061,20 @@ System.out.println("Options: " + g_options); // debugging
 			// fall through to break...
                     } // end if ROW:
                         
+                    if (the_line.startsWith("RCELLS:"))
+                    {
+			// all cells for this row specified in one line
+			String [] cells = (the_line.substring(7)).split("::");
+			//if (cells.length < 1)
+			//{
+				// empty row
+				// QUESTION: can sink handle cells array of length zero?
+				// QUESTION: can sink escape the cell contents correctly?
+				g_sink.insertTableRow(cells);
+			//}
+			break; // wait for more rows or rcells
+                    } // end if RCELLS:
+                        
                     if (the_line.startsWith("ENDTABLE:"))
                     {
 			g_sink.endTable(); // could be empty???!
@@ -2078,6 +2111,7 @@ System.out.println("Options: " + g_options); // debugging
 				break; // keep looking for cells
 			}
 			// fall through, not cells, something may be wrong
+			throw new Exception("State error: waiting for CELL: inside TABLE: structure, saw: '" + the_line + "' near line: " + g_line_count);
                 } // end case 31, waiting for CELL
                 case 100:
                 {
@@ -2820,7 +2854,7 @@ System.out.println("Options: " + g_options); // debugging
          * 1) main image filename
          * 2) thumbnail image filename
          * 3) pdfscale
-         * 4) htmlwidth
+         * 4) htmlwidth (null means no change, string means override when displaying [HTML])
          * 5) pdfuse
          * 6) caption ISSUE HERE BECAUSE we have multi-line captions, using
          *     the :: as a marker, grump! Do we require AUTHOR to use something
@@ -2975,6 +3009,20 @@ System.out.println("Options: " + g_options); // debugging
 			    the_image = result[0];
 			    the_thumb = result[1];
 				the_anchor = result[2]; // yes, required
+				the_htmlwidth = null; // indicate NO override of width when displayed
+				break;
+			}
+			/*
+			 * add extra field to the "short" system. Right after the
+			 * the anchor tag name, put in the overriding pixel width of the image
+			 * see above case, where there is no override, so the width is null
+			 */
+			case 4:
+			{
+			    the_image = result[0];
+			    the_thumb = result[1];
+				the_anchor = result[2]; // yes, required
+				the_htmlwidth = result[3]; // include an override of width when displayed
 				break;
 			}
 			case 6:
