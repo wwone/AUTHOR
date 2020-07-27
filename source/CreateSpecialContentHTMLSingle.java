@@ -110,7 +110,12 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 			PrintWriter pr = (PrintWriter)out; // this cast HAS TO WORK
 			Object someobject = null;
 			String search_for = getFormat();
-			Iterator ii = ((List)static_header_object.get(search_for)).iterator();
+			String formatx = search_for; // need to do special processing on the static header ONLY
+			if (formatx.equals("VAN"))
+			{
+				formatx = "VANLIGHT"; // default
+			}
+			Iterator ii = ((List)static_header_object.get(formatx)).iterator();
 			while (ii.hasNext())
 			{	
 			    someobject =  ii.next();
@@ -140,13 +145,18 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
          */
 	PrintWriter pr = (PrintWriter)out; // cast must work
 	String search_for = getFormat();
+	String formatx = search_for; // need to do special processing on the static header ONLY
+	if (formatx.equals("VAN"))
+	{
+		formatx = "VANLIGHT"; // default
+	}
 	if (g_options.wantCoverPage())
 	{
 		// first, make boilerplate if have not done so
 		createStaticHeaders(pr,null);
 		// now, make cover page content
 		BookUtils.createAPage(pr, 
-		(List)cover_page_object.get(search_for)); 
+		(List)cover_page_object.get(formatx)); 
 	}
 	if (g_options.wantTitlePage())
 	{
@@ -154,7 +164,7 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		createStaticHeaders(out,null);
 		// now, make title page
 		BookUtils.createAPage(pr, 
-		(List)title_page_object.get(search_for)); 
+		(List)title_page_object.get(formatx)); 
 	}
 	if (g_options.wantFrontMaterialPage())
 	{
@@ -162,7 +172,7 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		createStaticHeaders(out,null);
 		// make front material on same output file
 		BookUtils.createAPage(pr, 
-		(List)front_page_object.get(search_for));
+		(List)front_page_object.get(formatx));
 	}
 	if (g_options.wantPrefacePage())
 	{
@@ -170,7 +180,7 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		createStaticHeaders(out,null);
 		// create preface material
 		BookUtils.createAPage(pr, 
-		(List)preface_page_object.get(search_for));
+		(List)preface_page_object.get(formatx));
 	}
         
     } // end create title page (and more)
@@ -199,9 +209,13 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 		{
 			the_format = FORMAT_SKELETON;
 		}
-		if (format.equalsIgnoreCase("VAN"))
+		if (format.equalsIgnoreCase("VANLIGHT"))
 		{
-			the_format = FORMAT_VANILLA;
+			the_format = FORMAT_VANILLA_LIGHT;
+		}
+		if (format.equalsIgnoreCase("VANDARK"))
+		{
+			the_format = FORMAT_VANILLA_DARK;
 		}
             IndexEntry the_entry = null;
             ReturnInformation to_return = null;
@@ -582,7 +596,15 @@ public  class CreateSpecialContentHTMLSingle extends CreateSpecialContentHTML
 					{
 						createTOCSKEL(pr, g_toc_content);
 					}
-					if (search_for.equalsIgnoreCase("VAN"))
+					/*
+					 * DO THE FOLLOWING need to be separate methods? Or is a generic
+					 * "createTOCVAN" good enough?
+					 */
+					if (search_for.equalsIgnoreCase("VANDARK"))
+					{
+						createTOCVAN(pr, g_toc_content);
+					}
+					if (search_for.equalsIgnoreCase("VANLIGHT"))
 					{
 						createTOCVAN(pr, g_toc_content);
 					}
