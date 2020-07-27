@@ -18,9 +18,18 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /*
- * Modified 10/7/2019
+ * Modified 
+ * Wed 15 Jul 2020 08:49:57 AM CDT
+ *
+ * TODO: 
  *
  * Add Vanilla to layout systems
+ *   There are two variants, vanlight and vandark, process them
+ *   correctly.
+ *
+ * BUG: when the JSON is not formatted for the right type
+ *   of HTML layout (VAN, SKEL, etc), the code throws an Exception
+ *   but provides no helpful information (fixed)
  *
  * Work on making cover page, title page, etc OPTIONAL
  *
@@ -40,7 +49,10 @@ import com.fasterxml.jackson.databind.JsonNode;
  * HTML creator. It will read flags in the options.json file
  * to drive several features, such as:
  *
- * 1) POEM or SKELETON HTML output
+ * 1) POEM, VANILLALIGHT, VANILLADARK, or SKELETON HTML output
+ *    As of 2020, less attention will be given to POEM and SKELETON,
+ *    so issues may creep in as Vanilla is chosen as the layout
+ *    system of choice for HTML output.
  *
  * 2) Single HTML page, or one page per SECTION (or state, etc)
  *
@@ -53,7 +65,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  *
  *
  *
- * TODO: change TOC to be dynamic "click to see table of contents", use
+ * change TOC to be dynamic "click to see table of contents", use
  *      Javascript to reveal and hide TOC (DONE)
  *
  */
@@ -141,12 +153,12 @@ public  class CreateSpecialContentHTML extends HTMLContentCreator
 /* System.err.println("userData: " +userData);
 System.err.println("Title Page: " + userData.get("title_page"));
 */
-            static_header_object = (Map)userData.get("static_header"); // has entries for POEM, Vanilla, and SKEL
-            title_page_object = (Map)userData.get("title_page"); // has entries for POEM, VAN, and SKEL
-            cover_page_object = (Map)userData.get("cover_page"); // has entries for POEM, VAN, and SKEL
-            front_page_object = (Map)userData.get("front_page"); // has entries for POEM, VAN, and SKEL
-            preface_page_object = (Map)userData.get("preface_page"); // has entries for POEM, VAN, and SKEL
-            table_of_contents_object = (Map)userData.get("table_of_contents"); // has entries for POEM, VAN, and SKEL
+            static_header_object = (Map)userData.get("static_header"); // has entries for POEM, Vanilla (both types), and SKEL
+            title_page_object = (Map)userData.get("title_page"); // has entries for POEM, VAN (ONE type), and SKEL
+            cover_page_object = (Map)userData.get("cover_page"); // has entries for POEM, VAN (ONE type), and SKEL
+            front_page_object = (Map)userData.get("front_page"); // has entries for POEM, VAN (ONE type), and SKEL
+            preface_page_object = (Map)userData.get("preface_page"); // has entries for POEM, VAN (ONE type), and SKEL
+            table_of_contents_object = (Map)userData.get("table_of_contents"); // has entries for POEM, VAN (ONE type), and SKEL
             /*
              * JSON objects all appear to be just fine, we will unpeel
              * them when they are needed for output
@@ -168,6 +180,9 @@ System.err.println("Title Page: " + userData.get("title_page"));
          * FOR NOW, they are individual HTML files.
          * once I figure out how to do a "single page" system, they will
          * be created as one stream (see Kindle creation for a model)
+	 *
+	 * WARNING: here we are using the createAPage method from BookUtils, NOT the method
+	 *   embedded in this object (createSpecialContentHTML)
          */
 	String search_for = getFormat();
 	if (g_options.wantCoverPage())
@@ -197,6 +212,13 @@ System.err.println("Title Page: " + userData.get("title_page"));
     } // end create metadata
     
 	/*
+	 * create the static headers, making inline changes as needed, based
+	 * on PROJECT option specifications
+	 *
+	 * NOTE: unlike other boilerplate, there are entries in the static header
+	 * JSON for VANILLA in both "light" (default) and "dark" modes. We have to
+	 * treat the option setting a bit differently than for the other boilerplate
+	 * JSON objects.
 	 * 
 	 * TOC content will be passed as the second
 	 * object
@@ -224,6 +246,12 @@ System.err.println("Title Page: " + userData.get("title_page"));
         PrintWriter pr = (PrintWriter)out; // this cast HAS TO WORK
         Object someobject = null;
 	String search_for = getFormat();
+	if (search_for.equals("VAN"))
+	{
+		// set default as light
+		// any other entry is taken as-is, including VANLIGHT and VANDARK
+		search_for = "VANLIGHT";
+	}
         Iterator ii = ((List)static_header_object.get(search_for)).iterator();
         while (ii.hasNext())
         {	
@@ -253,8 +281,20 @@ System.err.println("Title Page: " + userData.get("title_page"));
 	 */
 	if (toc_content != null)
 	{
-		pr.println("<h3 id=\"top\" onclick=\"reverse_toc();\">");
-		pr.println("Table of Contents <span style=\"font-size:50%;\">(Click to Open/Close)</span></h3>");
+		// appearance is different depending on the Vanilla mode
+		if (search_for.equals("VANDARK"))
+		{
+			// for DARK ONLY (color is yellow)
+			pr.println("\n<h3 id='top' style=' color: #ff0;' onclick='reverse_toc();'>");
+			pr.println("<span style='font-size:75%;'>Table of Contents</span> <span style='font-size:50%;'>(Click to Open/Close)</span></h3>");
+		}
+		else
+		{
+			// everyone else (testing blue)
+			pr.println("<h3 id=\"top\" style=' color: #00F;' onclick=\"reverse_toc();\">");
+			//pr.println("Table of Contents <span style=\"font-size:50%;\">(Click to Open/Close)</span></h3>");
+			pr.println("<span style='font-size:75%;'>Table of Contents</span> <span style='font-size:50%;'>(Click to Open/Close)</span></h3>");
+		}
 
 		/*
 		 * Bottom links, breadcrumbs, etc are NOT needed 
@@ -354,6 +394,9 @@ public String checkForReplacementTitle(String content,
 	/*
 	 * SPECIAL version for HTML objects, as the inner
 	 * structure is different than others
+	 *
+	 * NOTE: elsewhere in this object, we are using createAPage,
+	 * but it is the BookUtils utility method, NOT the following.
 	 */
         public void createAPage(String filename, List page_object)
 	throws Exception
@@ -823,7 +866,11 @@ public String checkForReplacementTitle(String content,
 		 * we must pass a format value to the 2column layout
 		 */
 		String format = getFormat();
-		int the_format = 999; // dummy to starto		
+		/*
+		 * format is set to dummy, first. HOWEVER this causes strange errors later in the processing	
+		 * BAD BOB
+		 */
+		int the_format = 999; // dummy to start	HOWEVER this causes strange errors later in the processing	
 		if (format.equalsIgnoreCase("POEM"))
 		{
 			the_format = FORMAT_POEM;
@@ -832,9 +879,13 @@ public String checkForReplacementTitle(String content,
 		{
 			the_format = FORMAT_SKELETON;
 		}
-		if (format.equalsIgnoreCase("VAN"))
+		if (format.equalsIgnoreCase("VANLIGHT"))
 		{
-			the_format = FORMAT_VANILLA;
+			the_format = FORMAT_VANILLA_LIGHT;
+		}
+		if (format.equalsIgnoreCase("VANDARK"))
+		{
+			the_format = FORMAT_VANILLA_DARK;
 		}
             IndexEntry the_entry = null;
             ReturnInformation to_return = null;
@@ -1183,6 +1234,8 @@ public String checkForReplacementTitle(String content,
 		 * invoke a "generic" stringReplacer, then
 		 * do the work ourselves.
 		 * 
+		 * NOTE: we are using a bunch of globals here 
+		 * 
 		 */
 	String search_for = getFormat();
 		project_keys = processMetaData(
@@ -1190,19 +1243,50 @@ public String checkForReplacementTitle(String content,
 			null,false); // DONT let them run stringReplacer
 			//null,true); // debugging on
 System.out.println("in csHTML, project_keys: " + project_keys);
-		stringReplacer((List)static_header_object.get(search_for),
-			project_keys);  // use parent method
-		stringReplacer((List)title_page_object.get(search_for),
-			project_keys);  // use parent method
-		stringReplacer((List)cover_page_object.get(search_for),
-			project_keys);  // use parent method
-		stringReplacer((List)front_page_object.get(search_for),
-			project_keys);  // use parent method
-		stringReplacer((List)preface_page_object.get(search_for),
-			project_keys);  // use parent method
-		stringReplacer((List)table_of_contents_object.get(search_for),
-			project_keys);  // use parent method
+		String formatx = search_for; // need to do special processing on the static header ONLY
+		if (formatx.equals("VAN"))
+		{
+			formatx = "VANLIGHT"; // default
+		}
+		stringReplacerCheck(static_header_object,formatx," in static_header"); // format could be VANLIGHT, VANDARK, SKEL, POEM
+		/*
+		 * shouldn't we be using the corrected format?
+		stringReplacerCheck(title_page_object,search_for," in title_page");
+		stringReplacerCheck(cover_page_object,search_for," in cover_page");
+		stringReplacerCheck(front_page_object,search_for," in front_page");
+		stringReplacerCheck(preface_page_object,search_for," in preface_page");
+		stringReplacerCheck(table_of_contents_object,search_for," in table_of_contents");
+		*/
+		stringReplacerCheck(title_page_object,formatx," in title_page");
+		stringReplacerCheck(cover_page_object,formatx," in cover_page");
+		stringReplacerCheck(front_page_object,formatx," in front_page");
+		stringReplacerCheck(preface_page_object,formatx," in preface_page");
+		stringReplacerCheck(table_of_contents_object,formatx," in table_of_contents");
 	} // end modifyMetaData
+
+	/*
+	 * wrapper for call to stringReplacer
+	 * 
+	 * check for missing grouping in the JSON, and throws an error we can deal with
+	 * 
+	 * NOTE: we are using a bunch of globals here 
+	 * 
+	 */
+	public void stringReplacerCheck(Map from, String the_key, String narrative) throws Exception
+	{
+		Object test = from.get(the_key);
+		if (test == null)
+		{
+			// throw something we understand
+			throw new Exception("Cannot find " + the_key + narrative + ", probably missing or badly formatted.");
+		}
+		/*
+		 * fall through if we found SOMETHING in the JSON
+		 * This cast had BETTER work!
+		 */
+		stringReplacer((List)test,
+			project_keys);  // use parent method (note use of global)
+	}
 	
 	/*
 	 * this code is unique to this format-specific object
@@ -1309,7 +1393,7 @@ System.out.println("in csHTML, project_keys: " + project_keys);
 	 */
 	public String getFormat()
 	{
-	    return options.getProperty("HTML_FORMAT","POEM"); // default is POEM
+	    return options.getProperty("HTML_FORMAT","VANLIGHT"); // default is VANILLA light
 	} // end get format string 
 
 	/*
