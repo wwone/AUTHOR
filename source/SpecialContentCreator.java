@@ -52,13 +52,15 @@ public abstract class SpecialContentCreator implements TitleCreator,
         key_values = new Properties(); // empty to start
         if (keyvalues == null)
         {
-            System.out.println("Boilerplate strings do not exist.");
-            return;  // return with empty treemap
+            throw new Exception("Boilerplate strings List does not exist.");
+            //System.out.println("Boilerplate strings do not exist.");
+ //           return;  // return with empty treemap
         }
         if (keyvalues.size() == 0)
         {
-            System.out.println("Boilerplate strings empty.");
-            return;  // return with empty treemap
+            throw new Exception("Boilerplate strings are empty.");
+            //System.out.println("Boilerplate strings empty.");
+//            return;  // return with empty treemap
         }
         /* 
          * the array must be even, each odd item is key, even
@@ -102,7 +104,11 @@ public abstract class SpecialContentCreator implements TitleCreator,
     {
         if (key_values == null)
         {
-            throw new Exception("Boilerplate is empty!");
+            throw new Exception("Boilerplate does not exist!");
+        }
+        if (key_values.size() == 0)
+        {
+            throw new Exception("Boilerplate exists, but is empty!");
         }
         if (key_values.containsKey(key))
         {
@@ -111,6 +117,7 @@ public abstract class SpecialContentCreator implements TitleCreator,
         else
         {
             // not found
+	    System.err.println(key_values); // dump it all out
             throw new Exception("Boilerplate missing key: " + key);
         }
     } // gT, general string getter
