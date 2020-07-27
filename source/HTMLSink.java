@@ -9,7 +9,17 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 10/9/2019
+ * last edited 
+ * Sat 25 Jul 2020 01:50:00 PM CDT
+ *
+ * The <a id=xxx method of applying index entries apparently
+ * is not well liked. I've successfully used <span id=xxx, so
+ * we'll try that.
+ *
+ * For VANILLA, need to alter the appearance
+ * of inline images, and honor the html_width paramater
+ *   (which has not been used in a long time previous to 2020)
+ * ALSO for VANILLA we have two variants, light and dark
  *
  * add Table handling. While it could depend on the format (VAN, SKEL, POEM), we
  * will stick with simple tables with NO internal formatting
@@ -148,7 +158,7 @@ public class HTMLSink extends GenericSink
  
 
 	// default if nothing else
-	public int g_html_format = HTMLContentCreator.FORMAT_POEM;
+	public int g_html_format = HTMLContentCreator.FORMAT_VANILLA_LIGHT;
     
     public HTMLSink() // NO PARAM constructor
 	{
@@ -243,6 +253,7 @@ public class HTMLSink extends GenericSink
 	 * SpecialContentCreator knows
          */
 	String aform = g_tit.getProperty("HTML_FORMAT");
+//	System.out.println("HTML FORMAT is: " + aform); // debug
 	if (aform.equalsIgnoreCase("poem"))
 	{
 		g_html_format = HTMLContentCreator.FORMAT_POEM;
@@ -253,9 +264,17 @@ public class HTMLSink extends GenericSink
 	}
 	if (aform.equalsIgnoreCase("van"))
 	{
-		g_html_format = HTMLContentCreator.FORMAT_VANILLA;
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA_LIGHT;
 	}
-	// none of the above, problems
+	if (aform.equalsIgnoreCase("vanlight"))
+	{
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA_LIGHT;
+	}
+	if (aform.equalsIgnoreCase("vandark"))
+	{
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA_DARK;
+	}
+	// none of the above, problems ALTHOUGH we did set a default in the global
         /*
          * create the title page
          */
@@ -1034,6 +1053,29 @@ System.err.println("TOC:" + toc); // debugging
         {
             Iterator it = index_array.iterator();
             IndexRef ir = null;
+		pr.println("<div><!-- empty div to hold span id jump destinations -->"); // the spans live inside a div with nothing in it
+            while (it.hasNext())
+            {
+                ir = (IndexRef)it.next();
+                pr.println("<!-- empty span for id jump reference purposes --><span id='general_" +
+                           BookUtils.eC(ir.name) + "_" +
+                           ir.getRefNumber() +  
+                           "'></span>"); // the <span> has nothing in it either
+            } // end for each index entry
+		pr.println("</div>"); // the spans live inside a div with nothing in it
+        } // if embedded index(es) 
+    } // end create index entries
+
+    /*
+     * previous method was <a id=xxx entries, but they are
+     * disliked....
+     */
+    public void create_index_entriesprev(List index_array, PrintWriter pr) throws Exception
+    {
+        if (index_array != null)
+        {
+            Iterator it = index_array.iterator();
+            IndexRef ir = null;
             while (it.hasNext())
             {
                 ir = (IndexRef)it.next();
@@ -1609,7 +1651,12 @@ System.err.println("TOC:" + toc); // debugging
     
     
 /*
- * SPECIAL CHARACTERS?
+ * This is a rewrite, as noted in the body. Vanilla behaves so differently
+ * that we had to break out the creation fo the HTML by Vanilla and all others
+ *
+ * HOWEVER, the "all others" has code for local images using a Javascript
+ * popup system for display. The VANILLA NEEDS WORK because it was created
+ * with REMOTE images in mind only. WORK ON THIS
  */
     public  void processInlineImage(
 		boolean remote,
@@ -1641,16 +1688,304 @@ System.err.println("TOC:" + toc); // debugging
 			full_image_location + ", anchor: " + anchor_content);
 	}
 	/*
+	 * The <img code for VANILLA is so different than 
+	 *   for other layout schemes, that it has its own code!
+	 *   AND, there are two flavors of Vanilla, light (default) and dark.
+	 *
 	 * Make HTML for an image. This is rather messy and
 	 * tricky HTML. At one time, I tried to parameterize
-	 * the many HTML tags and contents. This has become
+	 * the many HTML tags and contents in the JSON boilerplate. This has become
 	 * impossible to understand and maintain. New needs have
 	 * made such work impossible. Sooooo, the HTML being
 	 * created here is programmatic, not parameterized.
 	 * 
+	 * 
 	 * New feature: ALLOW FOR remote image, where the full 
 	 * location is a URL, such as "http" address.
 	 * rather than a local location. 
+	 * In THIS CASE, we do not provide a link for thumb vs main image.
+	 *   This may turn out to be too confusing for the user.
+	 * 
+	 * If flag is false, use a local location. 
+	 * 
+	 * New feature: ALLOW FOR width override for image, as some images are too big for a page
+	 */
+	switch (g_html_format)
+	{
+	       	case HTMLContentCreator.FORMAT_VANILLA_LIGHT:
+	       	// case HTMLContentCreator.FORMAT_VANILLA:  same actually as light
+		{
+			// VANILLA has all its own stuff such as no popup image
+	// HERE HERE use the image border described in the "options.json" file
+	//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+			// image not centered
+			pr.println("<img style=\"display: block; margin-top:1em;float:none;color:black;border:solid .5em #bbb;\" ");
+			// add id= to the tag
+			pr.println("id=\"" +
+				 anchor_content + 
+				"\" ");
+			/*
+			 * if the width indicator is not null, then we will restrict
+			 * the image width on the web page. some of the images are rather
+			 * large, and we need to control the readability
+			 */
+			if (html_width != null)
+			{
+				pr.println(" width='" +
+					 html_width + 
+					"' ");
+			}
+			/*
+			 * continuing on????? we add the src=
+			 * and close the img tag
+			 */
+			pr.print(" src='");
+			if (remote)
+			{
+			     pr.print(BookUtils.eT(full_image_location) + "' ");  // http://thisnthat REMOTE location!
+			}
+			else
+			{
+				pr.print("thumbs/" +BookUtils.eT(thumb_image_location) + "' "); // LOCAL, thumb only
+			}
+			pr.println(" alt=\"[" +
+				 BookUtils.eT(thumb_image_location) +
+				 "]\"   />" );
+			// caption: VANILLA is not centered
+			pr.print("<p style=\"font-style: italic;\">");
+			if (remote)
+			{
+				// remote, just the caption as italics and paragraph end
+				pr.println(BookUtils.eT(addLineBreaks(caption)) +
+				"</p>"); // end caption text block
+			}
+			else
+			{
+				// local, set up popup
+				pr.println("\n" +
+				" <a href=\"javascript:pop_up_image('" +
+				     BookUtils.eT(full_image_location) + 
+					"'," +  // end first param, start second
+				// build multiple captions as Array(); NO single quotes!! 
+				 BookUtils.eT(breakCaption(caption)) +   
+					"'" + // starting single quote 
+				// set up for use in HTML title for page
+				 BookUtils.eT(filterForHTMLTitle(caption)) +   
+				"');\">");
+				pr.println(
+					BookUtils.eT(addLineBreaks(caption)) + "</a></p>");
+			} // end if local img code
+			break; // done with vanilla light
+		} // end vanilla light image tag creation ONLY
+
+		case HTMLContentCreator.FORMAT_VANILLA_DARK:
+		{
+			// VANILLA has all its own stuff such as no popup image
+	// HERE HERE use the image border described in the "options.json" file
+	//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+			// image not centered
+			pr.println("<img style=\"display: block; margin-top:1em;float:none;color:black;border:solid .5em #666;\" ");
+			// add id= to the tag
+			pr.println("id=\"" +
+				 anchor_content + 
+				"\" ");
+			/*
+			 * if the width indicator is not null, then we will restrict
+			 * the image width on the web page. some of the images are rather
+			 * large, and we need to control the readability
+			 */
+			if (html_width != null)
+			{
+				pr.println(" width='" +
+					 html_width + 
+					"' ");
+			}
+			/*
+			 * continuing on????? we add the src=
+			 * and close the img tag
+			 */
+			pr.print(" src='");
+			if (remote)
+			{
+			     pr.print(BookUtils.eT(full_image_location) + "' ");  // http://thisnthat REMOTE location!
+			}
+			else
+			{
+				pr.print("thumbs/" +BookUtils.eT(thumb_image_location) + "' "); // LOCAL, thumb only
+			}
+			pr.println(" alt=\"[" +
+				 BookUtils.eT(thumb_image_location) +
+				 "]\"   />" );
+			// caption: VANILLA is not centered
+			pr.print("<p style=\"font-style: italic;\">");
+			if (remote)
+			{
+				// remote, just the caption as italics and paragraph end
+				pr.println(BookUtils.eT(addLineBreaks(caption)) +
+				"</p>"); // end caption text block
+			}
+			else
+			{
+				// local, set up popup
+				pr.println("\n" +
+				" <a href=\"javascript:pop_up_image('" +
+				     BookUtils.eT(full_image_location) + 
+					"'," +  // end first param, start second
+				// build multiple captions as Array(); NO single quotes!! 
+				 BookUtils.eT(breakCaption(caption)) +   
+					"'" + // starting single quote 
+				// set up for use in HTML title for page
+				 BookUtils.eT(filterForHTMLTitle(caption)) +   
+				"');\">");
+				pr.println(
+					BookUtils.eT(addLineBreaks(caption)) + "</a></p>");
+			} // end if local img code
+			break; // done for now
+		} // end vanilla dark image tag creation ONLY
+
+		default:  // everyone else
+		{
+			/*
+			 * If remote image, we do NOT use popup system,
+			 * we inline the image as given (it is the AUTHOR
+			 * responsibility to get a URL of the right sized
+			 * image.)
+			 */
+			if (remote)
+			{
+				/*
+				 * MUCH work on the following code 6/2018
+				 */
+				/*
+				 * image is a BLOCK by itself, no wrap. We center it,
+				 * and add a border. do not allow any ancestor "float"
+				 * to control it, we float at "none"
+				 * All this hoohah is needed due to heavy CSS use
+				 */
+	// HERE HERE use the image border described in the "options.json" file
+	//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+	//   for now, hard-coded below, with versions for vanilla and everybody else
+				pr.println("<img style=\"display: block; margin-left: auto; margin-right: auto;margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+				// anchor is ALWAYS present for remote
+				// add id= to the tag
+				pr.println("id=\"" +
+					 anchor_content + 
+					"\" ");
+				/*
+				 * continuing on, we add the src=
+				 * and close the img tag
+				 */
+				pr.println(" src=\"" +
+			     BookUtils.eT(full_image_location) +  // http://thisnthat
+				"\" alt=\"[" +
+				 BookUtils.eT(thumb_image_location) +
+				 "]\"   />" );
+				/*
+				 * used to have a clear:left, but since
+				 * the above img tag is a block, we do not
+				 * need to have a clear
+				 * margins pinched a bit to center the caption
+				 * more nicely
+				 */
+				pr.print("<p style=\"text-align:center;margin-left:15%;margin-right:15%;font-style: italic;\">");
+				pr.println(BookUtils.eT(addLineBreaks(caption)) +
+				"</p>"); // end caption text block
+			} // end if external image
+			else
+			{
+				/*
+				 * else local reference, we process an image in previous "normal" way
+				 * as a thumb displayed and popup window controlled
+				 * by Javascript
+				 * NOTE, the popup is triggered by clicking on the CAPTION, not the image
+				 */
+				pr.println("<img ");
+				if (anchor_content != null)
+				{
+				    pr.println( " id=\"" +
+					     anchor_content + 
+						"\" ");
+				} 
+				// see above as to why this hoohah is here
+	// HERE HERE use the image border described in the "options.json" file
+	//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+	//   for now, hard-coded below, with versions for vanilla and everybody else
+				pr.println(" style=\"display: block; margin-left: auto; margin-right: auto;margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+				pr.println("alt=\"[" + 
+				 BookUtils.eT(full_image_location) + 
+				"]\"\n src=\"thumbs/" +  // THUMB ONLY displayed when local, see later for clicking to display larger image
+				 BookUtils.eT(thumb_image_location) + 
+					"\"/>");
+				// CAPTION click causes the popup
+				pr.println("<p style=\"text-align:center;margin-left:15%;margin-right:15%;font-style: italic;\">");
+				pr.println("\n" +
+				" <a href=\"javascript:pop_up_image('" +
+				     BookUtils.eT(full_image_location) + 
+					"'," +  // end first param, start second
+				// build multiple captions as Array(); NO single quotes!! 
+				 BookUtils.eT(breakCaption(caption)) +   
+					"'" + // starting single quote 
+				// set up for use in HTML title for page
+				 BookUtils.eT(filterForHTMLTitle(caption)) +   
+				"');\">");
+				pr.println(
+					BookUtils.eT(addLineBreaks(caption)) + "</a></p>");
+			} // end local image ref, not http
+			break;
+		} // end not vanilla flavors, just everybody else
+	} // end switch on the format
+    } // end process an inline image
+    
+    
+/*
+ * previous version was not well set up for vanilla
+ */
+    public  void processInlineImageprev(
+		boolean remote,
+		String thumb_image_location,
+                                    String full_image_location,
+                                    String pdf_scale,
+                                    String html_width,
+                                    String pdf_use,
+                                    String caption,
+                                    String anchor_content) throws Exception
+    {
+//System.out.println("Remote: " + remote + ", " + full_image_location); //debug
+        PrintWriter pr = getCurrentWriter();
+        /*
+         * process image first, then caption text
+         * 
+         * IN THIS IMPLEMENTATION images are aligned in their
+         * own vertical layout, there is NO wrapping of text
+         * over, under, around or through the image
+         */
+        if (full_image_location == null)
+        {
+		throw new Exception("Image location is null! " +
+			caption + ", anchor: " + anchor_content);
+	}
+        if (caption == null)
+        {
+		throw new Exception("Image caption is null! " +
+			full_image_location + ", anchor: " + anchor_content);
+	}
+	/*
+	 * Make HTML for an image. This is rather messy and
+	 * tricky HTML. At one time, I tried to parameterize
+	 * the many HTML tags and contents in the JSON boilerplate. This has become
+	 * impossible to understand and maintain. New needs have
+	 * made such work impossible. Sooooo, the HTML being
+	 * created here is programmatic, not parameterized.
+	 * 
+	 * The <img code for VANILLA is going to be different than 
+	 *   for other layout schemes!
+	 * 
+	 * New feature: ALLOW FOR remote image, where the full 
+	 * location is a URL, such as "http" address.
+	 * rather than a local location. 
+	 * In THIS CASE, we do not provide a link for thumb vs main image.
+	 *   This may turn out to be too confusing for the user.
+	 * 
 	 * If flag is false, use a local location. 
 	 */
 		/*
@@ -1670,8 +2005,19 @@ System.err.println("TOC:" + toc); // debugging
 			 * to control it, we float at "none"
 			 * All this hoohah is needed due to heavy CSS use
 			 */
-// HERE we will insert the image border described in the "options.json" file
-			pr.println("<img style=\"display: block; margin-left: auto; margin-right: auto;margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+// HERE HERE use the image border described in the "options.json" file
+//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+//   for now, hard-coded below, with versions for vanilla and everybody else
+			if (g_html_format == HTMLContentCreator.FORMAT_VANILLA)
+			{
+				// VANILLA is not centered
+				pr.println("<img style=\"display: block; margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+			}
+			else
+			{
+				// EVERYONE ELSE (for now) centers the image, VANILLA is not centered
+				pr.println("<img style=\"display: block; margin-left: auto; margin-right: auto;margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+			}
 			// anchor is ALWAYS present for remote
 			// add id= to the tag
 			pr.println("id=\"" +
@@ -1693,35 +2039,65 @@ System.err.println("TOC:" + toc); // debugging
 			 * margins pinched a bit to center the caption
 			 * more nicely
 			 */
-			pr.println("<p style=\"text-align:center;margin-left:15%;margin-right:15%;font-style: italic;\">" +
-			BookUtils.eT(addLineBreaks(caption)) +
+			if (g_html_format == HTMLContentCreator.FORMAT_VANILLA)
+			{
+				// VANILLA is not centered
+				pr.print("<p style=\"font-style: italic;\">");
+			}
+			else
+			{
+				// everybody else is...
+				pr.print("<p style=\"text-align:center;margin-left:15%;margin-right:15%;font-style: italic;\">");
+			}
+			pr.println(BookUtils.eT(addLineBreaks(caption)) +
 			"</p>"); // end caption text block
 		} // end if external image
 		else
 		{
-		/*
-		 * else local reference, we process an image in previous "normal" way
-		 * as a thumb displayed and popup window controlled
-		 * by Javascript
-		 * NOTE, the popup is triggered by clicking on the CAPTION, not the image
-		 */
-		pr.println("<img ");
-                if (anchor_content != null)
-                {
-                    pr.println( " id=\"" +
-                             anchor_content + 
-				"\" ");
-                } 
-		// see above as to why this hoohah is here
-// HERE we will insert the image border described in the "options.json" file
-		pr.println(" style=\"display: block; margin-left: auto; margin-right: auto;float:none;margin-top:1em;color:black;border:solid .1em black; \" \n" +
-			"alt=\"[" + 
+			/*
+			 * else local reference, we process an image in previous "normal" way
+			 * as a thumb displayed and popup window controlled
+			 * by Javascript
+			 * NOTE, the popup is triggered by clicking on the CAPTION, not the image
+			 */
+			pr.println("<img ");
+			if (anchor_content != null)
+			{
+			    pr.println( " id=\"" +
+				     anchor_content + 
+					"\" ");
+			} 
+			// see above as to why this hoohah is here
+// HERE HERE use the image border described in the "options.json" file
+//   example: "HTML_IMAGE_BORDER_CSS","border:solid .1em black;",
+//   for now, hard-coded below, with versions for vanilla and everybody else
+			if (g_html_format == HTMLContentCreator.FORMAT_VANILLA)
+			{
+				// VANILLA is not centered
+				pr.println(" style=\"display: block; margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+			}
+			else
+			{
+				// EVERYONE ELSE (for now) centers the image, VANILLA is not centered
+				pr.println(" style=\"display: block; margin-left: auto; margin-right: auto;margin-top:1em;float:none;color:black;border:solid .1em black;\" ");
+			}
+			pr.println("alt=\"[" + 
                          BookUtils.eT(full_image_location) + 
 			"]\"\n src=\"thumbs/" + 
                          BookUtils.eT(thumb_image_location) + 
 				"\"/>");
 			// CAPTION click causes the popup
-			pr.println("<p style=\"clear:left;text-align:center;margin-left:15%;margin-right:15%;font-style:italic;\">\n" +
+			if (g_html_format == HTMLContentCreator.FORMAT_VANILLA)
+			{
+				// VANILLA is not centered
+				pr.println("<p style=\"font-style: italic;\">");
+			}
+			else
+			{
+				// everybody else is...
+				pr.println("<p style=\"text-align:center;margin-left:15%;margin-right:15%;font-style: italic;\">");
+			}
+			pr.println("\n" +
 			" <a href=\"javascript:pop_up_image('" +
                              BookUtils.eT(full_image_location) + 
 				"'," +  // end first param, start second
@@ -1731,8 +2107,8 @@ System.err.println("TOC:" + toc); // debugging
 			// set up for use in HTML title for page
                          BookUtils.eT(filterForHTMLTitle(caption)) +   
 			"');\">");
-                pr.println(
-			BookUtils.eT(addLineBreaks(caption)) + "</a></p>");
+			pr.println(
+				BookUtils.eT(addLineBreaks(caption)) + "</a></p>");
 		} // end local image ref, not http
     } // end process an inline image
 
@@ -2042,7 +2418,8 @@ pr.println("<p><a href=\"#top\">Top</a></p>"); // get to top of page
 			pr.println("<th>");
 			for (int i = 0 ; i < header_cells.length ; i++)
 			{
-				pr.println("<td>" + header_cells[i] + "</td>");
+				pr.println("<td>" + 
+				 BookUtils.eT(header_cells[i]) + "</td>"); // escape text for HTML
 			}
 			pr.println("</th>");
 		}
@@ -2060,7 +2437,8 @@ pr.println("<p><a href=\"#top\">Top</a></p>"); // get to top of page
 		pr.println("<tr>");
 		for (int i = 0 ; i < cells.length ; i++)
 		{
-			pr.println("<td>" + cells[i] + "</td>");
+			pr.println("<td>" + 
+                         BookUtils.eT(cells[i]) + "</td>"); // escape text for HTML
 		}
 		pr.println("</tr>");
 	} // end insert table row
