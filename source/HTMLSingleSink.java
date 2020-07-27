@@ -9,10 +9,14 @@ import java.util.TreeMap;
 import java.util.Map;
 
 /*
- * last edited 10/9/2019
+ * last edited 10/24/2019
  *
  * add code for Tables. Note that we will use very simple table notation
  * and not be dependent on format (VAN, SKEL, POEM)
+ *
+ * Table cells MUST be escaped for HTML!
+ *
+ * ISSUE: can Sink handle an array of table cells that is length == 0
  *
  * add coverage for vanilla framework HTML
  *
@@ -80,7 +84,7 @@ public class HTMLSingleSink extends HTMLSink
  
 
 	// default if nothing else
-	public int g_html_format = HTMLContentCreator.FORMAT_POEM;
+	public int g_html_format = HTMLContentCreator.FORMAT_VANILLA_LIGHT;
     
     public HTMLSingleSink() // NO PARAM
 	{
@@ -605,9 +609,13 @@ pr.println("<p><a href=\"#top\">Top</a></p>"); // get to top of page
 	{
 		g_html_format = HTMLContentCreator.FORMAT_SKELETON;
 	}
-	if (aform.equalsIgnoreCase("van"))
+	if (aform.equalsIgnoreCase("vandark"))
 	{
-		g_html_format = HTMLContentCreator.FORMAT_VANILLA;
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA_DARK;
+	}
+	if (aform.equalsIgnoreCase("vanlight"))
+	{
+		g_html_format = HTMLContentCreator.FORMAT_VANILLA_LIGHT;
 	}
 	// none of the above, problems
         /*
@@ -1019,10 +1027,12 @@ not appropriate for single page system
 			pr.println("<th>");
 			for (int i = 0 ; i < header_cells.length ; i++)
 			{
-				pr.println("<td>" + header_cells[i] + "</td>");
+				pr.println("<td>" + 
+				 BookUtils.eT(header_cells[i]) + "</td>"); // escape text for HTML
+				// pr.println("<td>" + header_cells[i] + "</td>");
 			}
 			pr.println("</th>");
-		}
+		} // if header cells are specified
 	} // end start table
             
     public void endTable() throws Exception
@@ -1037,7 +1047,9 @@ not appropriate for single page system
 		pr.println("<tr>");
 		for (int i = 0 ; i < cells.length ; i++)
 		{
-			pr.println("<td>" + cells[i] + "</td>");
+			pr.println("<td>" + 
+                         BookUtils.eT(cells[i]) + "</td>"); // escape text for HTML
+			// pr.println("<td>" + cells[i] + "</td>");
 		}
 		pr.println("</tr>");
 	} // end insert table row
