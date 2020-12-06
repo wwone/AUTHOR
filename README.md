@@ -18,7 +18,7 @@ in length with many hundreds of illustrations. The system can also be used to cr
 on-line presentations, which use the "reveal.js" web system. Such presentations run much
 like PowerPoint, but with only a browser. 
 
-Output from this system is available as:
+## Output from this system is available as:
 
 Interactive PDF (creation is with Apache FOP)
 
