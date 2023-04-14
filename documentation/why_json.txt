@@ -16,7 +16,13 @@ For instance, XML, is a major data standard,
 but is very difficult for a human to
 read and modify.
 
-How?
+Similarly, attempts have been made to use YAML
+for these input files. Unfortunately, YAML processors
+have the bad habit of eating input formatting errors, and
+creating strange badly-formatted objects. The error
+messages created by this are pretty much unusable.
+
+So, how do we use JSON?
 
 Nearly all of the JSON files used by AUTHOR
 consist of simple lists of strings. Some are pairs
@@ -73,7 +79,7 @@ Example:
 
     "cover_page":[
         "<!-- inside the first flow of the document --><fo:block text-align=\"center\">\n<!-- cover image follows -->\n",
-        "<fo:external-graphic src=\"pics/PROJECT_COVER_IMAGE\"  content-width=\"scale-to-fit\" content-height=\"80%\" />",
+        "<fo:external-graphic src=\"pics/${PROJECT_COVER_IMAGE}\"  content-width=\"scale-to-fit\" content-height=\"80%\" />",
         "</fo:block>\n"
 ],
 
@@ -84,10 +90,12 @@ someone familiar with XML and Apache FOP. (Note the
 use of escaping the double quotes, as discussed
 above.)
 
-Note the ALL CAPS items embedded in the value string. 
-The same field's value entered in the metadata (project.json) 
-file, will be inserted into this information, before it
-is written to the Apache FOP output. This feature
+Note the embedded replaceable string ${PROJECT_COVER_IMAGE} in
+this cover page layout. When the AUTHOR code sees this special format
+it will look in the metadata (project.json) 
+file for a field name that matches, and will replace
+the given value in this XML. This is done before
+it writes to the Apache FOP output. This feature
 allows the "boilerplate" nuts and bolts code
 to remain the same, while preventing the user from
 having to change complex XML files. The more-easily
