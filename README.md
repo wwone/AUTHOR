@@ -19,19 +19,17 @@ This system has been successfully used to publish e-books, some of which are ove
 
 ## Output from this system is available as:
 
-Interactive PDF (creation is with Apache FOP)
+ - Interactive PDF (creation is with Apache FOP)
 
-Print PDF (creation is with Apache FOP)
+ - Print PDF (creation is with Apache FOP)
 
-Kindle (AZW3, converted using Calibre)
+ - Kindle (AZW3, converted using Calibre)
 
-EPUB (converted  using Calibre)
+ - EPUB (converted  using Calibre)
 
-HTML, both as a single HTML file, or multiple HTML files ( one for each SECTION    of the document). 
+ - HTML, both as a single HTML file, or multiple HTML files ( one for each SECTION    of the document). The created HTML uses the Vanilla layout system by default (see: https://vanillaframework.io/) , and contains layout  code that supports the POEM and Skeleton layouts instead.)
 
-The created HTML uses the Vanilla layout system by default (see: https://vanillaframework.io/) , and contains layout  code that supports the POEM and Skeleton layouts instead.)
-
-"reveal.js" online presentation syste (HTML) See: http://lab.hakim.se/reveal-js/#/
+ - "reveal.js" online presentation system (HTML) See: http://lab.hakim.se/reveal-js/#/
 
 
 Most formatting material is embedded in JSON files, so it is possible to customize most output. For more intricate work, a knowledge of Java is
